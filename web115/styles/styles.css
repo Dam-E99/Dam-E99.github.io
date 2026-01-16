@@ -12,3 +12,11 @@ a {
 figure {
     text-align: center;
 }
+
+footer > nav {
+    text-align: center;
+}
+
+footer > p {
+    text-align: center;
+}
