@@ -25,6 +25,10 @@ main {
     min-height: 0 auto;
 }
 
+a {
+    color:#E8A75D;
+}
+
 h1 {
     color: #E8A75D;
     font-family: 'Montserrat', sans-serif;
