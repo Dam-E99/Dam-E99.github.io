@@ -78,10 +78,6 @@ footer {
     padding: 30px;
 }
 
-footer > p {
-    text-align: center;
-}
-
-footer > nav {
+footer > p, a {
     text-align: center;
 }
