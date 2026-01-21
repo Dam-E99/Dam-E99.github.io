@@ -81,3 +81,7 @@ footer {
 footer > p {
     text-align: center;
 }
+
+footer > nav {
+    text-align: center;
+}
