@@ -1,7 +1,7 @@
 <header>
-        <h1>WEB250</h1>
+        <h1>WEB250 HELLO</h1>
         <nav>
-            <a href="/web250/index.php">Home</a>
+            <a href="index.php">Home</a>
             |
             <a href="introduction.php">Introduction</a>
             |
