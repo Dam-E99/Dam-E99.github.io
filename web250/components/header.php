@@ -1,5 +1,5 @@
 <header>
-        <h1>WEB250 HELLO</h1>
+        <h1>WEB250</h1>
         <nav>
             <a href="index.php">Home</a>
             |

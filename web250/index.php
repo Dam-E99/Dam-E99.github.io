@@ -7,8 +7,7 @@
     <title>Danny Soto Duarte's Dazzling Dodo 🐾 WEB250 Home </title>
 </head>
 <body>
-
-    <?php include 'components/header.php'; ?>3
+    <?php include('components/header.php'); ?>
 
     <main>
         <h2>Home</h2>
