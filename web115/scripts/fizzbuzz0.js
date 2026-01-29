@@ -1,20 +1,15 @@
 
-/* <script>
-        function updateGreeting() {
-            // Get values from input fields
-            let first = document.getElementById('first_name').value;
-            let middle = document.getElementById('middle_initial').value;
-            let last = document.getElementById('last_name').value;
-            
-            // Handle optional middle initial
-            let fullName = first + " ";
-            if (middle.length > 0) {
-                fullName += middle + ". ";
-            }
-            fullName += last;
+function updateGreeting() {
+    // Grab values from the form
+    const firstName = document.getElementById("firstName").value;
+    const middleName = document.getElementById("middleName").value;
+    const lastName = document.getElementById("lastName").value;
 
-            // Update the H3 greeting
-            document.getElementById('greeting').innerText = "Welcome to John's Donut Shop, " + fullName + "!";
-        }
-    </script>
-    */
+    // Construct the middle name part with period only if present
+    const formattedMiddle = middleName ? `${middleName}. ` : "";
+
+    // Construct final greeting and replace content
+    const greetingText = `Welcome to Refresh Air HVAC ${firstName} ${formattedMiddle}${lastName}!`;
+    document.getElementById("greeting").textContent = greetingText;
+}
+
