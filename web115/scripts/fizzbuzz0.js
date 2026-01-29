@@ -24,9 +24,6 @@ function updateGreeting() {
     listLoop.innerHTML = htmlList;
 }
 
-
-listLoop.innerHTML = htmlList;
-
 // Submit button does not refresh page
 const form = document.getElementById("form");
 
