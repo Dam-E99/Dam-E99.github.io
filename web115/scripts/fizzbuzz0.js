@@ -25,4 +25,4 @@ let htmlList = "";
 
 for (let i = 1; i <= 125; i++ ) {
     htmlList += `<li>${i}) Fresh Air</li>`;
-}
+};
