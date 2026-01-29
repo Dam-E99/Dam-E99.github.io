@@ -13,12 +13,7 @@ function updateGreeting() {
     document.getElementById("greeting").textContent = greetingText;
 }
 
-const form = document.getElementById("form");
-
-form.addEventListener("submit", function(event) {
-    event.preventDefault(); 
-    updateGreeting();
-});
+// Add 125 Loop 
 
 const listLoop = document.getElementById("loop");
 let htmlList = "";
@@ -26,3 +21,17 @@ let htmlList = "";
 for (let i = 1; i <= 125; i++ ) {
     htmlList += `<li>${i}) Fresh Air</li>`;
 }
+
+// Submit button does not refresh page
+const form = document.getElementById("form");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    updateGreeting();   
+}
+
+
+);
+
+
+
