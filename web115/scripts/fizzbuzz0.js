@@ -6,10 +6,10 @@ function updateGreeting() {
     const lastName = document.getElementById("last_name").value;
 
     // Construct the middle name part with period only if present
-    const formattedMiddle = middleName ? `${middleName}. ` : "";
+    const formattedMiddle = middle_initial ? `${middle_initial}. ` : "";
 
     // Construct final greeting and replace content
-    const greetingText = `Welcome to Refresh Air HVAC ${firstName} ${formattedMiddle}${lastName}!`;
+    const greetingText = `Welcome to Refresh Air HVAC ${first_name} ${formattedMiddle}${last_name}!`;
     document.getElementById("greeting").textContent = greetingText;
 }
 
