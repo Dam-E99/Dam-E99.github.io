@@ -1,9 +1,9 @@
 
 function updateGreeting() {
     // Grab values from the form
-    const firstName = document.getElementById("firstName").value;
-    const middleName = document.getElementById("middleName").value;
-    const lastName = document.getElementById("lastName").value;
+    const firstName = document.getElementById("first_name").value;
+    const middleName = document.getElementById("middle_initial").value;
+    const lastName = document.getElementById("last_name").value;
 
     // Construct the middle name part with period only if present
     const formattedMiddle = middleName ? `${middleName}. ` : "";
