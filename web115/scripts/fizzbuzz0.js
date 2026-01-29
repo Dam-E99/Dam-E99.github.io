@@ -19,3 +19,10 @@ form.addEventListener("submit", function(event) {
     event.preventDefault(); 
     updateGreeting();
 });
+
+const listLoop = document.getElementById("loop");
+let htmlList = "";
+
+for (let i = 1; i <= 125; i++ ) {
+    htmlList += `<li>${i}) Fresh Air</li>`;
+}
