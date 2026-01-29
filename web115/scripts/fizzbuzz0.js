@@ -9,7 +9,7 @@ function updateGreeting() {
     const formattedMiddle = middle_initial ? `${middle_initial}. ` : "";
 
     // Construct final greeting and replace content
-    const greetingText = `Welcome to Refresh Air HVAC ${first_name} ${formattedMiddle}${last_name}!`;
+    const greetingText = `Welcome to Refresh Air HVAC ${firstName} ${formattedMiddle}${lastName}!`;
     document.getElementById("greeting").textContent = greetingText;
 }
 
