@@ -6,7 +6,10 @@ function updateGreeting() {
     const lastName = document.getElementById("last_name").value;
 
     // Construct the Middle Name Part with Period Only if Present
-    const formattedMiddle = middleInitial ? `${middleInitial}. ` : "";
+    let formattedMiddle = "";
+    if (middleInitial) {
+        formattedMiddle = middleInitial.charAt(0).toUpperCase() + ". ";
+    }
 
     // Construct Final Greeting and Replace Content
     const greetingText = `Welcome to Refresh Air HVAC ${firstName} ${formattedMiddle}${lastName}!`;
@@ -16,7 +19,7 @@ function updateGreeting() {
     let limit = prompt(`How high do you want to count ${firstName}?`);
     limit = parseInt(limit);
 
-    if (limit.trim() === "" || isNaN(limit)) {
+    if (limit === null || isNaN(limit)) {
         alert("Invalid Input, Please Enter a Number ");
         return;
     }
