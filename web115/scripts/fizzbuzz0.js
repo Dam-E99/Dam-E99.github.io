@@ -16,13 +16,14 @@ function updateGreeting() {
     document.getElementById("greeting").textContent = greetingText;
 
     //Prompt User for a Number
-    let limit = prompt(`How high do you want to count ${firstName}?`);
-    limit = parseInt(limit);
-
-    if (limit === null || isNaN(limit)) {
-        alert("Invalid Input, Please Enter a Number ");
+    let userInput = prompt(`How high do you want to count ${firstName}?`);
+    // Check For Validation 
+    if (userInput === null || userInput.trim() === "" || isNaN(userInput)) {
+        alert("Invalid Input, Please Enter a Number.");
         return;
     }
+
+    let limit = parseInt(userInput);
 
     // Add User Loop 
     const listLoop = document.getElementById("loop");
