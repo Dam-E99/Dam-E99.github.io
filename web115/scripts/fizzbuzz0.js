@@ -12,18 +12,17 @@ function updateGreeting() {
     const greetingText = `Welcome to Refresh Air HVAC ${firstName} ${formattedMiddle}${lastName}!`;
     document.getElementById("greeting").textContent = greetingText;
 
-    //Prompt User for Number
+    //Prompt User for a Number
     let limit = prompt(`How high do you want to count ${firstName}?`);
     limit = parseInt(limit);
 
-    // Add 125 Loop 
-
+    // Add User Loop 
     const listLoop = document.getElementById("loop");
     let htmlList = "";
 
     for (let i = 1; i <= limit; i++ ) {
-        let numbertype = (i % 2 == 0 ) ? 'even' : 'odd';
-        htmlList += `<li>${i} Fresh Air - the number is ${numbertype}</li>`;
+        let numbertype = (i % 2 === 0 ) ? 'even' : 'odd';
+        htmlList += `<li>${i} Fresh Air - the number is ${numbertype}</li>`; //Increments Odd or Even Into Message
     }
 
     listLoop.innerHTML = htmlList;
