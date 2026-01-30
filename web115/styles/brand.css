@@ -78,6 +78,10 @@ footer {
     padding: 30px;
 }
 
-footer > p, a {
+footer > nav, p {
     text-align: center;
+}
+
+#formZero {
+    margin-bottom: auto;
 }
