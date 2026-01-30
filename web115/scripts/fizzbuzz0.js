@@ -16,6 +16,11 @@ function updateGreeting() {
     let limit = prompt(`How high do you want to count ${firstName}?`);
     limit = parseInt(limit);
 
+    if (limit.trim() === "" || isNaN(limit)) {
+        alert("Invalid Input, Please Enter a Number ");
+        return;
+    }
+
     // Add User Loop 
     const listLoop = document.getElementById("loop");
     let htmlList = "";
@@ -28,7 +33,7 @@ function updateGreeting() {
     listLoop.innerHTML = htmlList;
 }
 
-// Submit button does not refresh page
+// Submit Button Does Not Refresh Page
 const form = document.getElementById("form");
 
 form.addEventListener("submit", function(event) {
