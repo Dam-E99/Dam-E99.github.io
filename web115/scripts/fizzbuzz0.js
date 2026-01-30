@@ -22,7 +22,8 @@ function updateGreeting() {
     let htmlList = "";
 
     for (let i = 1; i <= limit; i++ ) {
-        htmlList += `<li>${i} Fresh Air</li>`;
+        let numbertype = (i % 2 == 0 ) ? 'even' : 'odd';
+        htmlList += `<li>${i} Fresh Air - the number is ${numbertype}</li>`;
     }
 
     listLoop.innerHTML = htmlList;
