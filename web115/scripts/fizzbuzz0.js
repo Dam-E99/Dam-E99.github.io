@@ -20,7 +20,7 @@ function updateGreeting() {
     const listLoop = document.getElementById("loop");
     let htmlList = "";
 
-    for (let i = 1; i <= 125; i++ ) {
+    for (let i = 1; i <= limit; i++ ) {
         htmlList += `<li>${i} Fresh Air</li>`;
     }
 
