@@ -18,7 +18,7 @@ function updateGreeting() {
     //Prompt User for a Number
     let userInput = prompt(`How high do you want to count ${firstName}?`);
     // Check For Validation 
-    if (userInput === null || userInput.trim() === "" || isNaN(userInput)) {
+    if (userInput.trim() === "" || isNaN(userInput)) {
         alert("Invalid Input, Please Enter a Number.");
         return;
     }
