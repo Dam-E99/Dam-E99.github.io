@@ -14,6 +14,16 @@ function updateGreeting() {
     const greetingText = `Welcome to Refresh Air HVAC ${firstName} ${formattedMiddle}${lastName}!`;
     document.getElementById("greeting").textContent = greetingText;
 
+    // Number Output Loop 
+    const listLoop = document.getElementById("loop");
+    let htmlList = "";
+
+    for (let i = 1; i <= 140; i++ ) {
+        htmlList += `<li> Cozy Breeze! </li>`;
+    }
+
+    listLoop.innerHTML = htmlList;
+
 }
 
     // Submit Button Does Not Refresh Page
