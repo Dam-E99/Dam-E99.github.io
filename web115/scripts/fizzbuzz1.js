@@ -18,13 +18,16 @@ function updateGreeting() {
     const listLoop = document.getElementById("loop");
     let htmlList = "";
 
+    const div1 = 3;
+    const div2 = 5;
+
     for (let i = 1; i <= 140; i++ ) {
          let specialWord = "";
-        if (i % 3 === 0 && i % 5 === 0) {
+        if (i % div1 === 0 && i % div2 === 0) {
             specialWord = " Whoosh! Air Flow!";
-        } else if (i % 3 === 0) {
+        } else if (i % div1 === 0) {
             specialWord = "Whoosh!";
-        } else if (i % 5 === 0) {
+        } else if (i % div2 === 0) {
             specialWord = "Air Flow!";
         } else {
             specialWord = "Cozy Breeze!";
