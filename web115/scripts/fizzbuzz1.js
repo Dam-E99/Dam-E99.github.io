@@ -18,18 +18,28 @@ function updateGreeting() {
     const listLoop = document.getElementById("loop");
     let htmlList = "";
 
+    //Prompt User for a Number
+    let userInput = prompt(`How high do you want to count ${firstName}?`);
+    // Check For Validation 
+    if (userInput.trim() === "" || isNaN(userInput)) {
+        alert("Invalid Input, Please Enter a Number.");
+        return;
+    }
+
+    let limit = parseInt(userInput);
+
+    const divide1 = parseInt(prompt("Enter your first divisor: "));
+    const divide2 = parseInt(prompt("Enter your second divisor: "));
+
+    // Make Flexible For Changing Number and Words
     const startNumber = 1;
     const endNumber = 140;
 
-    const divide1 = 3;
     const word1 = "Whoosh!";
-
-    const divide2 = 5;
     const word2 = "Air Flow!";
-
     const defaultWord = "Cozy Breeze!";
 
-    for (let i = startNumber; i <= endNumber; i++ ) {
+    for (let i = 1; i <= limit; i++ ) {
          let outputWord = "";
         if (i % divide1 === 0 && i % divide2 === 0) {
             outputWord = `${word1} ${word2}`;
