@@ -32,13 +32,12 @@ function updateGreeting() {
     const divide2 = parseInt(prompt("Enter your second divisor: "));
 
     // Make Flexible For Changing Number and Words
-    const startNumber = 1;
-    const endNumber = 140;
 
     const word1 = "Whoosh!";
     const word2 = "Air Flow!";
     const defaultWord = "Cozy Breeze!";
 
+    // Loop with Else if to divide 3 or 5 or Both, else print default
     for (let i = 1; i <= limit; i++ ) {
          let outputWord = "";
         if (i % divide1 === 0 && i % divide2 === 0) {
