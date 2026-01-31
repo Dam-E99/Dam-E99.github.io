@@ -23,7 +23,7 @@ function updateGreeting() {
             specialWord = 'Whoosh!';
         } else {
             htmlList += `<li> Cozy Breeze! </li>`;
-        };
+        }
     }
 
     listLoop.innerHTML = htmlList;
