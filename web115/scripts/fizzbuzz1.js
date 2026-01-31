@@ -19,7 +19,11 @@ function updateGreeting() {
     let htmlList = "";
 
     for (let i = 1; i <= 140; i++ ) {
-        htmlList += `<li> Cozy Breeze! </li>`;
+        if (i % 3 === 0) {
+            specialWord = 'Whoosh!';
+        } else {
+            htmlList += `<li> Cozy Breeze! </li>`;
+        };
     }
 
     listLoop.innerHTML = htmlList;
