@@ -22,6 +22,8 @@ function updateGreeting() {
          let specialWord = "";
         if (i % 3 === 0) {
             specialWord = "Whoosh!";
+        } else if (i % 5 === 0) {
+            specialWord = "Swish";
         } else {
             specialWord = "Cozy Breeze!";
         }
