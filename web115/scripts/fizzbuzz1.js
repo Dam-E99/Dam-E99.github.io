@@ -18,21 +18,29 @@ function updateGreeting() {
     const listLoop = document.getElementById("loop");
     let htmlList = "";
 
-    const div1 = 3;
-    const div2 = 5;
+    const startNumber = 1;
+    const endNumber = 140;
 
-    for (let i = 1; i <= 140; i++ ) {
-         let specialWord = "";
+    const div1 = 3;
+    const word1 = "Whoosh!";
+
+    const div2 = 5;
+    const word2 = "Air Flow!";
+
+    const defaultWord = "Cozy Breeze!";
+
+    for (let i = startNumber; i <= endNumber; i++ ) {
+         let defaultWord = "";
         if (i % div1 === 0 && i % div2 === 0) {
-            specialWord = " Whoosh! Air Flow!";
+            outputWord = `${word1} ${word2}`;
         } else if (i % div1 === 0) {
-            specialWord = "Whoosh!";
+            outputWord = ${word1};
         } else if (i % div2 === 0) {
-            specialWord = "Air Flow!";
+            outputWord = word2;
         } else {
-            specialWord = "Cozy Breeze!";
+            outputWord = defaultWord;
         }
-         htmlList += `<li>${specialWord} </li>`;
+         htmlList += `<li>${outputWord} </li>`;
     }
 
     listLoop.innerHTML = htmlList;
