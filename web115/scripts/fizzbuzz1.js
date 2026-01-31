@@ -27,7 +27,7 @@ function updateGreeting() {
 }
 
     // Submit Button Does Not Refresh Page
-const form = document.getElementById("form");
+const form = document.getElementById("formOne");
 
 form.addEventListener("submit", function(event) {
     event.preventDefault(); 
