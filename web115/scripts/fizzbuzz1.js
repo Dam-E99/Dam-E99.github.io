@@ -23,7 +23,7 @@ function updateGreeting() {
         if (i % 3 === 0) {
             specialWord = "Whoosh!";
         } else {
-            specialWord = "Cozy Breeze!"
+            specialWord = "Cozy Breeze!";
         }
          htmlList += `<li>${specialWord} </li>`;
     }
