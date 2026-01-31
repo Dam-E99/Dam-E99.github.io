@@ -21,21 +21,21 @@ function updateGreeting() {
     const startNumber = 1;
     const endNumber = 140;
 
-    const div1 = 3;
+    const divide1 = 3;
     const word1 = "Whoosh!";
 
-    const div2 = 5;
+    const divide2 = 5;
     const word2 = "Air Flow!";
 
     const defaultWord = "Cozy Breeze!";
 
     for (let i = startNumber; i <= endNumber; i++ ) {
-         let defaultWord = "";
-        if (i % div1 === 0 && i % div2 === 0) {
+         let outputWord = "";
+        if (i % divide1 === 0 && i % divide2 === 0) {
             outputWord = `${word1} ${word2}`;
-        } else if (i % div1 === 0) {
-            outputWord = ${word1};
-        } else if (i % div2 === 0) {
+        } else if (i % divide1 === 0) {
+            outputWord = word1;
+        } else if (i % divide2 === 0) {
             outputWord = word2;
         } else {
             outputWord = defaultWord;
