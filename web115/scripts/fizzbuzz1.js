@@ -38,7 +38,4 @@ const form = document.getElementById("formOne");
 form.addEventListener("submit", function(event) {
     event.preventDefault(); 
     updateGreeting();   
-}
-
-
-);
+});
