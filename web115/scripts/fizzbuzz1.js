@@ -1,0 +1,28 @@
+function updateGreeting() {
+    // Grab Values From the Form
+    const firstName = document.getElementById("first_name").value;
+    const middleInitial = document.getElementById("middle_initial").value;
+    const lastName = document.getElementById("last_name").value;
+
+    // Construct the Middle Name Part with Period Only if Present
+    let formattedMiddle = "";
+    if (middleInitial) {
+        formattedMiddle = middleInitial.charAt(0).toUpperCase() + ". ";
+    }
+
+    // Construct Final Greeting and Replace Content
+    const greetingText = `Welcome to Refresh Air HVAC ${firstName} ${formattedMiddle}${lastName}!`;
+    document.getElementById("greeting").textContent = greetingText;
+
+}
+
+    // Submit Button Does Not Refresh Page
+const form = document.getElementById("form");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    updateGreeting();   
+}
+
+
+);
