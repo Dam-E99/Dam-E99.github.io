@@ -21,11 +21,11 @@ function updateGreeting() {
     for (let i = 1; i <= 140; i++ ) {
          let specialWord = "";
         if (i % 3 === 0 && i % 5 === 0) {
-            specialWord = "Air Flow!";
+            specialWord = " Whoosh! Air Flow!";
         } else if (i % 3 === 0) {
             specialWord = "Whoosh!";
         } else if (i % 5 === 0) {
-            specialWord = "Swish!";
+            specialWord = "Air Flow!";
         } else {
             specialWord = "Cozy Breeze!";
         }
