@@ -28,19 +28,19 @@ function updateGreeting() {
 
     let limit = parseInt(userInput);
 
-    const input1 = parseInt(prompt("Enter your first divisor: "));
-    if (input1.trim() === "" || isNaN(input1)) {
+    let firstDivInput = parseInt(prompt("Enter your first divisor: "));
+    if (firstDivInput.trim() === "" || isNaN(firstDivInput)) {
         alert("Invalid Input, Please Enter a Number.");
         return;
     }
-    const divide1 = parseInt(input1);
+    const divide1 = parseInt(firstDivInput);
 
-    const input2 = parseInt(prompt("Enter your second divisor: "));
-    if (input2.trim() === "" || isNaN(input2)) {
+    let secondDivInput = parseInt(prompt("Enter your second divisor: "));
+    if (secondDivInput.trim() === "" || isNaN(secondDivInput)) {
         alert("Invalid Input, Please Enter a Number.");
         return;
     }
-    const divide2 = parseInt(input2);
+    const divide2 = parseInt(secondDivInput);
 
     // Make Flexible For Changing Number and Words
 
