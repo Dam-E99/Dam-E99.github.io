@@ -28,14 +28,15 @@ function updateGreeting() {
 
     let limit = parseInt(userInput);
     // First Division Number Input
-    let firstDivInput = parseInt(prompt("Enter your first divisor: "));
+    let firstDivInput = prompt("Enter your first divisor: ");
     if (firstDivInput.trim() === "" || isNaN(firstDivInput)) {
         alert("Invalid Input, Please Enter a Number.");
         return;
     }
     const divide1 = parseInt(firstDivInput);
+
     // Second Division Number Input
-    let secondDivInput = parseInt(prompt("Enter your second divisor: "));
+    let secondDivInput = prompt("Enter your second divisor: ");
     if (secondDivInput.trim() === "" || isNaN(secondDivInput)) {
         alert("Invalid Input, Please Enter a Number.");
         return;
