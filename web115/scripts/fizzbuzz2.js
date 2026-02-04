@@ -47,8 +47,8 @@ function updateGreeting() {
     }
 
     // New Variables for Divisors
-    const firstDivisor = parseInt(secondDivInput);
-    const secondDivisor = parseInt(firstDivInput);
+    const firstDivisor = parseInt(firstDivInput);
+    const secondDivisor = parseInt(secondDivInput);
 
     // Make Flexible For Changing Number and Words
 
@@ -63,7 +63,7 @@ function updateGreeting() {
             outputWord = `${word1} ${word2}`;
         } else if (checkDivision(i, firstDivisor)) {
             outputWord = word1;
-        } else if (checkDivision(i, secondDivisorDivisor)){
+        } else if (checkDivision(i, secondDivisor)){
             outputWord = word2;
         } else {
             outputWord = defaultWord;
