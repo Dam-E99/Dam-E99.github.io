@@ -1,3 +1,7 @@
+function checkDivision(number, divisor) {
+    return number % divisor === 0;
+}
+
 function updateGreeting() {
     // Grab Values From the Form
     const firstName = document.getElementById("first_name").value;
@@ -27,13 +31,13 @@ function updateGreeting() {
     }
 
     let limit = parseInt(userInput);
+
     // First Division Number Input
     let firstDivInput = prompt("Enter your first divisor: ");
     if (firstDivInput.trim() === "" || isNaN(firstDivInput)) {
         alert("Invalid Input, Please Enter a Number.");
         return;
     }
-    const divide1 = parseInt(firstDivInput);
 
     // Second Division Number Input
     let secondDivInput = prompt("Enter your second divisor: ");
@@ -41,7 +45,10 @@ function updateGreeting() {
         alert("Invalid Input, Please Enter a Number.");
         return;
     }
-    const divide2 = parseInt(secondDivInput);
+
+    // New Variables for Divisors
+    const firstDivisor = parseInt(secondDivInput);
+    const secondDivisor = parseInt(firstDivInput);
 
     // Make Flexible For Changing Number and Words
 
@@ -49,14 +56,14 @@ function updateGreeting() {
     const word2 = "Air Flow!";
     const defaultWord = "Cozy Breeze!";
 
-    // Loop with Else if to divide 3 or 5 or Both, else print default
+    // Updated logic to be more adaptable and modular
     for (let i = 1; i <= limit; i++ ) {
          let outputWord = "";
-        if (i % divide1 === 0 && i % divide2 === 0) {
+        if (checkDivision(i, firstDivisor) && checkDivision(i, secondDivisor)) {
             outputWord = `${word1} ${word2}`;
-        } else if (i % divide1 === 0) {
+        } else if (checkDivision(i, firstDivisor)) {
             outputWord = word1;
-        } else if (i % divide2 === 0) {
+        } else if (checkDivision(i, secondDivisorDivisor)){
             outputWord = word2;
         } else {
             outputWord = defaultWord;
