@@ -46,14 +46,23 @@ function updateGreeting() {
         return;
     }
 
+    // Third Division Number Input
+    let thirdDivInput = prompt("Enter your third divisor: ");
+    if (thirdDivInput.trim() === "" || isNaN(thirdDivInput)) {
+        alert("Invalid Input, Please Enter a Number.");
+        return;
+    }
+
     // New Variables for Divisors
     const firstDivisor = parseInt(firstDivInput);
     const secondDivisor = parseInt(secondDivInput);
+    const thirdDivisor =parseInt(thirdDivInput); 
 
     // Make Flexible For Changing Number and Words
 
     const word1 = "Whoosh!";
     const word2 = "Air Flow!";
+    const word3 = "BANG!";
     const defaultWord = "Cozy Breeze!";
 
     // Updated logic to be more adaptable and modular
@@ -65,6 +74,8 @@ function updateGreeting() {
             outputWord = word1;
         } else if (checkDivision(i, secondDivisor)){
             outputWord = word2;
+        } else if (checkDivision(i, thirdDivisor)) {
+            outputWord = word3;
         } else {
             outputWord = defaultWord;
         }
