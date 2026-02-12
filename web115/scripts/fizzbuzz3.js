@@ -68,17 +68,19 @@ function updateGreeting() {
     // Updated logic to be more adaptable and modular
     for (let i = 1; i <= limit; i++ ) {
          let outputWord = "";
-        if (checkDivision(i, firstDivisor) && checkDivision(i, secondDivisor)) {
-            outputWord = `${word1} ${word2}`;
-        } else if (checkDivision(i, firstDivisor)) {
-            outputWord = word1;
-        } else if (checkDivision(i, secondDivisor)){
-            outputWord = word2;
-        } else if (checkDivision(i, thirdDivisor)) {
-            outputWord = word3;
-        } else {
+        if (checkDivision(i, firstDivisor)) {
+            outputWord += word1 + " ";
+        } 
+        if (checkDivision(i, secondDivisor)) {
+            outputWord = word2 + " ";
+        } 
+        if (checkDivision(i, thirdDivisor)){
+            outputWord = word3 + " ";
+        } 
+        if(outputWord === "") {
             outputWord = defaultWord;
         }
+
          htmlList += `<li>${outputWord} </li>`;
     }
 
