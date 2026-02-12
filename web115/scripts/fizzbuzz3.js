@@ -77,7 +77,7 @@ function updateGreeting() {
         if (checkDivision(i, thirdDivisor)){
             outputWord += word3 + " ";
         } 
-        if(outputWord === "") {
+        if (outputWord === "") {
             outputWord = defaultWord;
         }
 
