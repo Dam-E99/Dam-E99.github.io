@@ -72,10 +72,10 @@ function updateGreeting() {
             outputWord += word1 + " ";
         } 
         if (checkDivision(i, secondDivisor)) {
-            outputWord = word2 + " ";
+            outputWord += word2 + " ";
         } 
         if (checkDivision(i, thirdDivisor)){
-            outputWord = word3 + " ";
+            outputWord += word3 + " ";
         } 
         if(outputWord === "") {
             outputWord = defaultWord;
