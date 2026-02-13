@@ -96,24 +96,27 @@ footer > nav, p {
 /* Form styles */
 
 fieldset {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
     margin: 20px;
-    padding: 10px;
+    padding: 15px;
+    border: 2px solid #7EC8E3;
 }
-
-label {
-    margin: 0 -10px;
-    padding: 5px 1px;
-}
-
-input {
-    margin: 5px;
-}
-
 
 button {
     display: block;
     margin: auto;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: none;
+    background-color: #01257D;
+    color: white;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #7EC8E3;
+    color: #1F2933;
+    font-weight: 700;
 }
