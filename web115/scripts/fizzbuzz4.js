@@ -61,10 +61,7 @@ function updateGreeting() {
         if (outputWord === "") {
             outputWord = defaultWord;
         }
-        //If There is a Match use the Word
-        if (outputWord !== "") {
-            htmlList += `<li>${outputWord}</li>`;
-        }
+        
 
     }
 
