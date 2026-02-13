@@ -8,6 +8,20 @@ function updateGreeting() {
     const middleInitial = document.getElementById("middle_initial").value;
     const lastName = document.getElementById("last_name").value;
 
+    const limit = parseInt(document.getElementById("limit").value);
+
+    const firstDivisor = parseInt(document.getElementById("divisor_one").value);
+    const word1 = document.getElementById("word_one").value;
+
+
+    const secondDivisor = parseInt(document.getElementById("divisor_two").value);
+    const word2 = document.getElementById("word_two").value;
+
+    const thirdDivisor = parseInt(document.getElementById("divisor_three").value);
+    const word3 = document.getElementById("word_three").value;
+
+    const defaultWord = document.getElementById("default_word").value;
+
     // Construct the Middle Name Part with Period Only if Present
     let formattedMiddle = "";
     if (middleInitial) {
@@ -30,8 +44,6 @@ function updateGreeting() {
         return;
     }
 
-    let limit = parseInt(userInput);
-
     // First Division Number Input
     let firstDivInput = prompt("Enter your first divisor: ");
     if (firstDivInput.trim() === "" || isNaN(firstDivInput)) {
@@ -53,35 +65,27 @@ function updateGreeting() {
         return;
     }
 
-    // New Variables for Divisors
-    const firstDivisor = parseInt(firstDivInput);
-    const secondDivisor = parseInt(secondDivInput);
-    const thirdDivisor =parseInt(thirdDivInput); 
-
-    // Make Flexible For Changing Number and Words
-
-    const word1 = "Whoosh!";
-    const word2 = "Air Flow!";
-    const word3 = "BANG!";
-    const defaultWord = "Cozy Breeze!";
+    
 
     // Updated logic to be more adaptable and modular
     for (let i = 1; i <= limit; i++ ) {
          let outputWord = "";
-        if (checkDivision(i, firstDivisor)) {
-            outputWord += word1 + " ";
+        if (checkDivision(i % firstDivisor === 0)) {
+            outputWord += word1;
         } 
-        if (checkDivision(i, secondDivisor)) {
-            outputWord += word2 + " ";
+        if (checkDivision(i % secondDivisor === 0)) {
+            outputWord += (outputWord ? ", " : "" ) + word2;
         } 
-        if (checkDivision(i, thirdDivisor)){
-            outputWord += word3 + " ";
+        if (checkDivision(i % thirdDivisor === 0)){
+            outputWord += (outputWord ? ", " : "" ) + word3;
         } 
         if (outputWord === "") {
             outputWord = defaultWord;
         }
+        if (outputWord != "") {
+            outputWord += htmlList += `<li>${outputWord}</li>`;
+        }
 
-         htmlList += `<li>${outputWord} </li>`;
     }
 
     listLoop.innerHTML = htmlList;
