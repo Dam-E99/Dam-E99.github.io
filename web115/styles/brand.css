@@ -96,7 +96,19 @@ footer > nav, p {
 /* Form styles */
 
 fieldset {
-    margin: 15px auto;
-    padding: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+    padding: 10px;
 }
 
+input {
+    margin: 5px;
+}
+
+
+button {
+    display: block;
+    margin: auto;
+}

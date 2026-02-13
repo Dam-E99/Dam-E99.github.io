@@ -63,7 +63,7 @@ function updateGreeting() {
         }
         //If There is a Match use the Word
         if (outputWord !== "") {
-            outputWord += htmlList += `<li>${outputWord}</li>`;
+            htmlList += `<li>${outputWord}</li>`;
         }
 
     }
