@@ -62,6 +62,7 @@ function updateGreeting() {
             outputWord = defaultWord;
         }
         
+        htmlList += `<li>${outputWord}</li>`;
 
     }
 
