@@ -17,7 +17,7 @@ header {
     text-align: center;
     background-color: #01257D;
     color: white;
-    padding: 30px;
+    padding: 30px 30px 30px 15px;
 }
 
 main {
@@ -127,4 +127,5 @@ button:hover {
 
 .logo {
     float: left;
+    margin-left: -10px;
 }
