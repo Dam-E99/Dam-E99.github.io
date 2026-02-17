@@ -120,3 +120,7 @@ button:hover {
     color: #1F2933;
     font-weight: 700;
 }
+
+.logo {
+    float: left;
+}
