@@ -13,7 +13,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-header {
+.header-nav {
     text-align: center;
     background-color: #01257D;
     color: white;
@@ -30,10 +30,12 @@ a {
 }
 
 h1 {
+    text-align: center;
     color: #E8A75D;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1px;
 }
+
 
 h2 {
     color: #E8A75D;
