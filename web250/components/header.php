@@ -9,6 +9,6 @@
             |
             <a href="multipage_sites/superduper_static/index.htm">Multipage Static</a>
             |
-            <a href="multipage_sites/superduper_static/index.php">Multipage PHP</a>
+            <a href="multipage_sites/superduper_php/index.php">Multipage PHP</a>
         </nav>
     </header>
