@@ -1,19 +1,25 @@
 <?php
 $page = $_GET['page'] ?? 'home';
+$site_name = "Danny Soto Duarte's Dazzling Dodo 🐾 WEB250";
 
 switch ($page) {
     case 'introduction':
-        $title = 'Introduction';
+        $title = "$site_name Introduction";
         $content = 'introduction.php';
         break;
 
     case 'contract':
-        $title = 'Contract';
+        $title = "$site_name Contract";
         $content = 'contract.php';
         break;
 
+    case 'projects':
+        $title = "$site_name Projects";
+        $content = 'projects.php';
+        break;
+
     default:
-        $title = 'Home';
+        $title = "$site_name Home";
         $content = 'home.php';
 }
 ?>
