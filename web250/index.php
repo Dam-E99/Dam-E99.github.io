@@ -31,7 +31,7 @@ switch ($page) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/default.css" />
-    <title> <?= $title ?> | Danny Soto Duarte's Dazzling Dodo </title>
+    <title> <?= $title ?> </title>
 </head>
 <body>
     <header>
