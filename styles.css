@@ -42,6 +42,15 @@ section {
 }
 
 /* Headings */
+.main-header {
+    color: #2a1f5c;
+    margin-top: 0;
+    padding: 4px 6px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+}
+
 h2 {
     color: #2dd4ff;
     margin-top: 0;
