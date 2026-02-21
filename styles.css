@@ -15,7 +15,7 @@ header {
     text-align: center;
 }
 
-header h1 {
+h1 {
     margin-bottom: 10px;
     font-size: 2.5em;
     color: #7df9ff;
@@ -42,13 +42,13 @@ section {
 }
 
 /* Headings */
-main > h2 {
+h2 {
     color: #2a1f5c;
     text-align: center;
     font-size: 2.1em;
 }
 
-section h2 {
+h3 {
     color: #2dd4ff;
     margin-top: 0;
     background-color: #2a1f5c;
@@ -56,6 +56,7 @@ section h2 {
     border-radius: 5px;
     text-align: center;
     display: inline-block;
+    font-size: 1.3em;
 }
 
 /* Lists */
