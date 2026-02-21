@@ -1,0 +1,78 @@
+/* Basic reset */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eef0f6;
+    color: #1f1f2e;
+    line-height: 1.6;
+}
+
+/* Header (cyberpunk-light hero theme) */
+header {
+    background-color: #2a1f5c;
+    color: #f5f7ff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    color: #7df9ff;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #d6ccff;
+}
+
+/* Main content */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Sections */
+section {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+}
+
+/* Headings */
+h2 {
+    color: #2dd4ff;
+    margin-top: 0;
+    background-color: #2a1f5c;
+    padding: 4px 6px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Lists */
+ul {
+    padding-left: 20px;
+}
+
+/* Links */
+a {
+    color: #ff7edb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #dadcf2;
+    font-size: 0.9em;
+    color: #2a1f5c;
+}
