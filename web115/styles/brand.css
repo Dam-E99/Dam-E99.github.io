@@ -22,7 +22,7 @@ header {
 
 main {
     background-color: #F4F7FA;
-    min-height: 0 auto;
+    min-height: 100vh;
     padding-bottom: 1px;
 }
 
