@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/brand.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
+    <title>Danny Soto Duarte's Dazzling Dodo 🐾 WEB115 - Introduction Form</title>
+</head>
+<body>
+    <div data-include="components/header.html"></div>
+<main>
+    <h2>Introduction Form</h2>
+
+    <form id="introForm">
+
+        <fieldset>
+            <legend>Background Information</legend>
+
+            <label for="personal">Personal Background</label>
+            <textarea id="personal" required>
+I am Mexican but was born in SC and moved to NC while I was a year old and grew up here my whole life. I have 4 older brothers; I am the youngest at 20 years old.
+            </textarea>
+
+            <label for="professional">Professional Background</label>
+            <textarea id="professional" required>
+I have not had a professional job before although my mom has a small dog sitting company and I have helped out with that before.
+            </textarea>
+
+            <label for="academic">Academic Background</label>
+            <textarea id="academic" required>
+My goal is Full Stack Programming AAS, and this is my second year.
+            </textarea>
+
+            <label for="computer">Primary Computer</label>
+            <input type="text" id="computer" required
+                   value="Apple MacBook Air laptop, MacOS, primary location at home on my desk">
+        </fieldset>
+
+        <fieldset>
+            <legend>Courses I'm Taking & Why</legend>
+
+            <div class="course">
+                <label for="course1">Course</label>
+                <input type="text" id="course1" required
+                       value="ENG231 - American Literature I">
+
+                <label for="course1desc">Reason</label>
+                <input type="text" id="course1desc" required
+                       value="This is a general education requirement course for my AAS.">
+            </div>
+
+            <div class="course">
+                <label for="course2">Course</label>
+                <input type="text" id="course2" required
+                       value="CSC154 - Software Development">
+
+                <label for="course2desc">Reason</label>
+                <input type="text" id="course2desc" required
+                       value="This course teaches the fundamentals of software development.">
+            </div>
+
+            <div class="course">
+                <label for="course3">Course</label>
+                <input type="text" id="course3" required
+                       value="WEB115 - Web Markup and Scripting">
+
+                <label for="course3desc">Reason</label>
+                <input type="text" id="course3desc" required
+                       value="This course teaches me about JavaScript.">
+            </div>
+        </fieldset>
+
+        <button type="submit">Submit Introduction</button>
+    </form>
+
+    <section id="output"></section>
+</main>
+</body>
+</html>
