@@ -14,64 +14,57 @@
 <main>
     <h2>Introduction Form</h2>
 
-    <form id="introForm">
+    <form >
+        <fieldset>
+            <label for="first_name">First Name: </label>
+            <input type="text" id="first_name" value="Danny" required>
+    
+
+            <label for="middle_initial">Middle Initial: </label>
+            <input type="text" id="middle_initial" value="I" maxlength="1">
+
+            <label for="last_name">Last Name: </label>
+            <input type="text" id="last_name" value="Soto Duarte" required>
+
+            </fieldset>
 
         <fieldset>
             <legend>Background Information</legend>
 
-            <label for="personal">Personal Background</label>
-            <textarea id="personal" required>
+            <label for="personal">Personal Background: </label>
+            <textarea id="personal" required rows="4">
 I am Mexican but was born in SC and moved to NC while I was a year old and grew up here my whole life. I have 4 older brothers; I am the youngest at 20 years old.
             </textarea>
 
-            <label for="professional">Professional Background</label>
-            <textarea id="professional" required>
+            <label for="professional">Professional Background: </label>
+            <textarea id="professional" required rows="4">
 I have not had a professional job before although my mom has a small dog sitting company and I have helped out with that before.
             </textarea>
 
-            <label for="academic">Academic Background</label>
+            <label for="academic">Academic Background: </label>
             <textarea id="academic" required>
 My goal is Full Stack Programming AAS, and this is my second year.
             </textarea>
 
-            <label for="computer">Primary Computer</label>
-            <input type="text" id="computer" required
-                   value="Apple MacBook Air laptop, MacOS, primary location at home on my desk">
+            <label for="computer">Primary Computer: </label>
+            <input type="text" id="computer" value="Apple MacBook Air laptop, MacOS, primary location at home on my desk" required>
         </fieldset>
 
-        <fieldset>
-            <legend>Courses I'm Taking & Why</legend>
-
-            <div class="course">
-                <label for="course1">Course</label>
-                <input type="text" id="course1" required
-                       value="ENG231 - American Literature I">
-
-                <label for="course1desc">Reason</label>
-                <input type="text" id="course1desc" required
-                       value="This is a general education requirement course for my AAS.">
-            </div>
-
-            <div class="course">
-                <label for="course2">Course</label>
-                <input type="text" id="course2" required
-                       value="CSC154 - Software Development">
-
-                <label for="course2desc">Reason</label>
-                <input type="text" id="course2desc" required
-                       value="This course teaches the fundamentals of software development.">
-            </div>
-
-            <div class="course">
-                <label for="course3">Course</label>
-                <input type="text" id="course3" required
-                       value="WEB115 - Web Markup and Scripting">
-
-                <label for="course3desc">Reason</label>
-                <input type="text" id="course3desc" required
-                       value="This course teaches me about JavaScript.">
-            </div>
-        </fieldset>
+        <fieldset id="courseFields">
+                <legend>Courses Im Taking & Why</legend>
+                <div id="courseContainer">
+                    <!-- Initial Hardcoded Courses -->
+                    <div class="course-entry">
+                        <input type="text" class="course-name" value="ENG231 - American Literature I" placeholder="Course Name" required>
+                        <input type="text" class="course-desc" value="This is a general education requirement course for my AAS." placeholder="Why?" required> 
+                    </div>
+                    <div class="course-entry">
+                        <input type="text" class="course-name" value="CSC154 - Software Development" placeholder="Course Name" required>
+                        <input type="text" class="course-desc" value="This course teaches the fundamentals of software development." placeholder="Why?" required>
+                    </div>
+                </div>
+                <button type="button" id="addCourseBtn">Add Course</button>
+            </fieldset>
 
         <button type="submit">Submit Introduction</button>
     </form>

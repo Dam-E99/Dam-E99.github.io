@@ -96,6 +96,12 @@ footer > nav, p {
 }
 
 /* Form styles */
+legend {
+    color: #01257D;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.3em;
+}
 
 fieldset {
     display: grid;
@@ -104,7 +110,9 @@ fieldset {
     margin: 20px;
     padding: 15px;
     border: 2px solid #7EC8E3;
+    border-radius: 8px;
 }
+
 
 button {
     display: block;
@@ -121,6 +129,11 @@ button:hover {
     background-color: #7EC8E3;
     color: #1F2933;
     font-weight: 700;
+}
+
+textarea, input {
+    margin-bottom: 15px;
+    padding: 6px;
 }
 
 /* Logo in Header */
