@@ -51,20 +51,29 @@ My goal is Full Stack Programming AAS, and this is my second year.
         </fieldset>
 
         <fieldset id="courseFields">
-                <legend>Courses Im Taking & Why</legend>
-                <div id="courseContainer">
-                    <!-- Initial Hardcoded Courses -->
-                    <div class="course-entry">
-                        <input type="text" class="course-name" value="ENG231 - American Literature I" placeholder="Course Name" required>
-                        <input type="text" class="course-desc" value="This is a general education requirement course for my AAS." placeholder="Why?" required> 
-                    </div>
-                    <div class="course-entry">
-                        <input type="text" class="course-name" value="CSC154 - Software Development" placeholder="Course Name" required>
-                        <input type="text" class="course-desc" value="This course teaches the fundamentals of software development." placeholder="Why?" required>
-                    </div>
+            <legend>Courses & Why</legend>
+            <div id="courseContainer">
+        
+                <div class="course-entry">
+                    <label>Course 1:</label>
+                    <input type="text" class="course-input" 
+                        value="ENG111 – Writing and Inquiry: This is a required course for my AAS degree." required>
                 </div>
-                <button type="button" id="addCourseBtn">Add Course</button>
-            </fieldset>
+                
+                <div class="course-entry">
+                    <label>Course 2:</label>
+                    <input type="text" class="course-input" 
+                        value="WEB250 – Database Driven Websites: This is a major requirement for my degree. This course will teach me about PHP and NodeJS among other back-end development programs." required>
+                </div>
+            
+                <div class="course-entry">
+                    <label>Course 3:</label>
+                    <input type="text" class="course-input" 
+                        value="WEB115 – Web Markup and Scripting: This is a major requirement for my degree. This course will teach me about front-end development like JavaScript, HTML, etc." required>
+                </div>
+            </div>
+            <button type="button" id="addCourseBtn">Add Course</button>
+        </fieldset>
 
         <button type="submit" id="submitBtn">Submit Introduction</button>
     </form>

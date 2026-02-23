@@ -132,10 +132,6 @@ button {
     grid-column: 1 / span 2;
 }
 
-#course-entry {
-    width: 100%;
-}
-
 button:hover {
     background-color: #7EC8E3;
     color: #1F2933;
