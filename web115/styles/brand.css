@@ -113,6 +113,20 @@ fieldset {
     border-radius: 8px;
 }
 
+#output {
+    margin: 30px 20px;
+    padding: 25px;
+    background-color: #FFFFFF; 
+    border: 1px solid #D1D9E0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #1F2933;
+}
+
+#output:empty {
+    display: none;
+}
+
 
 button {
     padding: 10px 15px;
