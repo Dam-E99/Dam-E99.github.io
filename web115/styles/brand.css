@@ -23,7 +23,7 @@ header {
 main {
     background-color: #F4F7FA;
     min-height: 100vh;
-    padding-bottom: 1px;
+    padding-bottom: 15px;
 }
 
 a {
@@ -128,7 +128,6 @@ fieldset {
     display: none;
 }
 
-
 button {
     padding: 10px 15px;
     border-radius: 6px;
@@ -149,13 +148,10 @@ button {
     display: block;
 }
 
-
 .course-input {
     width: 100%;
     padding: 8px;
 }
-
-
 
 button:hover {
     background-color: #7EC8E3;
