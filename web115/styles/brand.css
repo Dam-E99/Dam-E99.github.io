@@ -23,6 +23,7 @@ header {
 main {
     background-color: #F4F7FA;
     min-height: 0 auto;
+    padding-bottom: 1px;
 }
 
 a {
