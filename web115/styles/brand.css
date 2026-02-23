@@ -115,14 +115,25 @@ fieldset {
 
 
 button {
-    display: block;
-    margin: auto;
     padding: 10px 15px;
     border-radius: 6px;
     border: none;
     background-color: #01257D;
     color: white;
+}
+
+#submitBtn {
+    display: block;
+    margin: auto;
     font-size: 1rem;
+}
+
+#addCourseBtn {
+    grid-column: 1 / span 2;
+}
+
+#course-entry {
+    width: 100%;
 }
 
 button:hover {
