@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     const courseContainer = document.getElementById("courseContainer");
     const addBtn = document.getElementById("addCourseBtn");
-    // FIX 1: Use the form element directly or add id="introForm" to HTML
     const form = document.querySelector("form"); 
-    const outputArea = document.getElementById("output"); // Matches your id="output"
+    const outputArea = document.getElementById("output");
 
-    // Add New Course Inputs
+    // 1. Add New Course Inputs
     addBtn.addEventListener("click", () => {
         const index = courseContainer.querySelectorAll(".course-entry").length + 1;
         const div = document.createElement("div");
@@ -18,15 +17,14 @@ document.addEventListener("DOMContentLoaded", function() {
         courseContainer.appendChild(div);
     });
 
-    // Remove Course Inputs
+    // 2. Remove Course Inputs
     courseContainer.addEventListener("click", (e) => {
         if (e.target.classList.contains("remove-btn")) {
             e.target.parentElement.remove();
-            // Optional: Re-index labels here if you want them to stay 1, 2, 3
         }
     });
 
-    // Handle Form Submit
+    // 3. Handles Form Submit
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -40,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const academic = document.getElementById("academic").value;
         const computer = document.getElementById("computer").value;
 
-        // FIX 2: Build Course List by splitting the single input string at the colon
         const courseInputs = document.querySelectorAll(".course-input");
         let coursesHtml = "<ol>";
         courseInputs.forEach((input) => {
@@ -54,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         coursesHtml += "</ol>";
 
-        // Mirror the Introduction HTML Structure
+        // Mirrors the Introduction HTML Structure
         outputArea.innerHTML = `
             <h3 style="text-align:center;">${fullName}</h3>
             <p style="text-align:center; font-style:italic;">~ Dazzling Dodo ~</p>
