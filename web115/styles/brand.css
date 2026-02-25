@@ -68,7 +68,8 @@ h3 {
 p {
     line-height: 1.6em;
     max-width: 80%;
-    margin: 0 auto;
+    margin: auto;
+    margin-bottom: 15px;
     text-align: left;
 }
 
@@ -101,6 +102,20 @@ footer > nav > p {
     padding-bottom: 50px;
     
 }
+
+.body_link {
+    color: #01257D;
+}
+
+.body_link:hover {
+    color: #7EC8E3;
+    background-color: #01257D;
+    text-decoration: none;
+    border: 2px solid #01257D;
+    border-radius: 4px;
+    padding: 2px;
+}
+
 
 /* Form styles */
 legend {
