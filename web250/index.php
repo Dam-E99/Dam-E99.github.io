@@ -36,7 +36,7 @@ switch ($page) {
 </head>
 <body>
     <header>
-        <h1>WEB250</h1>
+        <h1>Danny Soto Duarte's Dazzling Dodo - WEB115</h1>
         <nav>
             <a href="index.php?page=home">Home</a>
             |
