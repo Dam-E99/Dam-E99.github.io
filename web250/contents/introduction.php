@@ -1,4 +1,20 @@
 
 <h2>Introduction</h2>
-<p>This is the introduction page for my WEB250 course. Please feel free to look around. You can read more about me <a href="introduction.html">here.</a>
-           Thank you.</p>
+        <figure>
+        <img src="images/me_sitting_down.jpeg" alt="Danny sitting down looking to the right">
+        <figcaption>This photo was taken at a wedding held at a vineyard </figcaption>
+        </figure>
+        <ul class="intro_ul">
+            <li>Personal Background: I am Mexican but was born in SC and moved to NC while I was a year old and grew up here my whole life. I have 4 older brothers; I am the youngest at 20 years old.</li>
+            <li>Professional Background: I have not had a professional job before although my mom has a small dog sitting company and I have helped out with that before. </li>
+            <li>Academic Background: My goal is Full Stack Programming AAS, and this is my second year.</li>
+            <li>Primary Computer: Apple, MacBook Air laptop, MacOS, Primary location at home on my desk.</li>
+            <li>Courses I’m Taking, & Why:
+                <ol>
+                    <li>ENG231 - American Literature l: This is a general education requirement course for my AAS. </li>
+                    <li>CSC154 - Software Development: This is a major requirement; this course will teach me about the fundamentals of software development. </li>
+                    <li>WEB115 - Web Markup and Scripting: A major requirement, this course will teach me about JavaScript </li>
+                    <li>WEB250 - Database Driven Websites: A major requirement, this course would be useful to learn dynamic websites.</li>
+                </ol>
+            </li>
+        </ul>
