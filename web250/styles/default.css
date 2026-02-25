@@ -83,3 +83,48 @@ footer {
  a {
     color: #a5f3fc;
  }
+
+ /* Introduction page styles */
+
+/* Centered figure */
+figure {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Profile image */
+figure img {
+    max-width: 250px;
+    border-radius: 8px;
+    border: 2px solid #22d3ee;
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.5);
+    margin-bottom: 10px;
+}
+
+/* Caption */
+figcaption {
+    font-size: 0.9em;
+    color: #c7d2fe;
+}
+
+/* Intro list */
+ul {
+    max-width: 80%;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* List spacing */
+ul li {
+    margin-bottom: 15px;
+}
+
+/* Nested course list */
+ol {
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+ol li {
+    margin-bottom: 8px;
+}
