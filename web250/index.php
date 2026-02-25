@@ -43,9 +43,9 @@ switch ($page) {
             |
             <a href="index.php?page=contract">Contract</a>
             |
-            <a href="multipage_sites/superduper_static/index.htm">Multipage Static</a>
+            <a href="multipage_sites/superduper_static/index.htm" target="_blank">Multipage Static</a>
             |
-            <a href="multipage_sites/superduper_php/index.php">Multipage PHP</a>
+            <a href="multipage_sites/superduper_php/index.php" target="_blank">Multipage PHP</a>
         </nav>
     </header>
 
