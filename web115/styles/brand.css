@@ -95,7 +95,7 @@ footer {
 }
 
 footer {
-    margin: auto;
+    text-align: center;
 }
 
 #formZero, #formOne {
