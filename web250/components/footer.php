@@ -10,4 +10,5 @@
             |
             <a href="https://www.linkedin.com/in/danny-soto-duarte-ab9744296" target="_blank">LinkedIn</a>
         </nav>
+        <p>© 2026 Danny Soto Duarte</p>
     </footer>
