@@ -95,6 +95,10 @@ footer {
     text-align: center;
 }
 
+footer p {
+    text-align: center;
+}
+
 #formZero, #formOne {
     padding-bottom: 50px;
     
