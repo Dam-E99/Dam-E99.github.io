@@ -22,7 +22,7 @@ header {
     border-bottom: 3px solid #22d3ee;
 }
 
-header h1 {
+h1 {
     font-family: 'Orbitron', sans-serif;
     color: #22d3ee;
     letter-spacing: 2px;
