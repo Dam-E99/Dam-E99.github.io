@@ -94,8 +94,8 @@ footer {
     padding: 30px;
 }
 
-footer > nav > p {
-    text-align: center;
+footer {
+    margin: auto;
 }
 
 #formZero, #formOne {
