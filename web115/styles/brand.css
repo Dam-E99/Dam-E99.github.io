@@ -66,8 +66,10 @@ h3 {
 }
 
 p {
-    padding-left: 5px;
-    line-height: 1.8em;
+    line-height: 1.6em;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: left;
 }
 
 ul {
@@ -91,7 +93,7 @@ footer {
     padding: 30px;
 }
 
-footer > nav, p {
+footer > nav > p {
     text-align: center;
 }
 
