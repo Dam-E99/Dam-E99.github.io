@@ -71,6 +71,10 @@ p {
     line-height: 1.6;
 }
 
+.text-center {
+    text-align: center;
+}
+
 /* Footer */
 footer {
     background-color: #111827;
