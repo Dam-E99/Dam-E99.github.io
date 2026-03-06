@@ -2,26 +2,17 @@
 $page = $_GET['page'] ?? 'home';
 $site_name = "Danny Soto Duarte's Dazzling Dodo 🐾 WEB250";
 
-switch ($page) {
-    case 'introduction':
-        $title = "$site_name Introduction";
-        $content = 'introduction.php';
-        break;
+$allowed_pages = [
+    'home'         => 'home.php',
+    'introduction' => 'introduction.php',
+    'contract'     => 'contract.php',
+    'projects'     => 'projects.php'
+];
 
-    case 'contract':
-        $title = "$site_name Contract";
-        $content = 'contract.php';
-        break;
+$content = $allowed_pages[$page] ?? 'home.php';
 
-    case 'projects':
-        $title = "$site_name Projects";
-        $content = 'projects.php';
-        break;
+$title = $site_name . " " . ucfirst($page);
 
-    default:
-        $title = "$site_name Home";
-        $content = 'home.php';
-}
 ?>
 
 
