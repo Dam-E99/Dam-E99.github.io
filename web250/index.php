@@ -56,9 +56,11 @@ switch ($page) {
    
     <footer>
         <nav>
-            <a href="https://dam-e99.github.io/">Github Pages</a>
+            <a href="https://github.com/Dam-E99">GitHub</a>
             |
-            <a href="https://github.com/Dam-E99" target="_blank">Github Account</a>
+            <a href="https://dam-e99.github.io/" target="_blank">GitHub.io</a>
+            |
+            <a href="https://dam-e99.github.io/web250/index.html">WEB250.io</a>
             |
             <a href="https://www.freecodecamp.org/dame99" target="_blank">freeCodeCamp</a>
             |
