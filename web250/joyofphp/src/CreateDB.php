@@ -115,7 +115,7 @@ if ($mysqli->query($query3) === TRUE) {
 }
 else
 {
-echo mysql_error();
+echo $mysqli->error;;
     echo "<p>Error Inserting 27 cars: </p>" . printf("Errormessage: %s\n", $mysqli->error);
     echo "<p>***********</p>";
     echo $query3;
