@@ -16,7 +16,7 @@ include 'db.php';
 $mysqli->select_db("Cars");
    Echo ("Selected the Cars database <br>");
 
-$query = " CREATE TABLE IMAGES (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, VIN varchar(17), ImageFile varchar(250))";
+$query = " CREATE TABLE IF NOT EXISTS IMAGES (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, VIN varchar(17), ImageFile varchar(250))";
 //echo "<p>***********</p>";
 //echo $query ;
 //echo "<p>***********</p>";
