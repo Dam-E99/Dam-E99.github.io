@@ -28,6 +28,6 @@ else
 {
     echo "<p>Error: " . mysqli_error($mysqli);
 }
- echo "<br><br><a href='index.html'>Home</a>";
+ echo "<br><br><a href='index.php'>Home</a>";
 $mysqli->close();
 ?>
