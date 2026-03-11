@@ -4,7 +4,7 @@
  * Demonstrates how to create a database, create a table, and insert records.
  */
 
-$mysqli = new mysqli('mySQL', 'root', 'verysecret' );
+$mysqli = new mysqli('localhost', 'root', 'root' );
 
 
    if (!$mysqli) { 
