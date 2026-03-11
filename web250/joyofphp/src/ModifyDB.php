@@ -14,18 +14,16 @@ include 'db.php';
 $mysqli->select_db("Cars");
    Echo ("Selected the Cars database<br>");
 
-$query = "ALTER TABLE `inventory` ADD COLUMN IF NOT EXISTS `Primary_Image` VARCHAR(250) NULL AFTER `SALE_DATE`";
-echo "<p>***********</p>";
-echo $query ;
-echo "<p>***********</p>";
-if ($mysqli->query($query) === TRUE) 
-{
-    echo "Database table 'INVENTORY' modified</P>";
+// Check if the column exists first
+$result = $mysqli->query("SHOW COLUMNS FROM `inventory` LIKE 'Primary_Image'");
+
+if ($result->num_rows == 0) {
+    // Column doesn't exist, so add it
+    $query = "ALTER TABLE `inventory` ADD `Primary_Image` VARCHAR(250) NULL AFTER `SALE_DATE`";
+    $mysqli->query($query);
+    echo "Column added.";
+} else {
+    echo "Column already exists, skipping...";
 }
-else
-{
-    echo "<p>Error: </p>" . $mysqli->error."<br>";;
-}
-$mysqli->close();
-echo "<br><br><a href='index.html'>Home</a>";
+
 ?>
