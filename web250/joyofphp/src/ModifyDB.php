@@ -14,7 +14,7 @@ include 'db.php';
 $mysqli->select_db("Cars");
    Echo ("Selected the Cars database<br>");
 
-$query = "ALTER TABLE `inventory` ADD `Primary_Image` VARCHAR(250) NULL AFTER `SALE_DATE`";
+$query = "ALTER TABLE `inventory` ADD COLUMN IF NOT EXISTS `Primary_Image` VARCHAR(250) NULL AFTER `SALE_DATE`";
 echo "<p>***********</p>";
 echo $query ;
 echo "<p>***********</p>";
