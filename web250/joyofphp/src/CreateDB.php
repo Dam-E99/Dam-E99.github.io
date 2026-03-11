@@ -25,6 +25,8 @@ else
 $mysqli->select_db("Cars");
    Echo ("Selected the Cars database");
 
+$mysqli->query("DROP TABLE IF EXISTS inventory");
+
 $query = " CREATE TABLE IF NOT EXISTS inventory 
 ( VIN varchar(17) PRIMARY KEY, YEAR INT, Make varchar(50), Model varchar(100), 
 TRIM varchar(50), EXT_COLOR varchar (50), INT_COLOR varchar (50), ASKING_PRICE DECIMAL (10,2), 
