@@ -1,14 +1,9 @@
 <?php
 
-$host = "localhost";
-$username = "root";
-$password = "root";
-$database = "Cars";
+$mysqli = new mysqli("localhost", "root", "root", "Cars");
 
-$conn = new mysqli($host, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+if ($mysqli->connect_errno) {
+    die("Connection failed: " . $mysqli->connect_error);
 }
 
 ?>
