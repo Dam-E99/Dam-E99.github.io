@@ -1,11 +1,14 @@
- <?php
-$mysqli = new mysqli('mySQL', 'root', 'verysecret', 'Cars' );
-/* check connection */
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
+<?php
+
+$host = "localhost";
+$username = "root";
+$password = "root";
+$database = "Cars";
+
+$conn = new mysqli($host, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Database connection failed: " . $conn->connect_error);
 }
-//select a database to work with
-$mysqli->select_db("Cars");
- 
+
 ?>
