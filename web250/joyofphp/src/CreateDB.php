@@ -14,7 +14,7 @@ $mysqli = new mysqli('localhost', 'root', 'root' );
   
 
 /* Create table doesn't return a resultset */
-if ($mysqli->query("CREATE DATABASE Cars") === TRUE) {
+if ($mysqli->query("CREATE DATABASE IF NOT EXISTS Cars") === TRUE) {
     echo "<p>Database Cars created</P>";
 }
 else
