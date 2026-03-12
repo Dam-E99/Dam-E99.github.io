@@ -46,7 +46,7 @@ if ($result = $mysqli->query($query)) {
 }
 else
 {
- echo "Error entering $VIN into database: " . mysql_error()."<br>";
+ echo "Error entering $VIN into database: " . $mysqli->error ."<br>";
 }
 $mysqli->close();
 
