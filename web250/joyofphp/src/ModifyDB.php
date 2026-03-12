@@ -23,7 +23,7 @@ if ($result->num_rows == 0) {
     $mysqli->query($query);
     echo "Column added.";
 } else {
-    echo "Column already exists, skipping...";
+    echo "Column already exists";
 }
 
 ?>
