@@ -43,7 +43,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 
     // Select database
     $mysqli->select_db("Cars");
-    echo "Selected the Cars database";
+    echo "Selected the Cars database <br>";
 
 } else {
 
