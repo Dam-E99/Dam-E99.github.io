@@ -33,7 +33,6 @@ include 'db.php';
   echo 'Connected successfully to mySQL. <BR>'; 
   
 //select a database to work with
-include 'db.php';
 
 /* Try to insert the new car into the database */
 if ($result = $mysqli->query($query)) {
