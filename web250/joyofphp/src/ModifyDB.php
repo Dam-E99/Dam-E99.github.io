@@ -11,8 +11,7 @@ include 'db.php';
   echo 'Connected successfully to mySQL. <BR>'; 
   
 //select a database to work with
-$mysqli->select_db("Cars");
-   Echo ("Selected the Cars database<br>");
+include 'db_config.php';
 
 // Check if the column exists first
 $result = $mysqli->query("SHOW COLUMNS FROM `inventory` LIKE 'Primary_Image'");
