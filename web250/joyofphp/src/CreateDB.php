@@ -48,6 +48,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 } else {
 
     // HOSTED SERVER (InfinityFree) — database must already exist
+    echo "<p>Database existence verified (Hosted)</p>";
     $mysqli->select_db("if0_41085194_cars");
     echo "Selected hosted database ";
 
