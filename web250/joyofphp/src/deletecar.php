@@ -17,7 +17,7 @@ if ($result = $mysqli->query($query)) {
 }
 else
 {
-    echo "Sorry, a vehicle with VIN of $vin cannot be found " . mysql_error()."<br>";
+    echo "Sorry, a vehicle with VIN of $vin cannot be found " . $mysqli->error."<br>";
 }
 
 $mysqli->close();
