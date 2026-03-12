@@ -15,7 +15,7 @@ include 'db.php';
 //select a database to work with
 include 'db_config.php';
 
-$query = " CREATE TABLE IF NOT EXISTS IMAGES (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, VIN varchar(17), ImageFile varchar(250))";
+$query = " CREATE TABLE IF NOT EXISTS images (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, VIN varchar(17), ImageFile varchar(250))";
 //echo "<p>***********</p>";
 //echo $query ;
 //echo "<p>***********</p>";
