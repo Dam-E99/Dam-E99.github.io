@@ -53,7 +53,5 @@ $mysqli->close();
 
 include 'menu.php';
 ?>
-
-<p><a href="ViewCarsWithStyle2.php">View Cars with Edit Links</a></p>
 </body>
 </html>

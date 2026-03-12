@@ -93,7 +93,7 @@ while ($result_ar = mysqli_fetch_assoc($result)) {
 echo "</table>";
 $mysqli->close();
 echo "<br/>\n";
-include 'footer.php';
+include 'menu.php';
 ?>
  </body>
  

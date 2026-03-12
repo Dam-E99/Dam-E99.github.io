@@ -46,7 +46,6 @@ else
 }
 $mysqli->close();
 include 'menu.php';
-include 'footer.php'
 ?>
 </body>
 </html>
