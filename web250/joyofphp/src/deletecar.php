@@ -22,7 +22,6 @@ else
 
 $mysqli->close();
 
-"\n";
 include 'menu.php';
    
 ?>
