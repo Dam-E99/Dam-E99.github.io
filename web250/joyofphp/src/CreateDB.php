@@ -30,12 +30,27 @@ $mysqli = new mysqli($host, $username, $password);
   
 
 /* Create table doesn't return a resultset */
-if ($mysqli->query("CREATE DATABASE IF NOT EXISTS Cars") === TRUE) {
-    echo "<p>Database Cars created</P>";
-}
-else
-{
-    echo "Error creating Cars database: " . mysqli_connect_error()."<br>";
+
+// Detect environment
+if ($_SERVER['SERVER_NAME'] == 'localhost') {
+
+    // LOCAL (MAMP) — allowed to create database
+    if ($mysqli->query("CREATE DATABASE IF NOT EXISTS Cars") === TRUE) {
+        echo "<p>Database Cars created</p>";
+    } else {
+        echo "Error creating Cars database: " . $mysqli->error . "<br>";
+    }
+
+    // Select database
+    $mysqli->select_db("Cars");
+    echo "Selected the Cars database";
+
+} else {
+
+    // HOSTED SERVER (InfinityFree) — database must already exist
+    $mysqli->select_db("if0_41085194_cars");
+    echo "Selected hosted database";
+
 }
 //select a database to work with
 $mysqli->select_db("Cars");
