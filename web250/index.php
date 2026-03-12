@@ -39,9 +39,9 @@ $title = $site_name . " " . ucfirst($page);
             |
             <a href="multipage_sites/superduper_php/index.php" target="_blank">Multipage PHP</a>
             |
-            <a href="joyofphp/src/index.php">Joy of Php</a>
+            <a href="joyofphp/src/index.php" target="_blank">Joy of Php</a>
             |
-            <a href="joyofphp/src/samsusedcars.html">Sam's Used Cars</a>
+            <a href="joyofphp/src/samsusedcars.html" target="_blank">Sam's Used Cars</a>
         </nav>
     </header>
 
