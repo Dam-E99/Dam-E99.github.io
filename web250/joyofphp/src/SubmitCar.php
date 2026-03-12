@@ -33,8 +33,13 @@ include 'db.php';
   echo 'Connected successfully to mySQL. <BR>'; 
   
 //select a database to work with
-$mysqli->select_db("Cars");
-   Echo ("Selected the Cars database. <br>");
+if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.0.1') {
+    $mysqli->select_db("Cars");
+    echo "Selected the Cars database (local)<br>";
+} else {
+    $mysqli->select_db("if0_41085194_cars");
+    echo "Selected the hosted database<br>";
+}
 
 /* Try to insert the new car into the database */
 if ($result = $mysqli->query($query)) {
