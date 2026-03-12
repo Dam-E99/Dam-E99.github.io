@@ -5,6 +5,6 @@
     |
     <a href="formEnterCar.htm">Add Car</a>
     |
-    <a href="ViewCarsWithStyles2.php">Edit Cars</a>
+    <a href="ViewCarsWithStyle2.php">Edit Cars</a>
 </nav>
 <hr>
