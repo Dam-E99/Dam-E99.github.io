@@ -4,8 +4,24 @@
  * Demonstrates how to create a database, create a table, and insert records.
  */
 
-$mysqli = new mysqli('localhost', 'root', 'root' );
+// Detect environment
+if ($_SERVER['SERVER_NAME'] == 'localhost') {
 
+    // LOCAL (MAMP)
+    $host = "localhost";
+    $username = "root";
+    $password = "root";
+
+} else {
+
+    // HOSTED SERVER
+    $host = "sql211.infinityfree.com";
+    $username = "if0_41085194";
+    $password = "JoKerDoo5PWS";
+
+}
+
+$mysqli = new mysqli($host, $username, $password);
 
    if (!$mysqli) { 
       die('Could not connect'); 
