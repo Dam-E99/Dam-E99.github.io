@@ -37,7 +37,7 @@ if (mysqli_connect_errno()) {
 
  echo 'Connected successfully to mySQL. <BR>';
 
-//select a database to work with
+//select a database to work with - Using the include db.php
 
 /* Try to insert the new car into the database */
 if ($result = $mysqli->query($query)) {

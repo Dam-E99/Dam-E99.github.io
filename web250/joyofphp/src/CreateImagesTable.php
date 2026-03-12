@@ -12,7 +12,7 @@ include 'db.php';
   echo 'Connected successfully to mySQL. <BR>'; 
 
 
-//select a database to work with
+//select a database to work with - Using the include db.php
 
 
 $query = " CREATE TABLE IF NOT EXISTS images (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, VIN varchar(17), ImageFile varchar(250))";

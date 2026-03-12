@@ -10,7 +10,7 @@ include 'db.php';
   } 
   echo 'Connected successfully to mySQL. <BR>'; 
   
-//select a database to work with
+//select a database to work with - Using the include db.php
 
 // Check if the column exists first
 $result = $mysqli->query("SHOW COLUMNS FROM `inventory` LIKE 'Primary_Image'");
