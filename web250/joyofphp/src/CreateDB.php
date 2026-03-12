@@ -53,18 +53,6 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 
 }
 //select a database to work with
-// Detect environment and select correct database
-if ($_SERVER['SERVER_NAME'] == 'localhost') {
-
-    $mysqli->select_db("Cars");
-    echo "Selected the Cars database (local)";
-
-} else {
-
-    $mysqli->select_db("if0_41085194_cars");
-    echo "Selected the hosted database";
-
-}
 
 $mysqli->query("DROP TABLE IF EXISTS inventory");
 
