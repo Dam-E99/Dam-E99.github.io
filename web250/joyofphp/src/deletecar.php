@@ -21,6 +21,8 @@ else
 }
 
 $mysqli->close();
+
+include 'menu.php';
    
 ?>
 
