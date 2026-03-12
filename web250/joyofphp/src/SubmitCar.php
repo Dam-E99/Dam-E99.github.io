@@ -29,7 +29,7 @@ $query = "INSERT INTO inventory
 echo ($query. "<br>");
 
 include 'db.php';
-
+include 'menu.php';
   echo 'Connected successfully to mySQL. <BR>'; 
   
 //select a database to work with
