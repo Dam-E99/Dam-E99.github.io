@@ -15,7 +15,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $host = "sql211.infinityfree.com";
     $username = "if0_41085194";
     $password = "JoKerDoo5PWS";
-    $database = "if0_41085194_XXX";
+    $database = "if0_41085194_cars";
 
 }
 
