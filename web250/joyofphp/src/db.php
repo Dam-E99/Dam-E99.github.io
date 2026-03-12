@@ -12,10 +12,10 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 } else {
 
     // HOSTED SERVER
-    $host = "your_host";
-    $username = "your_db_username";
-    $password = "your_db_password";
-    $database = "your_db_name";
+    $host = "sql211.infinityfree.com";
+    $username = "if0_41085194";
+    $password = "JoKerDoo5PWS";
+    $database = "if0_41085194_XXX";
 
 }
 
