@@ -29,7 +29,7 @@ $query = "INSERT INTO inventory
 echo ($query. "<br>");
 
 include 'db.php';
-include 'menu.php';
+
   echo 'Connected successfully to mySQL. <BR>'; 
   
 //select a database to work with
@@ -45,6 +45,7 @@ else
     echo "Error entering $VIN into database: " . $mysqli->error."<br>";
 }
 $mysqli->close();
+include 'menu.php';
 include 'footer.php'
 ?>
 </body>
