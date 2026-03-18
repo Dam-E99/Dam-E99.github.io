@@ -11,7 +11,7 @@ header, footer {
     text-align: center;
 }
 
-nav a {
+a {
     color: #00bcd4;
     text-decoration: none;
     margin: 0 10px;
