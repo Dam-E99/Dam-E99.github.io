@@ -11,14 +11,18 @@ header, footer {
     text-align: center;
 }
 
+/* Links */
 a {
     color: #00bcd4;
     text-decoration: none;
-    margin: 0 10px;
 }
 
-nav a:hover {
+a:hover {
     text-decoration: underline;
+}
+/* Nav Links */
+nav a {
+    margin: 0 10px;
 }
 
 main {
