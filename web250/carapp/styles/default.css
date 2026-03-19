@@ -62,7 +62,8 @@ footer {
     font-weight: bold; 
     cursor: pointer; 
     border-radius: 4px; 
-    text-align: center;
+    display: block;
+    margin: 0 auto;
 }
 
 .btn-submit:hover { 
