@@ -59,6 +59,8 @@ $title = $site_name . " " . ucfirst($page);
             |
             <a href="https://dam-e99.github.io/web250/index.html" target="_blank">WEB250.io</a>
             |
+            <a href="/web215/index.html" target="_blank">WEB215.io</a>
+            |
             <a href="https://www.freecodecamp.org/dame99" target="_blank">freeCodeCamp</a>
             |
             <a href="https://www.codecademy.com/profiles/dsotodu0" target="_blank">Codecademy</a>
