@@ -49,6 +49,7 @@ $inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC");
     <meta charset="UTF-8">
     <title>Dazzling Dodo's Used Cars</title>
     <link rel="stylesheet" href="styles/default.css">
+    <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
