@@ -108,7 +108,7 @@ $inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC");
         </main>
 
         <footer>
-            <p>Designed by Soto Enterprise | Don't sue us just because we use gum to hold our cars together.</p>
+            <p>Designed by Soto Air Design Co. | Don't sue us just because we use gum to hold our cars together.</p>
         </footer>
     </div>
 </body>
