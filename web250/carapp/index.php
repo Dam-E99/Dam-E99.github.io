@@ -47,13 +47,13 @@ $inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC");
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dapper Viper's Used Cars</title>
+    <title>Dazzling Dodo's Used Cars</title>
     <link rel="stylesheet" href="styles/default.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🐍 Dapper Viper's Used Cars</h1>
+            <h1>🦤 Dazzling Dodo's Used Cars</h1>
         </header>
 
         <main>
@@ -108,7 +108,7 @@ $inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC");
         </main>
 
         <footer>
-            <p>Designed by Viper Web Firm | Don't sue us just because we use gum to hold our cars together.</p>
+            <p>Designed by Soto Enterprise | Don't sue us just because we use gum to hold our cars together.</p>
         </footer>
     </div>
 </body>
