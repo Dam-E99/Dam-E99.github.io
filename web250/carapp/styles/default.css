@@ -63,7 +63,7 @@ footer {
     cursor: pointer; 
     border-radius: 4px; 
     display: block;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .btn-submit:hover { 
