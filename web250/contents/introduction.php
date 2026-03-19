@@ -12,14 +12,14 @@
             <li><strong>Academic Background:</strong> My goal is Full Stack Programming AAS, and this is my second year.</li>
             <li><strong>Primary Computer:</strong> Apple, MacBook Air laptop, MacOS, Primary location at home on my desk.</li>
             <li><strong>Courses I’m Taking, & Why:</strong>
-                <ol>
+                <ul>
                     <li><strong>ENG231 - American Literature l:</strong> This is a general education requirement course for my AAS. </li>
                     <li><strong>CSC154 - Software Development:</strong> This is a major requirement; this course will teach me about the fundamentals of software development. </li>
                     <li><strong>WEB115 - Web Markup and Scripting:</strong> A major requirement, this course will teach me about JavaScript </li>
                     <li><strong>WEB250 - Database Driven Websites:</strong> A major requirement, this course would be useful to learn dynamic websites.</li>
                     <li><strong>Web215 - Adv Markup and Scripting:</strong> Major requirement, this will teach me to design internet applications and interactive web content.</li>
 
-                </ol>
+                </ul>
             </li>
         </ul>
         <p class="text-center">“You have to be odd to be number one.” </p>
