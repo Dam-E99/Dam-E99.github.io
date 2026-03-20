@@ -35,7 +35,7 @@ $title = $site_name . " " . ucfirst($page);
             |
             <a href="index.php?page=contract">Contract</a>
             |
-            <a href="multipage_sites/superduper_static/index.htm" target="_blank">Multipage Static</a>
+            <a href="multipage_sites/superduper_static/index.html" target="_blank">Multipage Static</a>
             |
             <a href="multipage_sites/superduper_php/index.php" target="_blank">Multipage PHP</a>
             |
