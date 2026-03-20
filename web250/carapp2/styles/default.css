@@ -1,0 +1,121 @@
+body { 
+    font-family: 'Trebuchet MS', sans-serif; 
+    background-color: #f4f7f6; 
+    color: #333; 
+    margin: 0; 
+    padding: 20px; 
+}
+
+.container { 
+    max-width: 1000px; 
+    margin: auto; 
+    background: white; 
+    padding: 25px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
+header { 
+    text-align: center; 
+    border-bottom: 5px solid #2c3e50; 
+    margin-bottom: 20px; 
+}
+
+footer { 
+    text-align: center; 
+    font-size: 0.8em; 
+    color: #777; 
+    margin-top: 40px; 
+    padding: 20px; 
+    border-top: 1px solid #ddd; 
+}
+
+/* Form Styling - Alignment & Proximity */
+.form-section { 
+    background: #e9ecef; 
+    padding: 20px; 
+    border-radius: 8px; 
+    margin-bottom: 30px; 
+}
+
+.car-form { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 15px; 
+}
+
+.car-form input { 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+.full-width { 
+    grid-column: span 3; 
+}
+
+.btn-submit { 
+    background: #27ae60; 
+    color: white; 
+    border: none; 
+    padding: 12px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    border-radius: 4px; 
+}
+
+.btn-submit:hover { 
+    background: #219150; 
+}
+
+.btn-update { 
+    background: #2980b9; 
+}
+
+/* Table Styling - Repetition & Contrast */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+}
+
+th { 
+    background: #2c3e50; 
+    color: white; 
+    padding: 12px; 
+    text-align: left; 
+}
+
+td { 
+    padding: 12px; 
+    border-bottom: 1px solid #eee; 
+}
+
+tr:nth-child(even) { 
+    background-color: #f9f9f9; 
+}
+
+.btn-edit { 
+    color: #2980b9; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
+
+.btn-del { 
+    color: #e74c3c; 
+    text-decoration: none; 
+    font-weight: bold; 
+    margin-left: 10px; 
+}
+
+
+/* Feedback Messages */
+.msg-success { 
+    color: #155724; 
+    background: #d4edda; 
+    padding: 15px; 
+    border-radius: 5px; 
+    text-align: center; 
+    margin-bottom: 20px; 
+    border: 1px solid #c3e6cb; 
+}
