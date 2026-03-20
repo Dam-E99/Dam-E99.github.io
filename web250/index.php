@@ -43,9 +43,9 @@ $title = $site_name . " " . ucfirst($page);
             |
             <a href="joyofphp/src/samsusedcars.html" target="_blank">Sam's Used Cars</a>
             |
-            <a href="carapp/index.php">Car AppA</a>
+            <a href="carapp/index.php" target="_blank">Car AppA</a>
             |
-            <a href="carapp/index.php">Car AppB</a>
+            <a href="carapp/index.php" target="_blank">Car AppB</a>
         </nav>
     </header>
 
