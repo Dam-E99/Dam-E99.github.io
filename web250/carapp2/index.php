@@ -72,12 +72,14 @@ $inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC");
                     <input type="text" name="Make" placeholder="Make (e.g., Ford)" value="<?php echo $edit_car['Make'] ?? ''; ?>" required>
                     <input type="text" name="Model" placeholder="Model (e.g., Mustang)" value="<?php echo $edit_car['Model'] ?? ''; ?>" required>
                     <input type="number" name="Asking_Price" placeholder="Asking Price" value="<?php echo $edit_car['ASKING_PRICE'] ?? ''; ?>" required class="full-width">
-                    <input type="number" name="YEAR" placeholder="Year">
-                    <input type="text" name="TRIM" placeholder="Trim">
-                    <input type="text" name="EXT_COLOR" placeholder="Exterior Color">
-                    <input type="text" name="INT_COLOR" placeholder="Interior Color">
-                    <input type="number" name="MILEAGE" placeholder="Mileage">
-                    <input type="text" name="TRANSMISSION" placeholder="Transmission">
+                <!-- New From Info -->
+                    <input type="number" name="Year" placeholder="Year" value="<?php echo $edit_car['YEAR'] ?? ''; ?>" required>
+                    <input type="text" name="Trim" placeholder="Trim" value="<?php echo $edit_car['TRIM'] ?? ''; ?>">
+                    <input type="text" name="Color" placeholder="Exterior Color" value="<?php echo $edit_car['EXT_COLOR'] ?? ''; ?>">
+                    <input type="text" name="Interior" placeholder="Interior Color" value="<?php echo $edit_car['INT_COLOR'] ?? ''; ?>">
+                    <input type="number" name="Mileage" placeholder="Mileage" value="<?php echo $edit_car['MILEAGE'] ?? ''; ?>">
+                    <input type="text" name="Transmission" placeholder="Transmission" value="<?php echo $edit_car['TRANSMISSION'] ?? ''; ?>">
+
                     
                     <button type="submit" name="save_car" class="btn-submit <?php echo $edit_car ? 'btn-update' : ''; ?>">
                         <?php echo $edit_car ? "Update Inventory" : "Add to Inventory"; ?>
