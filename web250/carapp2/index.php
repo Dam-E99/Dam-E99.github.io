@@ -1,4 +1,46 @@
 <?php
+session_start();
+
+// RUN SETUP SCRIPT (ONLY WHEN REQUESTED)
+if (isset($_GET['run_setup']) && isset($_SESSION['user'])) {
+
+    echo "<h2>⚠️ Well, you asked for it...</h2>";
+
+    // DROP TABLE
+    echo "<p>Dropping inventory table...</p>";
+    $mysqli->query("DROP TABLE IF EXISTS inventory");
+
+    // RECREATE TABLE
+    echo "<p>Recreating inventory table...</p>";
+    $create = "CREATE TABLE inventory (
+        VIN varchar(17) PRIMARY KEY,
+        YEAR INT,
+        Make varchar(50),
+        Model varchar(100),
+        TRIM varchar(50),
+        EXT_COLOR varchar(50),
+        INT_COLOR varchar(50),
+        ASKING_PRICE DECIMAL(10,2),
+        SALE_PRICE DECIMAL(10,2),
+        PURCHASE_PRICE DECIMAL(10,2),
+        MILEAGE INT,
+        TRANSMISSION varchar(50),
+        PURCHASE_DATE DATE,
+        SALE_DATE DATE
+    )";
+    $mysqli->query($create);
+
+    // INSERT SAMPLE DATA
+    echo "<p>Repopulating inventory...</p>";
+
+    $mysqli->query("INSERT INTO inventory (VIN, Make, Model, ASKING_PRICE) VALUES ('RESET123', 'Toyota', 'Camry', 20000)");
+
+    echo "<p>✅ Database reset complete.</p>";
+    
+    exit(); // STOP normal page from loading
+}
+
+
 require_once 'config_db.php';
 $message = "";
 $edit_car = null;
