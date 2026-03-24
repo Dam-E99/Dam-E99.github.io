@@ -72,6 +72,12 @@ $inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC");
                     <input type="text" name="Make" placeholder="Make (e.g., Ford)" value="<?php echo $edit_car['Make'] ?? ''; ?>" required>
                     <input type="text" name="Model" placeholder="Model (e.g., Mustang)" value="<?php echo $edit_car['Model'] ?? ''; ?>" required>
                     <input type="number" name="Asking_Price" placeholder="Asking Price" value="<?php echo $edit_car['ASKING_PRICE'] ?? ''; ?>" required class="full-width">
+                    <input type="number" name="YEAR" placeholder="Year">
+                    <input type="text" name="TRIM" placeholder="Trim">
+                    <input type="text" name="EXT_COLOR" placeholder="Exterior Color">
+                    <input type="text" name="INT_COLOR" placeholder="Interior Color">
+                    <input type="number" name="MILEAGE" placeholder="Mileage">
+                    <input type="text" name="TRANSMISSION" placeholder="Transmission">
                     
                     <button type="submit" name="save_car" class="btn-submit <?php echo $edit_car ? 'btn-update' : ''; ?>">
                         <?php echo $edit_car ? "Update Inventory" : "Add to Inventory"; ?>
