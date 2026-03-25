@@ -201,16 +201,20 @@ if (isset($_GET['run_setup']) && isset($_SESSION['username'])) {
             insert into inventory (VIN, YEAR, Make, Model, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, MILEAGE, TRANSMISSION) values ('SAJWA0F79F8176309', 1996, 'Suzuki', 'Swift', 'bibendum imperdiet', 'Red', 'Violet', 523201.89, 28874, 'Manual');
             insert into inventory (VIN, YEAR, Make, Model, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, MILEAGE, TRANSMISSION) values ('1GD21ZCG5BZ826940', 1991, 'Volkswagen', 'Cabriolet', 'adipiscing lorem', 'Aquamarine', 'Puce', 499178.52, 76445, 'Manual'); ";
 
-            if ($mysqli->multi_query($sql)) {
+           if ($mysqli->multi_query($sql)) {
         // Clear the 100+ result sets
         while ($mysqli->next_result()) { ; } 
         
-        // Show the success messages
-        echo "<h3>✅ Well, you asked for it... Setup Complete!</h3>";
-        echo "<p>Reloading the page to get back to the standard view in 3 seconds...</p>";
+        echo "<h3>✅ Setup Complete!</h3>";
+        echo "<p>Well, you asked for it... The database has been wiped and repopulated.</p>";
         
-        // The "Automatic Reload" the instructions want:
-        header("Refresh: 3; url=index.php?msg=System+Reset+Successful");
+        // This is the manual "Reload" link
+        echo "<div style='margin-top:20px; padding:15px; background:#e0ffe0; border:1px solid green; display:inline-block;'>";
+        echo "<a href='index.php?msg=Reset+Successful' style='font-weight:bold; font-size:1.2em; text-decoration:none; color:green;'>";
+        echo "⬅️ CLICK HERE TO RELOAD AND RETURN TO STANDARD VIEW";
+        echo "</a>";
+        echo "</div>";
+        
         exit(); 
     } else {
         echo "<h3>❌ Error during repopulation: " . $mysqli->error . "</h3>";
