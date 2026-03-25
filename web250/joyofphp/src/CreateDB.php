@@ -4,29 +4,16 @@
  * Demonstrates how to create a database, create a table, and insert records.
  */
 
-// Detect environment
-if ($_SERVER['SERVER_NAME'] == 'localhost') {
+// 1. Pull in your hidden credentials
+require_once 'db.php'; 
 
-    // LOCAL (MAMP)
-    $host = "localhost";
-    $username = "root";
-    $password = "root";
-
-} else {
-
-    // HOSTED SERVER
-    $host = "sql211.infinityfree.com";
-    $username = "if0_41085194";
-    $password = "JoKerDoo5PWS";
-
-}
-
+// 2. Connect to the SERVER (not the DB yet, because we might need to create it)
 $mysqli = new mysqli($host, $username, $password);
 
-   if (!$mysqli) { 
-      die('Could not connect'); 
-  } 
-  echo 'Connected successfully to mySQL. <BR>'; 
+if ($mysqli->connect_error) { 
+    die('Could not connect: ' . $mysqli->connect_error); 
+} 
+echo 'Connected successfully to mySQL. <BR>'; 
   
 
 /* Create table doesn't return a resultset */
