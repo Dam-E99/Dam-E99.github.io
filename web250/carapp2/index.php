@@ -5,7 +5,7 @@ require_once 'config_db.php';
 // --- Pagination Calculation ---
 $limit = 20; 
 $page = isset($_GET['p']) && $_GET['p'] > 0 ? (int)$_GET['p'] : 1;
-$offset = ($page - 1) * $limit;
+$offset = max(0, ($page - 1) * $limit);
 
 // Fetch inventory for the Current Page
 $inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC LIMIT $limit OFFSET $offset");
@@ -57,8 +57,8 @@ if (isset($_GET['run_setup']) && isset($_SESSION['username'])) {
 
     $pass = password_hash("LetMeIn!", PASSWORD_DEFAULT);
 
-    $mysqli->query("INSERT INTO users (username, password, first_name, last_name)
-    VALUES ('web250user', '$pass', 'Web', 'User')");
+   $mysqli->query("INSERT IGNORE INTO users (username, password, first_name, last_name)
+                   VALUES ('web250user', '$pass', 'Web', 'User')");
 
     // Drop logic
     echo "<h2>Well, you asked for it...</h2>";
