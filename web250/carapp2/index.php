@@ -1,4 +1,18 @@
 <?php
+// --- Pagination Calculation ---
+$limit = 20; 
+$page = isset($_GET['p']) ? (int)$_GET['p'] : 1;
+$offset = ($page - 1) * $limit;
+
+// Fetch inventory for the Current Page
+$inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC LIMIT $limit OFFSET $offset");
+
+// Get Total Count to Create Page Numbers
+$total_res = $mysqli->query("SELECT COUNT(*) as total FROM inventory");
+$total_cars = $total_res->fetch_assoc()['total'];
+$total_pages = ceil($total_cars / $limit);
+
+
 session_start();
 require_once 'config_db.php';
 
@@ -355,6 +369,17 @@ $inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC LIMIT 20"
                     <?php endwhile; ?>
                 </tbody>
             </table>
+
+        <div class="pagination" style="margin: 20px 0; text-align: center;">
+            <strong>Pages: </strong>
+            <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+            <a href="?p=<?php echo $i; ?>" 
+            style="padding: 5px 10px; margin: 0 2px; border: 1px solid #ccc; text-decoration: none; <?php echo ($page == $i) ? 'background: #ddd; font-weight: bold;' : ''; ?>">
+            <?php echo $i; ?>
+            </a>
+            <?php endfor; ?>
+        </div>
+
         </main>
 
         <footer>
