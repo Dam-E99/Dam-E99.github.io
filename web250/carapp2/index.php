@@ -2,25 +2,43 @@
 session_start();
 require_once 'config_db.php';
 
+session_start();
+require_once 'config_db.php';
+
+// --- NEW FIX: AUTO-CREATE TABLES SO IT DOESN'T CRASH ---
+// 1. Create Users Table
+$mysqli->query("CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE,
+    password VARCHAR(255),
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
+)");
+
+// 2. Insert Default User if missing
+$checkUser = $mysqli->query("SELECT id FROM users WHERE username = 'web250user'");
+if ($checkUser->num_rows == 0) {
+    $pass = password_hash("LetMeIn!", PASSWORD_DEFAULT);
+    $mysqli->query("INSERT INTO users (username, password, first_name, last_name)
+                    VALUES ('web250user', '$pass', 'Web', 'User')");
+}
+
+// 3. Create Inventory Table (prevents crash on first load)
+$mysqli->query("CREATE TABLE IF NOT EXISTS inventory (
+    VIN varchar(17) PRIMARY KEY, YEAR INT, Make varchar(50), Model varchar(100), 
+    TRIM varchar(50), EXT_COLOR varchar(50), INT_COLOR varchar(50), 
+    ASKING_PRICE DECIMAL(10,2), MILEAGE INT, TRANSMISSION varchar(50)
+)");
+
+// --- Pagination Calculation (Now safe to run) ---
 $limit = 20;
-
 $page = isset($_GET['p']) && $_GET['p'] > 0 ? (int)$_GET['p'] : 1;
-
 $offset = max(0, ($page - 1) * $limit);
 
-// Fetch inventory
-$inventory = $mysqli->query("
-    SELECT * FROM inventory 
-    ORDER BY Make ASC 
-    LIMIT $limit OFFSET $offset
-");
-
-// Count total
+$inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC LIMIT $limit OFFSET $offset");
 $total_res = $mysqli->query("SELECT COUNT(*) as total FROM inventory");
-$total_cars = $total_res->fetch_assoc()['total'];
-
+$total_cars = $total_res ? $total_res->fetch_assoc()['total'] : 0;
 $total_pages = ceil($total_cars / $limit);
-
 
 // LOGIN
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
