@@ -2,9 +2,6 @@
 session_start();
 require_once 'config_db.php';
 
-session_start();
-require_once 'config_db.php';
-
 // --- NEW FIX: AUTO-CREATE TABLES SO IT DOESN'T CRASH ---
 // 1. Create Users Table
 $mysqli->query("CREATE TABLE IF NOT EXISTS users (
@@ -204,16 +201,22 @@ if (isset($_GET['run_setup']) && isset($_SESSION['username'])) {
             insert into inventory (VIN, YEAR, Make, Model, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, MILEAGE, TRANSMISSION) values ('SAJWA0F79F8176309', 1996, 'Suzuki', 'Swift', 'bibendum imperdiet', 'Red', 'Violet', 523201.89, 28874, 'Manual');
             insert into inventory (VIN, YEAR, Make, Model, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, MILEAGE, TRANSMISSION) values ('1GD21ZCG5BZ826940', 1991, 'Volkswagen', 'Cabriolet', 'adipiscing lorem', 'Aquamarine', 'Puce', 499178.52, 76445, 'Manual'); ";
 
-             if ($mysqli->multi_query($sql)) {
-        // Clear the 100+ result sets so the connection stays open
+            if ($mysqli->multi_query($sql)) {
+        // Clear the 100+ result sets
         while ($mysqli->next_result()) { ; } 
-        echo "<h3>✅ Setup Complete!</h3>";
+        
+        // Show the success messages
+        echo "<h3>✅ Well, you asked for it... Setup Complete!</h3>";
+        echo "<p>Reloading the page to get back to the standard view in 3 seconds...</p>";
+        
+        // The "Automatic Reload" the instructions want:
+        header("Refresh: 3; url=index.php?msg=System+Reset+Successful");
+        exit(); 
     } else {
-        echo "<h3>❌ Error: " . $mysqli->error . "</h3>";
+        echo "<h3>❌ Error during repopulation: " . $mysqli->error . "</h3>";
+        echo "<a href='index.php'>Return to Home</a>";
+        exit();
     }
-
-    echo "<a href='index.php'>Return to Home</a>";
-    exit(); 
 }
 
 $message = "";
