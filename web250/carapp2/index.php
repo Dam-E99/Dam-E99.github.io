@@ -254,7 +254,6 @@ if (isset($_GET['edit']) && isset($_SESSION['username'])) {
 
 
 if (isset($_GET['msg'])) $message = $_GET['msg'];
-$inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC LIMIT 20");
 ?>
 
 <!DOCTYPE html>
