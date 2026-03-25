@@ -202,20 +202,20 @@ if (isset($_GET['run_setup']) && isset($_SESSION['username'])) {
             insert into inventory (VIN, YEAR, Make, Model, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, MILEAGE, TRANSMISSION) values ('1GD21ZCG5BZ826940', 1991, 'Volkswagen', 'Cabriolet', 'adipiscing lorem', 'Aquamarine', 'Puce', 499178.52, 76445, 'Manual'); ";
 
 // Back to Standard View
-           if ($mysqli->multi_query($sql)) {
+              if ($mysqli->multi_query($sql)) {
         // Clear the 100+ result sets
         while ($mysqli->next_result()) { ; } 
         
         echo "<h3>✅ Setup Complete!</h3>";
         echo "<p>Well, you asked for it... The database has been wiped and repopulated.</p>";
-        echo " Back to Return to Standard View";
-        echo "</a>";
-        echo "</div>";
         
-        exit(); 
+        // The simple link to "Reload" back to the car list
+        echo "<br><a href='index.php'>Back to Standard View</a>";
+        
+        exit();
     } else {
-        echo "<h3>❌ Error during repopulation: " . $mysqli->error . "</h3>";
-        echo "<a href='index.php'>Return to Home</a>";
+        echo "<h3>❌ Error: " . $mysqli->error . "</h3>";
+        echo "<a href='index.php'>Back to Home</a>";
         exit();
     }
 }
