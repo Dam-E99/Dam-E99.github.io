@@ -248,9 +248,11 @@ exit();
 if (isset($_GET['delete']) && isset($_SESSION['username'])) {
     $vin = $mysqli->real_escape_string($_GET['delete']);
     $mysqli->query("DELETE FROM inventory WHERE VIN='$vin'");
+    // Redirect back to the current page number
     header("Location: index.php?p=$page&msg=Deleted");
     exit();
 }
+
 
 
 // 2. EDIT MODE (Fetch data for pre-population)
@@ -369,8 +371,8 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
                         <td><?php echo $row['TRANSMISSION']; ?></td>
                         <td>
 <?php if (isset($_SESSION['username'])): ?>
-    <a href="?edit=<?php echo $row['VIN']; ?>" class="btn-edit">Edit</a>
-    <a href="?delete=<?php echo $row['VIN']; ?>" class="btn-del" onclick="return confirm('Delete this vehicle?')">Delete ❌</a>
+    <a href="?p=<?php echo $page; ?>&edit=<?php echo $row['VIN']; ?>" class="btn-edit">Edit</a>
+    <a href="?p=<?php echo $page; ?>&delete=<?php echo $row['VIN']; ?>" ... >Delete</a>
 <?php else: ?>
     <span style="color:gray;">Login to edit</span>
 <?php endif; ?>
