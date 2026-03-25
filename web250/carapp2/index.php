@@ -1,4 +1,7 @@
 <?php
+session_start();
+require_once 'config_db.php';
+
 // --- Pagination Calculation ---
 $limit = 20; 
 $page = isset($_GET['p']) ? (int)$_GET['p'] : 1;
@@ -12,9 +15,6 @@ $total_res = $mysqli->query("SELECT COUNT(*) as total FROM inventory");
 $total_cars = $total_res->fetch_assoc()['total'];
 $total_pages = ceil($total_cars / $limit);
 
-
-session_start();
-require_once 'config_db.php';
 
 // LOGIN
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
