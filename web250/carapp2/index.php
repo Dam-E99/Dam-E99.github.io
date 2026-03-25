@@ -372,7 +372,11 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
                         <td>
 <?php if (isset($_SESSION['username'])): ?>
     <a href="?p=<?php echo $page; ?>&edit=<?php echo $row['VIN']; ?>" class="btn-edit">Edit</a>
-    <a href="?p=<?php echo $page; ?>&delete=<?php echo $row['VIN']; ?>" ... >Delete</a>
+    <a href="?p=<?php echo $page; ?>&delete=<?php echo $row['VIN']; ?>" 
+        class="btn-delete"
+        onclick="return confirm('Are you sure you want to delete this car?');">
+        Delete
+        </a>
 <?php else: ?>
     <span style="color:gray;">Login to edit</span>
 <?php endif; ?>
