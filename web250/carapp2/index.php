@@ -166,10 +166,14 @@ if (isset($_GET['run_setup']) && isset($_SESSION['username'])) {
                         insert into inventory (VIN, YEAR, Make, Model, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, MILEAGE, TRANSMISSION) values ('SAJWA0F79F8176309', 1996, 'Suzuki', 'Swift', 'bibendum imperdiet', 'Red', 'Violet', 523201.89, 28874, 'Manual');
                         insert into inventory (VIN, YEAR, Make, Model, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, MILEAGE, TRANSMISSION) values ('1GD21ZCG5BZ826940', 1991, 'Volkswagen', 'Cabriolet', 'adipiscing lorem', 'Aquamarine', 'Puce', 499178.52, 76445, 'Manual');";
 
+                        $mysqli->multi_query($sql);
+
     echo "<h3>✅ Setup Complete!</h3>";
     echo "<a href='index.php'>Return to Home</a>";
     exit(); 
 }
+
+
 
 $message = "";
 $edit_car = null;
@@ -320,12 +324,12 @@ $inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC LIMIT 20"
                         <th>Make</th>
                         <th>Model</th>
                         <th>Asking Price</th>
-                        <th>Actions</th>
                         <th>Year</th>
                         <th>Trim</th>
                         <th>Color</th>
                         <th>Mileage</th>
                         <th>Transmission</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
