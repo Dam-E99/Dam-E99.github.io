@@ -234,11 +234,12 @@ if ($_POST['is_update'] == "1") {
 }
 
 if ($mysqli->query($query)) {
-    header("Location: index.php?msg=Saved+successfully");
+    header("Location: index.php?p=$page&msg=Saved+successfully");
 } else {
-    header("Location: index.php?msg=Error+saving");
+    header("Location: index.php?p=$page&msg=Error+saving");
 }
 exit();
+
 
 }
 
@@ -247,9 +248,10 @@ exit();
 if (isset($_GET['delete']) && isset($_SESSION['username'])) {
     $vin = $mysqli->real_escape_string($_GET['delete']);
     $mysqli->query("DELETE FROM inventory WHERE VIN='$vin'");
-    header("Location: index.php?msg=Deleted");
+    header("Location: index.php?p=$page&msg=Deleted");
     exit();
 }
+
 
 // 2. EDIT MODE (Fetch data for pre-population)
 if (isset($_GET['edit']) && isset($_SESSION['username'])) {
