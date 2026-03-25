@@ -4,7 +4,7 @@ require_once 'config_db.php';
 
 // --- Pagination Calculation ---
 $limit = 20; 
-$page = isset($_GET['p']) ? (int)$_GET['p'] : 1;
+$page = isset($_GET['p']) && $_GET['p'] > 0 ? (int)$_GET['p'] : 1;
 $offset = ($page - 1) * $limit;
 
 // Fetch inventory for the Current Page
