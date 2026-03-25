@@ -2,17 +2,23 @@
 session_start();
 require_once 'config_db.php';
 
-// --- Pagination Calculation ---
-$limit = 20; 
+$limit = 20;
+
 $page = isset($_GET['p']) && $_GET['p'] > 0 ? (int)$_GET['p'] : 1;
+
 $offset = max(0, ($page - 1) * $limit);
 
-// Fetch inventory for the Current Page
-$inventory = $mysqli->query("SELECT * FROM inventory ORDER BY Make ASC LIMIT $limit OFFSET $offset");
+// Fetch inventory
+$inventory = $mysqli->query("
+    SELECT * FROM inventory 
+    ORDER BY Make ASC 
+    LIMIT $limit OFFSET $offset
+");
 
-// Get Total Count to Create Page Numbers
+// Count total
 $total_res = $mysqli->query("SELECT COUNT(*) as total FROM inventory");
 $total_cars = $total_res->fetch_assoc()['total'];
+
 $total_pages = ceil($total_cars / $limit);
 
 
