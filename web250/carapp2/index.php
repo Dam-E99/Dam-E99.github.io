@@ -2,7 +2,7 @@
 session_start();
 require_once 'config_db.php';
 
-// --- NEW FIX: AUTO-CREATE TABLES SO IT DOESN'T CRASH ---
+// --- AUTO-CREATE TABLES SO IT DOESN'T CRASH ---
 // 1. Create Users Table
 $mysqli->query("CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -27,7 +27,7 @@ $mysqli->query("CREATE TABLE IF NOT EXISTS inventory (
     ASKING_PRICE DECIMAL(10,2), MILEAGE INT, TRANSMISSION varchar(50)
 )");
 
-// --- Pagination Calculation (Now safe to run) ---
+// Pagination Calculation 
 $limit = 20;
 $page = isset($_GET['p']) && $_GET['p'] > 0 ? (int)$_GET['p'] : 1;
 $offset = max(0, ($page - 1) * $limit);
@@ -98,7 +98,7 @@ if (isset($_GET['run_setup']) && isset($_SESSION['username'])) {
 
     // Repopulate logic
     echo "<p>- Repopulating inventory with 100 cars...</p>";
-    // PASTE YOUR 100 MOCKAROO INSERTS HERE
+    // 100 Mockaroo Info
     $sql = "INSERT INTO inventory (VIN, Make, Model, ASKING_PRICE) VALUES ('TEST1', 'Toyota', 'Camry', 20000);
             insert into inventory (VIN, YEAR, Make, Model, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, MILEAGE, TRANSMISSION) values ('WA1LFBFP3DA287453', 1997, 'Cadillac', 'Catera', 'ac', 'Teal', 'Teal', 495702.44, 62607, 'Manual');
             insert into inventory (VIN, YEAR, Make, Model, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, MILEAGE, TRANSMISSION) values ('JTDJTUD34ED823909', 1997, 'Land Rover', 'Defender', 'sed magna', 'Violet', 'Mauv', 926946.71, 122720, '6-Speed Automatic');
@@ -201,17 +201,14 @@ if (isset($_GET['run_setup']) && isset($_SESSION['username'])) {
             insert into inventory (VIN, YEAR, Make, Model, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, MILEAGE, TRANSMISSION) values ('SAJWA0F79F8176309', 1996, 'Suzuki', 'Swift', 'bibendum imperdiet', 'Red', 'Violet', 523201.89, 28874, 'Manual');
             insert into inventory (VIN, YEAR, Make, Model, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, MILEAGE, TRANSMISSION) values ('1GD21ZCG5BZ826940', 1991, 'Volkswagen', 'Cabriolet', 'adipiscing lorem', 'Aquamarine', 'Puce', 499178.52, 76445, 'Manual'); ";
 
+// Back to Standard View
            if ($mysqli->multi_query($sql)) {
         // Clear the 100+ result sets
         while ($mysqli->next_result()) { ; } 
         
         echo "<h3>✅ Setup Complete!</h3>";
         echo "<p>Well, you asked for it... The database has been wiped and repopulated.</p>";
-        
-        // This is the manual "Reload" link
-        echo "<div style='margin-top:20px; padding:15px; background:#e0ffe0; border:1px solid green; display:inline-block;'>";
-        echo "<a href='index.php?msg=Reset+Successful' style='font-weight:bold; font-size:1.2em; text-decoration:none; color:green;'>";
-        echo "⬅️ CLICK HERE TO RELOAD AND RETURN TO STANDARD VIEW";
+        echo " Back to Return to Standard View";
         echo "</a>";
         echo "</div>";
         
