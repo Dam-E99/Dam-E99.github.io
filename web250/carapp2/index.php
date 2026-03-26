@@ -388,7 +388,7 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
                     <tr>
                         <td><strong><?php echo htmlspecialchars($row['Make']); ?></strong></td>
                         <td><?php echo htmlspecialchars($row['Model']); ?></td>
-                        <td>$<?php echo number_format($row['ASKING_PRICE'], 0); ?></td>
+                        <td>$<?php echo number_format((int)$row['ASKING_PRICE'], 0); ?></td>
                         <td><?php echo $row['YEAR']; ?></td>
                         <td><?php echo $row['TRIM']; ?></td>
                         <td><?php echo $row['EXT_COLOR']; ?></td>

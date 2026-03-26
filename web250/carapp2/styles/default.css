@@ -92,6 +92,17 @@ footer {
     background: #2980b9; 
 }
 
+.cancel-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.cancel-link:hover {
+    text-decoration: underline;
+    color: #e74c3c;
+}
+
 /* Table Styling - Repetition & Contrast */
 table { 
     width: 100%; 
