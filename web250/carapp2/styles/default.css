@@ -41,13 +41,13 @@ footer {
 /* Form Styling - Alignment & Proximity */
 .form-section { 
     background: #e9ecef; 
-    padding: 12px 20px; /* Reduced top/bottom padding */
+    padding: 12px 20px;
     border-radius: 8px; 
-    margin-bottom: 15px; /* Reduced from 30px */
+    margin-bottom: 15px; 
 }
 
 .form-section h2 {
-    margin-top: 0; /* Removes gap at the top of the grey box */
+    margin-top: 0;
     margin-bottom: 10px;
     font-size: 1.2em;
 }
@@ -64,14 +64,24 @@ footer {
     gap: 15px; 
 }
 
+.car-form input { 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
 .full-width { 
     grid-column: span 3; 
 }
 
 .btn-submit { 
-    grid-column: span 1;
-    padding: 10px 20px;
-    justify-self: end;
+    background: #27ae60; 
+    color: white; 
+    border: none; 
+    padding: 12px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    border-radius: 4px; 
 }
 
 .btn-submit:hover { 
