@@ -145,6 +145,12 @@ td {
     border-bottom: 1px solid #eee; 
 }
 
+td[title] {
+    border-bottom: 1px dotted #ccc; 
+    cursor: help; 
+}
+
+
 tr:nth-child(even) { 
     background-color: #f9f9f9; 
 }
