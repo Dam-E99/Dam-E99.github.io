@@ -1,3 +1,4 @@
+/* --- Global Styles --- */
 body { 
     font-family: 'Trebuchet MS', sans-serif; 
     background-color: #f4f7f6; 
@@ -15,17 +16,19 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
 }
 
+/* --- Instructor Fix: Centering & Whitespace --- */
 header { 
-    display: flex;
+    display: flex; /* Aligns Dodo and Text horizontally */
     align-items: center; 
     justify-content: center; 
     border-bottom: 5px solid #2c3e50; 
-    padding: 5px 0; 
-    margin-bottom: 10px;
+    padding: 10px 0; /* Tightened up */
+    margin-bottom: 15px; 
+    gap: 15px;
 }
 
-h1 {
-    margin: 0;
+header h1 {
+    margin: 0; /* Removes the whitespace above/below the title */
 }
 
 footer { 
@@ -37,24 +40,24 @@ footer {
     border-top: 1px solid #ddd; 
 }
 
-/* Form Styling */
+/* --- Instructor Fix: Form Tightening & Proximity --- */
 .form-section { 
     background: #e9ecef; 
-    padding: 12px 20px;
+    padding: 15px 20px; /* Reduced from 20px */
     border-radius: 8px; 
-    margin-bottom: 15px; 
+    margin-bottom: 20px; /* Reduced from 30px */
 }
 
 .form-section h2 {
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.2em;
+    margin-bottom: 12px;
+    font-size: 1.25em;
 }
 
 .car-form { 
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr; 
-    gap: 15px; 
+    gap: 12px; 
 }
 
 .car-form input { 
@@ -64,15 +67,29 @@ footer {
     font-size: 0.9em;
 }
 
-/* ✅ YOUR GREEN BUTTONS ARE BACK */
+.full-width { 
+    grid-column: span 3; 
+}
+
+/* --- Buttons: Green Style & Proximity Fix --- */
+.form-actions {
+    grid-column: span 3;
+    display: flex;
+    justify-content: flex-end; /* Pushes buttons to the right */
+    align-items: center;
+    gap: 12px;
+    margin-top: 5px;
+}
+
 .btn-submit { 
-    background: #27ae60; 
+    background: #27ae60; /* Your original green */
     color: white; 
     border: none; 
     padding: 12px 25px; 
     font-weight: bold; 
     cursor: pointer; 
     border-radius: 4px; 
+    transition: background 0.3s;
 }
 
 .btn-submit:hover { 
@@ -80,31 +97,25 @@ footer {
 }
 
 .btn-update { 
-    background: #2980b9; 
+    background: #2980b9; /* Blue for edit mode */
 }
 
-/* ✅ NEW ALIGNMENT FOR INSTRUCTOR FEEDBACK */
-.form-actions {
-    grid-column: span 3;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.cancel-link {
-    color: #666;
+/* Styled to match your buttons but in grey */
+.btn-cancel {
+    background: #95a5a6;
+    color: white;
     text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 4px;
     font-size: 0.9em;
 }
 
-.cancel-link:hover {
-    text-decoration: underline;
-    color: #e74c3c;
+.btn-cancel:hover {
+    background: #7f8c8d;
 }
 
-/* Table Styling */
+/* --- Table Styling --- */
 table { 
     width: 100%; 
     border-collapse: collapse; 
@@ -140,6 +151,7 @@ tr:nth-child(even) {
     margin-left: 10px; 
 }
 
+/* --- Feedback Messages --- */
 .msg-success { 
     color: #155724; 
     background: #d4edda; 

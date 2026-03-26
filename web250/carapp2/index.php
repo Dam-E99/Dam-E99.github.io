@@ -355,15 +355,16 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
                     <input type="text" name="Transmission" placeholder="Transmission" value="<?php echo $edit_car['TRANSMISSION'] ?? ''; ?>">
 
                     
-                    <div class="form-actions">
+                   <div class="form-actions" style="grid-column: span 3; <?php echo $edit_car ? 'display: grid; grid-template-columns: 1fr 1fr;' : ''; ?> gap: 15px;">
                         <?php if ($edit_car): ?>
-                            <a href="index.php?p=<?php echo $page; ?>" class="cancel-link">Cancel Edit</a>
+                            <a href="index.php?p=<?php echo $page; ?>" class="btn-cancel">Cancel Edit</a>
                         <?php endif; ?>
                         
-                        <button type="submit" name="save_car" class="btn-submit <?php echo $edit_car ? 'btn-update' : ''; ?>">
+                        <button type="submit" name="save_car" class="btn-submit <?php echo $edit_car ? 'btn-update' : ''; ?>" style="<?php echo !$edit_car ? 'grid-column: span 3;' : ''; ?>">
                             <?php echo $edit_car ? "Update Inventory" : "Add to Inventory"; ?>
                         </button>
-                    </div>
+                        
+                </div>
                 </form>
             </section>
             <?php endif; ?>
