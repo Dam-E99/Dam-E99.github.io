@@ -28,7 +28,6 @@ h1 {
     margin: 0;
 }
 
-
 footer { 
     text-align: center; 
     font-size: 0.8em; 
@@ -38,7 +37,7 @@ footer {
     border-top: 1px solid #ddd; 
 }
 
-/* Form Styling - Alignment & Proximity */
+/* Form Styling */
 .form-section { 
     background: #e9ecef; 
     padding: 12px 20px;
@@ -52,12 +51,6 @@ footer {
     font-size: 1.2em;
 }
 
-/* Adjusting field heights for a "sleeker" look */
-.car-form input { 
-    padding: 8px; 
-    font-size: 0.9em;
-}
-
 .car-form { 
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr; 
@@ -68,17 +61,15 @@ footer {
     padding: 10px; 
     border: 1px solid #ccc; 
     border-radius: 4px; 
+    font-size: 0.9em;
 }
 
-.full-width { 
-    grid-column: span 3; 
-}
-
+/* ✅ YOUR GREEN BUTTONS ARE BACK */
 .btn-submit { 
     background: #27ae60; 
     color: white; 
     border: none; 
-    padding: 12px; 
+    padding: 12px 25px; 
     font-weight: bold; 
     cursor: pointer; 
     border-radius: 4px; 
@@ -92,6 +83,16 @@ footer {
     background: #2980b9; 
 }
 
+/* ✅ NEW ALIGNMENT FOR INSTRUCTOR FEEDBACK */
+.form-actions {
+    grid-column: span 3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
 .cancel-link {
     color: #666;
     text-decoration: none;
@@ -103,7 +104,7 @@ footer {
     color: #e74c3c;
 }
 
-/* Table Styling - Repetition & Contrast */
+/* Table Styling */
 table { 
     width: 100%; 
     border-collapse: collapse; 
@@ -139,8 +140,6 @@ tr:nth-child(even) {
     margin-left: 10px; 
 }
 
-
-/* Feedback Messages */
 .msg-success { 
     color: #155724; 
     background: #d4edda; 
