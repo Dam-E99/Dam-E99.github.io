@@ -392,7 +392,7 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
             <?php endif; ?>
 
         <!-- Search Section -->
-            <section class="search-section">
+            <div class="search-section">
                 <form action="index.php" method="get" style="display: flex; gap: 10px;">
                     <input type="text" name="search" placeholder="Search Make, Model, or Year..." 
                         value="<?php echo htmlspecialchars($search); ?>" 
@@ -402,7 +402,7 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
                         <a href="index.php" style="align-self: center; font-size: 0.9em; color: #e74c3c;">Clear</a>
                     <?php endif; ?>
                 </form>
-            </section>
+                    </div>
 
             <!-- VIEW SECTION -->
             <table>
