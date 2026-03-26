@@ -165,7 +165,6 @@ tr:nth-child(even) {
     color: #e74c3c; 
     text-decoration: none; 
     font-weight: bold; 
-    margin-left: 10px; 
 }
 
 /* --- Feedback Messages --- */
