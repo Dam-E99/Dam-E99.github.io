@@ -27,28 +27,33 @@ $mysqli->query("CREATE TABLE IF NOT EXISTS inventory (
     ASKING_PRICE DECIMAL(10,2), MILEAGE INT, TRANSMISSION varchar(50)
 )");
 
-// --- Search and Pagination Logic ---
+// --- Search, Sort, and Pagination Logic ---
 $limit = 20;
 $page = isset($_GET['p']) && $_GET['p'] > 0 ? (int)$_GET['p'] : 1;
 $offset = max(0, ($page - 1) * $limit);
 
-// Capture Search Term
+// Capture Search and Sort Terms
 $search = isset($_GET['search']) ? $mysqli->real_escape_string($_GET['search']) : '';
+$sort = isset($_GET['sort']) ? $mysqli->real_escape_string($_GET['sort']) : 'Make';
+$order = (isset($_GET['order']) && $_GET['order'] == 'DESC') ? 'DESC' : 'ASC';
 
 // Build the Filter Condition
 $where_clause = "";
 if ($search !== '') {
-    // Searches across Make, Model, and Year
-    $where_clause = " WHERE Make LIKE '%$search%' OR Model LIKE '%$search%' OR YEAR LIKE '%$search%'";
+    $where_clause = " WHERE Make LIKE '%$search%' OR Model LIKE '%$search%' OR YEAR LIKE '%$search%' OR VIN LIKE '%$search%'";
 }
 
-// Fetch filtered inventory
-$inventory = $mysqli->query("SELECT * FROM inventory $where_clause ORDER BY Make ASC LIMIT $limit OFFSET $offset");
+// Fetch filtered and sorted inventory
+// Note: We use the $sort and $order variables in the ORDER BY clause
+$inventory = $mysqli->query("SELECT * FROM inventory $where_clause ORDER BY $sort $order LIMIT $limit OFFSET $offset");
 
-// Get Total Count for filtered results
+// Get Total Count
 $total_res = $mysqli->query("SELECT COUNT(*) as total FROM inventory $where_clause");
 $total_cars = $total_res ? $total_res->fetch_assoc()['total'] : 0;
 $total_pages = ceil($total_cars / $limit);
+
+// Helper function to toggle ASC/DESC for links
+$next_order = ($order == 'ASC') ? 'DESC' : 'ASC';
 
 
 // LOGIN
