@@ -442,11 +442,12 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
                         <td>
 <?php if (isset($_SESSION['username'])): ?>
     <a href="?p=<?php echo $page; ?>&edit=<?php echo $row['VIN']; ?>" class="btn-edit">Edit</a>
-    <a href="?p=<?php echo $page; ?>&delete=<?php echo $row['VIN']; ?>" 
-        class="btn-delete"
-        onclick="return confirm('Are you sure you want to delete this car?');">
-        Delete
-        </a>
+    <a href="?delete=<?php echo $row['VIN']; ?>" 
+        class="btn-del" 
+        onclick="return confirm('🛑 STOP! You are about to PERMANENTLY DELETE this vehicle (VIN: <?php echo $row['VIN']; ?>). This action is IRREVERSIBLE. Are you absolutely certain you want to proceed?')">
+        Delete ❌
+    </a>
+
 <?php else: ?>
     <span style="color:gray;">Login to edit</span>
 <?php endif; ?>
