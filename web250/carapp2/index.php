@@ -392,7 +392,7 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
             <?php endif; ?>
 
         <!-- Search Section -->
-            <section class="search-section" style="margin-bottom: 15px; display: flex; justify-content: flex-end;">
+            <section class="search-section">
                 <form action="index.php" method="get" style="display: flex; gap: 10px;">
                     <input type="text" name="search" placeholder="Search Make, Model, or Year..." 
                         value="<?php echo htmlspecialchars($search); ?>" 
