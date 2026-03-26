@@ -445,7 +445,7 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
     <a href="?delete=<?php echo $row['VIN']; ?>" 
         class="btn-del" 
         onclick="return confirm('🛑 STOP! You are about to PERMANENTLY DELETE this vehicle (VIN: <?php echo $row['VIN']; ?>). This action is IRREVERSIBLE. Are you absolutely certain you want to proceed?')">
-        Delete ❌
+        Delete
     </a>
 
 <?php else: ?>
