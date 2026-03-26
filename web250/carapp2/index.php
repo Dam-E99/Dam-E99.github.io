@@ -431,7 +431,7 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
                 <tbody>
                     <?php while ($row = $inventory->fetch_assoc()): ?>
                     <tr>
-                        <td><strong><?php echo htmlspecialchars($row['Make']); ?></strong></td>
+                        <td title="VIN: <?php echo htmlspecialchars($row['VIN']); ?>" style="cursor: help;"><strong><?php echo htmlspecialchars($row['Make']); ?></strong></td>
                         <td><?php echo htmlspecialchars($row['Model']); ?></td>
                         <td>$<?php echo number_format((int)$row['ASKING_PRICE'], 0); ?></td>
                         <td><?php echo $row['YEAR']; ?></td>
