@@ -407,18 +407,27 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
             <!-- VIEW SECTION -->
             <table>
                 <thead>
-                    <tr>
-                        <th>Make</th>
-                        <th>Model</th>
-                        <th>Asking Price</th>
-                        <th>Year</th>
-                        <th>Trim</th>
-                        <th>Color</th>
-                        <th>Mileage</th>
-                        <th>Transmission</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
+    <tr>
+        <?php 
+        // Helper function to create the header links easily
+        function sortLink($col, $label, $sort, $next_order, $search, $arrow) {
+            $active_arrow = ($sort == $col) ? $arrow : '';
+            return "<th><a href='?sort=$col&order=$next_order&search=".urlencode($search)."' style='color:white; text-decoration:none; display:block;'>$label$active_arrow</a></th>";
+        }
+
+        echo sortLink('Make', 'Make', $sort, $next_order, $search, $arrow);
+        echo sortLink('Model', 'Model', $sort, $next_order, $search, $arrow);
+        echo sortLink('ASKING_PRICE', 'Asking Price', $sort, $next_order, $search, $arrow);
+        echo sortLink('YEAR', 'Year', $sort, $next_order, $search, $arrow);
+        echo sortLink('TRIM', 'Trim', $sort, $next_order, $search, $arrow);
+        echo sortLink('EXT_COLOR', 'Color', $sort, $next_order, $search, $arrow);
+        echo sortLink('MILEAGE', 'Mileage', $sort, $next_order, $search, $arrow);
+        echo sortLink('TRANSMISSION', 'Transmission', $sort, $next_order, $search, $arrow);
+        ?>
+        <th style="color:white;">Actions</th>
+    </tr>
+</thead>
+
                 <tbody>
                     <?php while ($row = $inventory->fetch_assoc()): ?>
                     <tr>
