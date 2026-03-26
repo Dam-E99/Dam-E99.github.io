@@ -367,8 +367,8 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
                     <input type="text" name="VIN" placeholder="VIN Number" value="<?php echo $edit_car['VIN'] ?? ''; ?>" <?php echo $edit_car ? 'readonly' : 'required'; ?>>
                     <input type="text" name="Make" placeholder="Make (e.g., Ford)" value="<?php echo $edit_car['Make'] ?? ''; ?>" required>
                     <input type="text" name="Model" placeholder="Model (e.g., Mustang)" value="<?php echo $edit_car['Model'] ?? ''; ?>" required>
-                    <input type="number" name="Asking_Price" placeholder="Asking Price" step="1" value="<?php echo (int)($edit_car['ASKING_PRICE'] ?? ''); ?>" required>
-                <!-- New From Info -->
+                    <input type="number" name="Asking_Price" placeholder="Asking Price" step="1" value="<?php echo isset($edit_car['ASKING_PRICE']) ? (int)$edit_car['ASKING_PRICE'] : ''; ?>" required> 
+        <!-- New From Info -->
                     <input type="number" name="Year" placeholder="Year" value="<?php echo $edit_car['YEAR'] ?? ''; ?>" required>
                     <input type="text" name="Trim" placeholder="Trim" value="<?php echo $edit_car['TRIM'] ?? ''; ?>">
                     <input type="text" name="Color" placeholder="Exterior Color" value="<?php echo $edit_car['EXT_COLOR'] ?? ''; ?>">
