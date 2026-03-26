@@ -405,13 +405,15 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
             <table>
                 <thead>
                     <tr>
-                    <th><a href="?sort=VIN&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">VIN <?php echo ($sort == 'VIN') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
-                    <th><a href="?sort=Make&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">Make/Model <?php echo ($sort == 'Make') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
-                    <th><a href="?sort=ASKING_PRICE&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">Price <?php echo ($sort == 'ASKING_PRICE') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
-                    <th><a href="?sort=YEAR&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">Year <?php echo ($sort == 'YEAR') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
-                    <th><a href="?sort=EXT_COLOR&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">Color <?php echo ($sort == 'EXT_COLOR') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
-                    <th><a href="?sort=MILEAGE&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">Mileage <?php echo ($sort == 'MILEAGE') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
-                    <th style="color:white;">Actions</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Asking Price</th>
+                        <th>Year</th>
+                        <th>Trim</th>
+                        <th>Color</th>
+                        <th>Mileage</th>
+                        <th>Transmission</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -442,17 +444,15 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
                 </tbody>
             </table>
 
-        <div class="pagination">
+        <div class="pagination" style="margin: 20px 0; text-align: center;">
             <strong>Pages: </strong>
             <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                <a href="?p=<?php echo $i; ?>&search=<?php echo urlencode($search); ?>&sort=<?php echo $sort; ?>&order=<?php echo $order; ?>" 
-                class="page-link" 
-                <?php if($page == $i) echo 'style="background: #333; color: white;"'; ?>>
-                <?php echo $i; ?>
-                </a>
+            <a href="?p=<?php echo $i; ?>" 
+            style="padding: 5px 10px; margin: 0 2px; border: 1px solid #ccc; text-decoration: none; <?php echo ($page == $i) ? 'background: #ddd; font-weight: bold;' : ''; ?>">
+            <?php echo $i; ?>
+            </a>
             <?php endfor; ?>
         </div>
-
 
         </main>
 
