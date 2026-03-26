@@ -442,15 +442,17 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
                 </tbody>
             </table>
 
-        <div class="pagination" style="margin: 20px 0; text-align: center;">
+        <div class="pagination">
             <strong>Pages: </strong>
             <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-            <a href="?p=<?php echo $i; ?>" 
-            style="padding: 5px 10px; margin: 0 2px; border: 1px solid #ccc; text-decoration: none; <?php echo ($page == $i) ? 'background: #ddd; font-weight: bold;' : ''; ?>">
-            <?php echo $i; ?>
-            </a>
+                <a href="?p=<?php echo $i; ?>&search=<?php echo urlencode($search); ?>&sort=<?php echo $sort; ?>&order=<?php echo $order; ?>" 
+                class="page-link" 
+                <?php if($page == $i) echo 'style="background: #333; color: white;"'; ?>>
+                <?php echo $i; ?>
+                </a>
             <?php endfor; ?>
         </div>
+
 
         </main>
 
