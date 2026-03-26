@@ -391,6 +391,7 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
                         <td><?php echo $row['EXT_COLOR']; ?></td>
                         <td><?php echo $row['MILEAGE']; ?></td>
                         <td><?php echo $row['TRANSMISSION']; ?></td>
+                        <td title="VIN: <?php echo htmlspecialchars($row['VIN']); ?>"><strong><?php echo htmlspecialchars($row['Make']); ?></strong></td>
                         <td>
 <?php if (isset($_SESSION['username'])): ?>
     <a href="?p=<?php echo $page; ?>&edit=<?php echo $row['VIN']; ?>" class="btn-edit">Edit</a>
