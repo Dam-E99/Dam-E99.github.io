@@ -34,26 +34,29 @@ $offset = max(0, ($page - 1) * $limit);
 
 // Capture Search and Sort Terms
 $search = isset($_GET['search']) ? $mysqli->real_escape_string($_GET['search']) : '';
-$sort = isset($_GET['sort']) ? $mysqli->real_escape_string($_GET['sort']) : 'Make';
+
+// Handle Sorting - Default to 'Make' if nothing is clicked
+$sort_options = ['Make', 'Model', 'ASKING_PRICE', 'YEAR', 'TRIM', 'EXT_COLOR', 'MILEAGE', 'TRANSMISSION'];
+$sort = (isset($_GET['sort']) && in_array($_GET['sort'], $sort_options)) ? $_GET['sort'] : 'Make';
 $order = (isset($_GET['order']) && $_GET['order'] == 'DESC') ? 'DESC' : 'ASC';
 
-// Build the Filter Condition
+// Build Filter (Includes more fields for better searching)
 $where_clause = "";
 if ($search !== '') {
     $where_clause = " WHERE Make LIKE '%$search%' OR Model LIKE '%$search%' OR YEAR LIKE '%$search%' OR VIN LIKE '%$search%'";
 }
 
-// Fetch filtered and sorted inventory
-// Note: We use the $sort and $order variables in the ORDER BY clause
+// Fetch Data
 $inventory = $mysqli->query("SELECT * FROM inventory $where_clause ORDER BY $sort $order LIMIT $limit OFFSET $offset");
 
-// Get Total Count
+// Totals
 $total_res = $mysqli->query("SELECT COUNT(*) as total FROM inventory $where_clause");
 $total_cars = $total_res ? $total_res->fetch_assoc()['total'] : 0;
 $total_pages = ceil($total_cars / $limit);
 
-// Helper function to toggle ASC/DESC for links
+// Toggle for next click
 $next_order = ($order == 'ASC') ? 'DESC' : 'ASC';
+$arrow = ($order == 'ASC') ? ' ▲' : ' ▼';
 
 
 // LOGIN
