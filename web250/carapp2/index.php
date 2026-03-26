@@ -383,6 +383,19 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
             </section>
             <?php endif; ?>
 
+        <!-- Search Section -->
+            <section class="search-section" style="margin-bottom: 15px; display: flex; justify-content: flex-end;">
+                <form action="index.php" method="get" style="display: flex; gap: 10px;">
+                    <input type="text" name="search" placeholder="Search Make, Model, or Year..." 
+                        value="<?php echo htmlspecialchars($search); ?>" 
+                        style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; width: 250px;">
+                    <button type="submit" class="btn-submit" style="padding: 8px 15px;">🔍 Search</button>
+                    <?php if ($search !== ''): ?>
+                        <a href="index.php" style="align-self: center; font-size: 0.9em; color: #e74c3c;">Clear</a>
+                    <?php endif; ?>
+                </form>
+            </section>
+
             <!-- VIEW SECTION -->
             <table>
                 <thead>
