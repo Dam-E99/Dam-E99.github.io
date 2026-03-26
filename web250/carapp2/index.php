@@ -405,15 +405,13 @@ if (isset($_GET['msg'])) $message = $_GET['msg'];
             <table>
                 <thead>
                     <tr>
-                        <th>Make</th>
-                        <th>Model</th>
-                        <th>Asking Price</th>
-                        <th>Year</th>
-                        <th>Trim</th>
-                        <th>Color</th>
-                        <th>Mileage</th>
-                        <th>Transmission</th>
-                        <th>Actions</th>
+                    <th><a href="?sort=VIN&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">VIN <?php echo ($sort == 'VIN') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
+                    <th><a href="?sort=Make&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">Make/Model <?php echo ($sort == 'Make') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
+                    <th><a href="?sort=ASKING_PRICE&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">Price <?php echo ($sort == 'ASKING_PRICE') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
+                    <th><a href="?sort=YEAR&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">Year <?php echo ($sort == 'YEAR') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
+                    <th><a href="?sort=EXT_COLOR&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">Color <?php echo ($sort == 'EXT_COLOR') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
+                    <th><a href="?sort=MILEAGE&order=<?php echo $next_order; ?>&search=<?php echo urlencode($search); ?>" style="color:white; text-decoration:none;">Mileage <?php echo ($sort == 'MILEAGE') ? ($order == 'ASC' ? '▲' : '▼') : ''; ?></a></th>
+                    <th style="color:white;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
