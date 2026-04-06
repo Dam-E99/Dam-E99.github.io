@@ -29,5 +29,4 @@ dist-ssr
 *.sln
 *.sw?
 
-# THIS IS IMPORTANT
 .env
