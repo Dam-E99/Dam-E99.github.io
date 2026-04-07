@@ -147,3 +147,59 @@ ol {
 ol li {
     margin-bottom: 8px;
 }
+
+/* FizzBuzz Styles */
+
+/* Form layout */
+form {
+    display: grid;
+    gap: 10px;
+    max-width: 850px;
+    margin: 0 auto 20px auto;
+}
+
+/* Compact rows */
+.row {
+    display: flex;
+    gap: 8px;
+}
+
+/* Inputs styled to match your theme */
+input {
+    padding: 8px;
+    background-color: #111827;
+    border: 1px solid #22d3ee;
+    color: #e5e7eb;
+    border-radius: 5px;
+}
+
+/* Button */
+button {
+    background-color: #22d3ee;
+    color: #020617;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #38bdf8;
+}
+
+/* Output list */
+#output {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 0;
+    list-style: none;
+}
+
+/* List items */
+#output li {
+    background: #111827;
+    margin: 5px 0;
+    padding: 8px;
+    border-left: 4px solid #22d3ee;
+}

@@ -1,7 +1,6 @@
 document.getElementById("fizzForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    // Get name values
     let first = document.getElementById("first").value.trim();
     let middle = document.getElementById("middle").value.trim();
     let last = document.getElementById("last").value.trim();
@@ -12,16 +11,16 @@ document.getElementById("fizzForm").addEventListener("submit", function(e) {
         return;
     }
 
-    // Build full name
+    // Format name
     let fullName = first;
     if (middle) {
         fullName += " " + middle.toUpperCase() + ".";
     }
     fullName += " " + last;
 
-    document.getElementById("welcome").textContent = "Welcome, " + fullName + "!";
+    document.getElementById("welcome").textContent =
+        "Welcome, " + fullName + "!";
 
-    // Get fizzbuzz values
     let defaultWord = document.getElementById("defaultWord").value;
     let count = parseInt(document.getElementById("count").value);
 
