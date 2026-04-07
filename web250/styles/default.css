@@ -158,19 +158,19 @@ form {
     margin: 0 auto 20px auto;
 }
 
-/* Ensure rows stay horizontal even on smaller screens */
+/* Compact rows */
 .row {
     display: flex;
     gap: 8px;
-    flex-wrap: nowrap; 
-    margin-bottom: 8px;
 }
 
-/* Style the inputs to be slightly smaller to fit the 3-row constraint */
+/* Inputs styled to match your theme */
 input {
-    min-width: 0; /* Prevents flex items from overflowing */
-    padding: 6px;
-    font-size: 0.9em;
+    padding: 8px;
+    background-color: #111827;
+    border: 1px solid #22d3ee;
+    color: #e5e7eb;
+    border-radius: 5px;
 }
 
 /* Button */
@@ -188,19 +188,37 @@ button:hover {
     background-color: #38bdf8;
 }
 
-/* Make the output list more compact using a grid */
+/* Output list */
 #output {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    max-width: 100%;
-    margin-top: 20px;
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 0;
+    list-style: none;
 }
 
 /* List items */
 #output li {
-    font-size: 0.85em;
-    padding: 5px 10px;
-    border-left: 3px solid #22d3ee;
     background: #111827;
+    margin: 5px 0;
+    padding: 8px;
+    border-left: 4px solid #22d3ee;
+}
+
+/* Field container */
+.field {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 120px;
+}
+
+/* Labels */
+label {
+    font-size: 0.75em;
+    color: #94a3b8;
+    margin-bottom: 2px;
+}
+
+/* Inputs inside grouped fields */
+.field input {
+    margin-bottom: 3px;
 }
