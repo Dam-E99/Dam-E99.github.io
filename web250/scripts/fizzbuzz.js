@@ -1,51 +1,39 @@
 document.getElementById("fizzForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    let first = document.getElementById("first").value.trim();
-    let middle = document.getElementById("middle").value.trim();
-    let last = document.getElementById("last").value.trim();
+    // Get Name Values
+    const first = document.getElementById("first").value.trim();
+    const middle = document.getElementById("middle").value.trim();
+    const last = document.getElementById("last").value.trim();
 
-    // Validate middle initial
-    if (middle && middle.length !== 1) {
-        alert("Middle initial must be one letter.");
-        return;
-    }
+    // Proper Name Punctuation Logic
+    const middleDisplay = middle ? ` ${middle.toUpperCase()}. ` : " ";
+    document.getElementById("welcome").textContent = `Welcome, ${first}${middleDisplay}${last}!`;
 
-    // Format name
-    let fullName = first;
-    if (middle) {
-        fullName += " " + middle.toUpperCase() + ".";
-    }
-    fullName += " " + last;
+    // Get Config Values
+    const defaultWord = document.getElementById("defaultWord").value;
+    const count = parseInt(document.getElementById("count").value);
+    
+    // Put divisors/words in an array for cleaner looping
+    const rules = [
+        { word: document.getElementById("word1").value, div: parseInt(document.getElementById("div1").value) },
+        { word: document.getElementById("word2").value, div: parseInt(document.getElementById("div2").value) },
+        { word: document.getElementById("word3").value, div: parseInt(document.getElementById("div3").value) }
+    ];
 
-    document.getElementById("welcome").textContent =
-        "Welcome, " + fullName + "!";
-
-    let defaultWord = document.getElementById("defaultWord").value;
-    let count = parseInt(document.getElementById("count").value);
-
-    let word1 = document.getElementById("word1").value;
-    let word2 = document.getElementById("word2").value;
-    let word3 = document.getElementById("word3").value;
-
-    let div1 = parseInt(document.getElementById("div1").value);
-    let div2 = parseInt(document.getElementById("div2").value);
-    let div3 = parseInt(document.getElementById("div3").value);
-
-    let output = document.getElementById("output");
-    output.innerHTML = "";
-
+    let listItems = "";
     for (let i = 1; i <= count; i++) {
         let result = "";
+        
+        // Loop through rules dynamically
+        rules.forEach(rule => {
+            if (i % rule.div === 0) result += rule.word;
+        });
 
-        if (i % div1 === 0) result += word1;
-        if (i % div2 === 0) result += word2;
-        if (i % div3 === 0) result += word3;
-
-        if (result === "") result = defaultWord;
-
-        let li = document.createElement("li");
-        li.textContent = i + ": " + result;
-        output.appendChild(li);
+        // If no divisors hit, use the number and the default word
+        const finalOutput = result || `${i} (${defaultWord})`;
+        listItems += `<li>${i}: ${finalOutput}</li>`;
     }
+
+    document.getElementById("output").innerHTML = listItems;
 });

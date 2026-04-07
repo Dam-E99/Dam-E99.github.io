@@ -13,39 +13,36 @@
 
 <main>
     <h2>FizzBuzz!</h2>
-
     <form id="fizzForm">
-
-        <!-- Row 1 -->
+        <!-- Row 1: Names -->
         <div class="row">
-            <input type="text" id="first" placeholder="First Name" required value="Danny">
-            <input type="text" id="middle" placeholder="M.I." maxlength="1">
-            <input type="text" id="last" placeholder="Last Name" required value="Soto">
+            <input type="text" id="first" placeholder="First Name" required value="Danny" style="flex: 3;">
+            <input type="text" id="middle" placeholder="M.I." maxlength="1" style="flex: 1;">
+            <input type="text" id="last" placeholder="Last Name" required value="Soto" style="flex: 3;">
         </div>
 
-        <!-- Row 2 -->
+        <!-- Row 2: Defaults -->
         <div class="row">
-            <input type="text" id="defaultWord" placeholder="Default Word" value="Dodo">
-            <input type="number" id="count" value="111">
+            <input type="text" id="defaultWord" placeholder="Default Word" value="Dodo" style="flex: 2;">
+            <input type="number" id="count" value="111" style="flex: 1;">
         </div>
 
-        <!-- Row 3 -->
+        <!-- Row 3: Multipliers -->
         <div class="row">
-            <input type="text" id="word1" value="Fizz">
-            <input type="number" id="div1" value="3">
-
-            <input type="text" id="word2" value="Buzz">
-            <input type="number" id="div2" value="5">
-
-            <input type="text" id="word3" value="Bang">
-            <input type="number" id="div3" value="7">
+            <input type="text" id="word1" value="Fizz" style="flex: 2;">
+            <input type="number" id="div1" value="3" style="flex: 1;">
+            
+            <input type="text" id="word2" value="Buzz" style="flex: 2;">
+            <input type="number" id="div2" value="5" style="flex: 1;">
+            
+            <input type="text" id="word3" value="Bang" style="flex: 2;">
+            <input type="number" id="div3" value="7" style="flex: 1;">
         </div>
 
         <button type="submit">Generate</button>
     </form>
 
     <h3 id="welcome" class="text-center"></h3>
-
     <ul id="output"></ul>
 </main>
 
