@@ -8,31 +8,39 @@
     <title>Danny Soto Duarte's Dazzling Dodo 🐾 WEB250 FizzBuzz</title>
 </head>
 <body>
-    <div data-include="components/header.html"></div>
-    <main>
-        <h2>FizzBuzz</h2>
-        <h3 id="greeting">Welcome!</h3>
-        <form id="formOne">
-            <fieldset>
-            <label for="first_name">First Name: </label>
-            <input type="text" id="first_name" placeholder="Enter your first name" required>
 
-            <label for="middle_initial">Middle Initial: </label>
-            <input type="text" id="middle_initial" placeholder="M" maxlength="1">
+<h1>🦤 Dazzling Dodo FizzBuzz!</h1>
 
-            <label for="last_name">Last Name: </label>
-            <input type="text" id="last_name" placeholder="Enter your last name" required>
+<form id="fizzForm">
 
-            </fieldset>
+    <!-- Row 1: Name -->
+    <div class="row">
+        <input type="text" id="first" placeholder="First Name" required value="Danny">
+        <input type="text" id="middle" placeholder="M.I." maxlength="1">
+        <input type="text" id="last" placeholder="Last Name" required value="Soto">
+    </div>
 
-            <button type="submit" id="submitBtn">Submit</button>
-        </form>
-        <ol id="loop">
+    <!-- Row 2: Default + Count -->
+    <div class="row">
+        <input type="text" id="defaultWord" placeholder="Default Word" value="Dodo">
+        <input type="number" id="count" placeholder="Count" value="111">
+    </div>
 
-        </ol>
-    </main>
-    <div data-include="components/footer.html"></div>
-    <script src="scripts/fizzbuzz3.js"></script>
-    <script src="scripts/HTMLInclude.js"></script>
-</body>
-</html>
+    <!-- Row 3: Words + Divisors -->
+    <div class="row">
+        <input type="text" id="word1" placeholder="Word 1" value="Fizz">
+        <input type="number" id="div1" placeholder="Divisor 1" value="3">
+
+        <input type="text" id="word2" placeholder="Word 2" value="Buzz">
+        <input type="number" id="div2" placeholder="Divisor 2" value="5">
+
+        <input type="text" id="word3" placeholder="Word 3" value="Bang">
+        <input type="number" id="div3" placeholder="Divisor 3" value="7">
+    </div>
+
+    <button type="submit">Generate</button>
+
+</form>
+
+<h3 id="welcome"></h3>
+<ul id="output"></ul>

@@ -1,97 +1,52 @@
-function checkDivision(number, divisor) {
-    return number % divisor === 0;
-}
+document.getElementById("fizzForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-function updateGreeting() {
-    // Grab Values From the Form
-    const firstName = document.getElementById("first_name").value;
-    const middleInitial = document.getElementById("middle_initial").value;
-    const lastName = document.getElementById("last_name").value;
+    // Get name values
+    let first = document.getElementById("first").value.trim();
+    let middle = document.getElementById("middle").value.trim();
+    let last = document.getElementById("last").value.trim();
 
-    // Construct the Middle Name Part with Period Only if Present
-    let formattedMiddle = "";
-    if (middleInitial) {
-        formattedMiddle = middleInitial.charAt(0).toUpperCase() + ". ";
-    }
-
-    // Construct Final Greeting and Replace Content
-    const greetingText = `Welcome to Refresh Air HVAC ${firstName} ${formattedMiddle}${lastName}!`;
-    document.getElementById("greeting").textContent = greetingText;
-
-    // Number Output Loop 
-    const listLoop = document.getElementById("loop");
-    let htmlList = "";
-
-    //Prompt User for a Number
-    let userInput = prompt(`How high do you want to count ${firstName}?`);
-    // Check For Validation 
-    if (userInput.trim() === "" || isNaN(userInput)) {
-        alert("Invalid Input, Please Enter a Number.");
+    // Validate middle initial
+    if (middle && middle.length !== 1) {
+        alert("Middle initial must be one letter.");
         return;
     }
 
-    let limit = parseInt(userInput);
-
-    // First Division Number Input
-    let firstDivInput = prompt("Enter your first divisor: ");
-    if (firstDivInput.trim() === "" || isNaN(firstDivInput)) {
-        alert("Invalid Input, Please Enter a Number.");
-        return;
+    // Build full name
+    let fullName = first;
+    if (middle) {
+        fullName += " " + middle.toUpperCase() + ".";
     }
+    fullName += " " + last;
 
-    // Second Division Number Input
-    let secondDivInput = prompt("Enter your second divisor: ");
-    if (secondDivInput.trim() === "" || isNaN(secondDivInput)) {
-        alert("Invalid Input, Please Enter a Number.");
-        return;
+    document.getElementById("welcome").textContent = "Welcome, " + fullName + "!";
+
+    // Get fizzbuzz values
+    let defaultWord = document.getElementById("defaultWord").value;
+    let count = parseInt(document.getElementById("count").value);
+
+    let word1 = document.getElementById("word1").value;
+    let word2 = document.getElementById("word2").value;
+    let word3 = document.getElementById("word3").value;
+
+    let div1 = parseInt(document.getElementById("div1").value);
+    let div2 = parseInt(document.getElementById("div2").value);
+    let div3 = parseInt(document.getElementById("div3").value);
+
+    let output = document.getElementById("output");
+    output.innerHTML = "";
+
+    for (let i = 1; i <= count; i++) {
+        let result = "";
+
+        if (i % div1 === 0) result += word1;
+        if (i % div2 === 0) result += word2;
+        if (i % div3 === 0) result += word3;
+
+        if (result === "") result = defaultWord;
+
+        let li = document.createElement("li");
+        li.textContent = i + ": " + result;
+        output.appendChild(li);
     }
-
-    // Third Division Number Input
-    let thirdDivInput = prompt("Enter your third divisor: ");
-    if (thirdDivInput.trim() === "" || isNaN(thirdDivInput)) {
-        alert("Invalid Input, Please Enter a Number.");
-        return;
-    }
-
-    // New Variables for Divisors
-    const firstDivisor = parseInt(firstDivInput);
-    const secondDivisor = parseInt(secondDivInput);
-    const thirdDivisor =parseInt(thirdDivInput); 
-
-    // Make Flexible For Changing Number and Words
-
-    const word1 = "Whoosh!";
-    const word2 = "Air Flow!";
-    const word3 = "BANG!";
-    const defaultWord = "Cozy Breeze!";
-
-    // Updated logic to be more adaptable and modular
-    for (let i = 1; i <= limit; i++ ) {
-         let outputWord = "";
-        if (checkDivision(i, firstDivisor)) {
-            outputWord += word1 + " ";
-        } 
-        if (checkDivision(i, secondDivisor)) {
-            outputWord += word2 + " ";
-        } 
-        if (checkDivision(i, thirdDivisor)){
-            outputWord += word3 + " ";
-        } 
-        if (outputWord === "") {
-            outputWord = defaultWord;
-        }
-
-         htmlList += `<li>${outputWord} </li>`;
-    }
-
-    listLoop.innerHTML = htmlList;
-
-}
-
-    // Submit Button Does Not Refresh Page
-const form = document.getElementById("formOne");
-
-form.addEventListener("submit", function(event) {
-    event.preventDefault(); 
-    updateGreeting();   
 });
