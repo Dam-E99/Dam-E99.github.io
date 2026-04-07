@@ -26,7 +26,7 @@ document.getElementById("fizzForm").addEventListener("submit", function(e) {
     let result = "";
     
     // Check divisors
-    rules.forEach(rule => {
+    rules.forEach((rule) => {
         if (i % rule.div === 0) result += rule.word;
     });
 
