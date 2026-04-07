@@ -23,17 +23,20 @@ document.getElementById("fizzForm").addEventListener("submit", function(e) {
 
     let listItems = "";
     for (let i = 1; i <= count; i++) {
-        let result = "";
-        
-        // Loop through rules dynamically
-        rules.forEach(rule => {
-            if (i % rule.div === 0) result += rule.word;
-        });
+    let result = "";
+    
+    // Check divisors
+    rules.forEach(rule => {
+        if (i % rule.div === 0) result += rule.word;
+    });
 
-        // If no divisors hit, use the number and the default word
-        const finalOutput = result || `${i} (${defaultWord})`;
-        listItems += `<li>${i}: ${finalOutput}</li>`;
-    }
+    // If no divisors were hit, use only the default word
+    // This removes the extra count and parentheses
+    const finalOutput = result || defaultWord;
+
+    // Use a single instance of the number at the start of the list item
+    listItems += `<li>${i}: ${finalOutput}</li>`;
+}
 
     document.getElementById("output").innerHTML = listItems;
 });
