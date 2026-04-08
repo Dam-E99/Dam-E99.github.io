@@ -50,23 +50,23 @@
     <div class="row">
         <div class="field">
             <label for="word1">Word 1</label>
-            <input type="text" id="word1" value="Fizz">
+            <input type="text" id="word1" value="Fizz" oninput="this.value = this.value.replace(/[^A-Za-z]/g, '')">
             <label for="div1">Divisor 1</label>
-            <input type="number" id="div1" value="3">
+            <input type="number" id="div1" value="3" min="1" step="1" >
         </div>
 
         <div class="field">
             <label for="word2">Word 2</label>
-            <input type="text" id="word2" value="Buzz">
+            <input type="text" id="word2" value="Buzz" oninput="this.value = this.value.replace(/[^A-Za-z]/g, '')">
             <label for="div2">Divisor 2</label>
-            <input type="number" id="div2" value="5">
+            <input type="number" id="div2" value="5" min="1" step="1" >
         </div>
 
         <div class="field">
             <label for="word3">Word 3</label>
-            <input type="text" id="word3" value="Bang">
+            <input type="text" id="word3" value="Bang" oninput="this.value = this.value.replace(/[^A-Za-z]/g, '')">
             <label for="div3">Divisor 3</label>
-            <input type="number" id="div3" value="7">
+            <input type="number" id="div3" value="7" min="1" step="1">
         </div>
     </div>
 
