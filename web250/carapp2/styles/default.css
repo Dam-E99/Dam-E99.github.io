@@ -181,6 +181,4 @@ tr:nth-child(even) {
 /* Search Section */
 .search-section {
     margin-bottom: 15px; 
-    display: flex; 
-    justify-content: flex-end;
 }
