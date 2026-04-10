@@ -34,8 +34,6 @@ $title = $site_name . " " . ucfirst($page);
             <a href="index.php?page=introduction">Introduction</a>
             |
             <a href="index.php?page=contract">Contract</a>
-            |
-            <a href="fizzbuzz.html">FizzBuzz</a>
         </nav>
         <nav>
             <a href="multipage_sites/superduper_static/index.htm" target="_blank">MP Static</a>
