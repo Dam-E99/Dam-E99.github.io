@@ -37,20 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Introduction Form</title>
-    <!-- LINK YOUR ORIGINAL CSS HERE so the styles match perfectly -->
-    <link rel="stylesheet" href="style.css"> 
-</head>
-<body>
-
 <?php if ($_SERVER["REQUEST_METHOD"] != "POST"): ?>
     <!-- STATE A: THE INPUT FORM -->
     <h2>Edit Introduction</h2>
-    <form method="post" action="">
+    <form method="post" action="index.php?page=introform">
         <label>Image URL:</label><br>
         <input type="text" name="img_src" value="<?php echo $img_src; ?>" style="width:100%;"><br><br>
 
@@ -118,9 +108,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p class="text-center">“<?php echo $quote; ?>” </p>
         <p class="text-center">- <em><?php echo $author; ?></em></p>
         
-        <p style="text-align:center;"><a href="">Edit Again</a></p>
+        <p style="text-align:center;"><a href="index.php?page=introform">Edit Again</a></p>
     </main>
 <?php endif; ?>
-
-</body>
-</html>
