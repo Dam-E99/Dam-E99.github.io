@@ -34,6 +34,8 @@ $title = $site_name . " " . ucfirst($page);
             |
             <a href="index.php?page=introduction">Introduction</a>
             |
+            <a href="index.php?page=introform">Intro Form</a>
+            |
             <a href="index.php?page=contract">Contract</a>
         </nav>
         <nav>
