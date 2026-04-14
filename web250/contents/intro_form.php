@@ -81,8 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
 <?php else: ?>
-    <!-- STATE B: THE OUTPUT (Matches your original HTML exactly) -->
-    <main>
+    <!-- STATE B: THE OUTPUT -->
         <h2>Introduction</h2>
         <figure>
             <img src="<?php echo $img_src; ?>" alt="<?php echo $img_alt; ?>">
@@ -109,5 +108,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p class="text-center">- <em><?php echo $author; ?></em></p>
         
         <p style="text-align:center;"><a href="index.php?page=introform">Edit Again</a></p>
-    </main>
 <?php endif; ?>
