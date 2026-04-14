@@ -173,6 +173,12 @@ input, textarea {
     border-radius: 5px;
 }
 
+textarea {
+    resize: vertical; /* Allows user to drag it taller, but not wider */
+    min-height: 80px;
+    line-height: 1.5;
+}
+
 /* Button */
 button {
     background-color: #22d3ee;
