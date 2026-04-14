@@ -5,6 +5,7 @@ $site_name = "Danny Soto Duarte's Dazzling Dodo 🐾 WEB250";
 $allowed_pages = [
     'home'         => 'home.php',
     'introduction' => 'introduction.php',
+    'introform' => 'intro_form.php',
     'contract'     => 'contract.php',
     'projects'     => 'projects.php'
 ];
