@@ -165,7 +165,7 @@ form {
 }
 
 /* Inputs styled to match your theme */
-input {
+input, textarea {
     padding: 8px;
     background-color: #111827;
     border: 1px solid #22d3ee;
