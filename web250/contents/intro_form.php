@@ -40,44 +40,84 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php if ($_SERVER["REQUEST_METHOD"] != "POST"): ?>
     <!-- STATE A: THE INPUT FORM -->
     <h2>Edit Introduction</h2>
-    <form method="post" action="index.php?page=introform">
-        <label>Image URL:</label><br>
-        <input type="text" name="img_src" value="<?php echo $img_src; ?>" ><br><br>
 
-        <label>Image Alt Text:</label><br>
-        <input type="text" name="img_alt" value="<?php echo $img_alt; ?>" ><br><br>
+<form method="post" action="index.php?page=introform">
 
-        <label>Caption:</label><br>
-        <input type="text" name="caption" value="<?php echo $caption; ?>" ><br><br>
+    <!-- Image Info -->
+    <div class="row">
+        <div class="field">
+            <label>Image Path</label>
+            <input type="text" name="img_src" value="<?= htmlspecialchars($img_src) ?>">
+        </div>
 
-        <label>Bio:</label><br>
-        <textarea name="bio" ><?php echo $bio; ?></textarea><br><br>
+        <div class="field">
+            <label>Image Alt Text</label>
+            <input type="text" name="img_alt" value="<?= htmlspecialchars($img_alt) ?>">
+        </div>
+    </div>
 
-        <label>Personal Background:</label><br>
-        <textarea name="personal" ><?php echo $personal; ?></textarea><br><br>
+    <div class="field">
+        <label>Caption</label>
+        <input type="text" name="caption" value="<?= htmlspecialchars($caption) ?>">
+    </div>
 
-        <label>Professional Background:</label><br>
-        <textarea name="professional" ><?php echo $professional; ?></textarea><br><br>
+    <!-- Bio -->
+    <div class="field">
+        <label>Bio</label>
+        <textarea name="bio"><?= htmlspecialchars($bio) ?></textarea>
+    </div>
 
-        <label>Academic Background:</label><br>
-        <textarea name="academic" ><?php echo $academic; ?></textarea><br><br>
+    <!-- Backgrounds -->
+    <div class="field">
+        <label>Personal Background</label>
+        <textarea name="personal"><?= htmlspecialchars($personal) ?></textarea>
+    </div>
 
-        <label>Primary Computer:</label><br>
-        <input type="text" name="computer" value="<?php echo $computer; ?>" ><br><br>
+    <div class="field">
+        <label>Professional Background</label>
+        <textarea name="professional"><?= htmlspecialchars($professional) ?></textarea>
+    </div>
 
-        <label>Courses (One per line):</label><br>
+    <div class="field">
+        <label>Academic Background</label>
+        <textarea name="academic"><?= htmlspecialchars($academic) ?></textarea>
+    </div>
+
+    <!-- Computer -->
+    <div class="field">
+        <label>Primary Computer</label>
+        <input type="text" name="computer" value="<?= htmlspecialchars($computer) ?>">
+    </div>
+
+    <!-- Courses -->
+    <div class="field">
+        <label>Courses (edit or leave blank as needed)</label>
+
         <?php foreach($courses as $c): ?>
-            <input type="text" name="courses[]" value="<?php echo $c; ?>" ><br>
+            <input type="text" name="courses[]" value="<?= htmlspecialchars($c) ?>">
         <?php endforeach; ?>
 
-        <br>
-        <label>Quote:</label><br>
-        <input type="text" name="quote" value="<?php echo $quote; ?>" ><br><br>
+        <!-- Extra empty field for flexibility -->
+        <input type="text" name="courses[]" placeholder="Add another course...">
+    </div>
 
-        <label>Author:</label><br>
-        <input type="text" name="author" value="<?php echo $author; ?>" ><br><br>
+    <!-- Quote -->
+    <div class="row">
+        <div class="field">
+            <label>Quote</label>
+            <input type="text" name="quote" value="<?= htmlspecialchars($quote) ?>">
+        </div>
 
-        <button type="submit">Submit Introduction</button>
+        <div class="field">
+            <label>Author</label>
+            <input type="text" name="author" value="<?= htmlspecialchars($author) ?>">
+        </div>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit">Submit Introduction</button>
+
+</form>
     </form>
 
 <?php else: ?>
