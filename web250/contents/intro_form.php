@@ -95,11 +95,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="field">
         <label>Courses</label>
 
-        <?php foreach($courses as $c): ?>
-            <input class="input-lg" type="text" name="courses[]" value="<?= htmlspecialchars($c) ?>">
-        <?php endforeach; ?>
+        <div id="courses-container">
+            <?php foreach($courses as $c): ?>
+                <div class="course-row">
+                    <input class="input-lg" type="text" name="courses[]" value="<?= htmlspecialchars($c) ?>">
+                    <button type="button" onclick="removeCourse(this)">✖</button>
+                </div>
+            <?php endforeach; ?>
+        </div>
 
-        <input class="input-lg" type="text" name="courses[]" placeholder="Add another course...">
+        <button type="button" onclick="addCourse()">+ Add Course</button>
     </div>
 
     <!-- Quote -->
@@ -149,3 +154,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <p style="text-align:center;"><a href="index.php?page=introform">Edit Again</a></p>
 <?php endif; ?>
+
+<script>
+function addCourse() {
+    const container = document.getElementById("courses-container");
+
+    const div = document.createElement("div");
+    div.classList.add("course-row");
+
+    div.innerHTML = `
+        <input class="input-lg" type="text" name="courses[]" placeholder="New course...">
+        <button type="button" onclick="removeCourse(this)">✖</button>
+    `;
+
+    container.appendChild(div);
+}
+
+function removeCourse(button) {
+    button.parentElement.remove();
+}
+</script>
