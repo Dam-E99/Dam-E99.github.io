@@ -47,70 +47,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="row">
         <div class="field">
             <label>Image Path</label>
-            <input type="text" name="img_src" value="<?= htmlspecialchars($img_src) ?>">
+            <input class="input-md" type="text" name="img_src" value="<?= htmlspecialchars($img_src) ?>">
         </div>
 
         <div class="field">
-            <label>Image Alt Text</label>
-            <input type="text" name="img_alt" value="<?= htmlspecialchars($img_alt) ?>">
+            <label>Alt Text</label>
+            <input class="input-md" type="text" name="img_alt" value="<?= htmlspecialchars($img_alt) ?>">
         </div>
     </div>
 
     <div class="field">
         <label>Caption</label>
-        <input type="text" name="caption" value="<?= htmlspecialchars($caption) ?>">
+        <input class="input-md" type="text" name="caption" value="<?= htmlspecialchars($caption) ?>">
     </div>
 
     <!-- Bio -->
     <div class="field">
         <label>Bio</label>
-        <textarea name="bio"><?= htmlspecialchars($bio) ?></textarea>
+        <textarea class="input-lg" name="bio"><?= htmlspecialchars($bio) ?></textarea>
     </div>
 
     <!-- Backgrounds -->
-    <div class="field">
-        <label>Personal Background</label>
-        <textarea name="personal"><?= htmlspecialchars($personal) ?></textarea>
+    <div class="row">
+        <div class="field">
+            <label>Personal</label>
+            <textarea name="personal"><?= htmlspecialchars($personal) ?></textarea>
+        </div>
+
+        <div class="field">
+            <label>Professional</label>
+            <textarea name="professional"><?= htmlspecialchars($professional) ?></textarea>
+        </div>
     </div>
 
     <div class="field">
-        <label>Professional Background</label>
-        <textarea name="professional"><?= htmlspecialchars($professional) ?></textarea>
-    </div>
-
-    <div class="field">
-        <label>Academic Background</label>
+        <label>Academic</label>
         <textarea name="academic"><?= htmlspecialchars($academic) ?></textarea>
     </div>
 
     <!-- Computer -->
     <div class="field">
         <label>Primary Computer</label>
-        <input type="text" name="computer" value="<?= htmlspecialchars($computer) ?>">
+        <input class="input-md" type="text" name="computer" value="<?= htmlspecialchars($computer) ?>">
     </div>
 
     <!-- Courses -->
     <div class="field">
-        <label>Courses (edit or leave blank as needed)</label>
+        <label>Courses</label>
 
         <?php foreach($courses as $c): ?>
-            <input type="text" name="courses[]" value="<?= htmlspecialchars($c) ?>">
+            <input class="input-lg" type="text" name="courses[]" value="<?= htmlspecialchars($c) ?>">
         <?php endforeach; ?>
 
-        <!-- Extra empty field for flexibility -->
-        <input type="text" name="courses[]" placeholder="Add another course...">
+        <input class="input-lg" type="text" name="courses[]" placeholder="Add another course...">
     </div>
 
     <!-- Quote -->
     <div class="row">
         <div class="field">
             <label>Quote</label>
-            <input type="text" name="quote" value="<?= htmlspecialchars($quote) ?>">
+            <input class="input-md" type="text" name="quote" value="<?= htmlspecialchars($quote) ?>">
         </div>
 
         <div class="field">
             <label>Author</label>
-            <input type="text" name="author" value="<?= htmlspecialchars($author) ?>">
+            <input class="input-sm" type="text" name="author" value="<?= htmlspecialchars($author) ?>">
         </div>
     </div>
 
@@ -118,13 +119,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <button type="submit">Submit Introduction</button>
 
 </form>
-    </form>
 
 <?php else: ?>
     <!-- STATE B: THE OUTPUT -->
         <h2>Introduction</h2>
         <figure>
-            <img src="<?php echo $img_src; ?>" alt="<?php echo $img_alt; ?>">
+            <img src="<?= htmlspecialchars($img_src) ?>" alt="<?= htmlspecialchars($img_alt) ?>">
             <figcaption><?php echo $caption; ?></figcaption>
         </figure>
         <p><?php echo $bio; ?></p>
