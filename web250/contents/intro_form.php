@@ -42,40 +42,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2>Edit Introduction</h2>
     <form method="post" action="index.php?page=introform">
         <label>Image URL:</label><br>
-        <input type="text" name="img_src" value="<?php echo $img_src; ?>" style="width:100%;"><br><br>
+        <input type="text" name="img_src" value="<?php echo $img_src; ?>" ><br><br>
 
         <label>Image Alt Text:</label><br>
-        <input type="text" name="img_alt" value="<?php echo $img_alt; ?>" style="width:100%;"><br><br>
+        <input type="text" name="img_alt" value="<?php echo $img_alt; ?>" ><br><br>
 
         <label>Caption:</label><br>
-        <input type="text" name="caption" value="<?php echo $caption; ?>" style="width:100%;"><br><br>
+        <input type="text" name="caption" value="<?php echo $caption; ?>" ><br><br>
 
         <label>Bio:</label><br>
-        <textarea name="bio" style="width:100%; height:80px;"><?php echo $bio; ?></textarea><br><br>
+        <textarea name="bio" ><?php echo $bio; ?></textarea><br><br>
 
         <label>Personal Background:</label><br>
-        <textarea name="personal" style="width:100%;"><?php echo $personal; ?></textarea><br><br>
+        <textarea name="personal" ><?php echo $personal; ?></textarea><br><br>
 
         <label>Professional Background:</label><br>
-        <textarea name="professional" style="width:100%;"><?php echo $professional; ?></textarea><br><br>
+        <textarea name="professional" ><?php echo $professional; ?></textarea><br><br>
 
         <label>Academic Background:</label><br>
-        <textarea name="academic" style="width:100%;"><?php echo $academic; ?></textarea><br><br>
+        <textarea name="academic" ><?php echo $academic; ?></textarea><br><br>
 
         <label>Primary Computer:</label><br>
-        <input type="text" name="computer" value="<?php echo $computer; ?>" style="width:100%;"><br><br>
+        <input type="text" name="computer" value="<?php echo $computer; ?>" ><br><br>
 
         <label>Courses (One per line):</label><br>
         <?php foreach($courses as $c): ?>
-            <input type="text" name="courses[]" value="<?php echo $c; ?>" style="width:100%; margin-bottom:5px;"><br>
+            <input type="text" name="courses[]" value="<?php echo $c; ?>" ><br>
         <?php endforeach; ?>
 
         <br>
         <label>Quote:</label><br>
-        <input type="text" name="quote" value="<?php echo $quote; ?>" style="width:100%;"><br><br>
+        <input type="text" name="quote" value="<?php echo $quote; ?>" ><br><br>
 
         <label>Author:</label><br>
-        <input type="text" name="author" value="<?php echo $author; ?>" style="width:100%;"><br><br>
+        <input type="text" name="author" value="<?php echo $author; ?>" ><br><br>
 
         <button type="submit">Submit Introduction</button>
     </form>
