@@ -246,3 +246,23 @@ button:hover {
 .field input {
     margin-bottom: 3px;
 }
+
+/* Add/Delete Courses in Intro Form */
+.course-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.course-row button {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.course-row button:hover {
+    background-color: #dc2626;
+}
