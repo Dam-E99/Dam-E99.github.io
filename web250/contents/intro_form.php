@@ -121,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Computer -->
     <div class="field">
         <label>Primary Computer</label>
-        <input class="input-md" type="text" name="computer" value="<?= htmlspecialchars($computer) ?>">
+        <input type="text" name="computer" value="<?= htmlspecialchars($computer) ?>">
     </div>
 
     <!-- Courses -->
