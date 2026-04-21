@@ -86,9 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="field">
         <label>Alt Text</label>
         <input class="input-md" type="text" name="img_alt" value="<?= htmlspecialchars($img_alt) ?>">
-    </div>
-
-    <div class="field">
         <label>Caption</label>
         <input class="input-md" type="text" name="caption" value="<?= htmlspecialchars($caption) ?>">
     </div>
