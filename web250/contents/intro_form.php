@@ -34,10 +34,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $author = $_POST['author'];
     $courses = $_POST['courses']; // This captures the array of courses
 
+    // Image Upload Logic
     if (!empty($_FILES['user_image']['name'])) {
         $target_dir = "images/";
-        $target_file = $target_dir . basename($_FILES["user_image"]["name"]);
-        $img_src = $target_file; 
+        // Ensure the directory exists
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0755, true);
+        }
+
+        $file_name = basename($_FILES["user_image"]["name"]);
+        $target_file = $target_dir . $file_name;
+        $temp_file = $_FILES["user_image"]["tmp_name"];
+
+        // THE KEY STEP: Move the file from temp storage to your images folder
+        if (move_uploaded_file($temp_file, $target_file)) {
+            $img_src = $target_file; 
+        } else {
+            // If it fails, fall back to the existing image
+            $img_src = $_POST['existing_img'];
+        }
     } else {
         $img_src = $_POST['existing_img'];
     }
