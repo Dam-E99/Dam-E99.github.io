@@ -36,26 +36,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Image Upload Logic
     if (!empty($_FILES['user_image']['name'])) {
-        $target_dir = "images/";
-        // Ensure the directory exists
-        if (!is_dir($target_dir)) {
-            mkdir($target_dir, 0755, true);
-        }
 
-        $file_name = basename($_FILES["user_image"]["name"]);
-        $target_file = $target_dir . $file_name;
-        $temp_file = $_FILES["user_image"]["tmp_name"];
-
-        // THE KEY STEP: Move the file from temp storage to your images folder
-        if (move_uploaded_file($temp_file, $target_file)) {
-            $img_src = $target_file; 
-        } else {
-            // If it fails, fall back to the existing image
+        // 1. Check for PHP upload errors (like file too big)
+        if ($_FILES['user_image']['error'] !== UPLOAD_ERR_OK) {
+            // We echo the error so you can see it (Error 1 = Too Big)
+            echo "<p style='color:red;'>Upload error code: " . $_FILES['user_image']['error'] . "</p>";
             $img_src = $_POST['existing_img'];
+        } else {
+            $target_dir = "images/";
+            
+            // 2. Ensure the directory exists
+            if (!is_dir($target_dir)) {
+                mkdir($target_dir, 0755, true);
+            }
+
+            $file_name = basename($_FILES["user_image"]["name"]);
+            $target_file = $target_dir . $file_name;
+            $temp_file = $_FILES["user_image"]["tmp_name"];
+
+            // 3. Move the file and update the path
+            if (move_uploaded_file($temp_file, $target_file)) {
+                $img_src = $target_file; 
+            } else {
+                $img_src = $_POST['existing_img'];
+            }
         }
     } else {
+        // No new file uploaded, keep the old one
         $img_src = $_POST['existing_img'];
     }
+
 }
 ?>
 
