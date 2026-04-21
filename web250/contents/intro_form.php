@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Bio -->
     <div class="field">
         <label>Bio</label>
-        <textarea class="input-lg" name="bio"><?= htmlspecialchars($bio) ?></textarea>
+        <textarea name="bio"><?= htmlspecialchars($bio) ?></textarea>
     </div>
 
     <!-- Backgrounds -->
