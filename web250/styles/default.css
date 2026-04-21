@@ -154,79 +154,84 @@ ol li {
 /* Form layout (tighter + cleaner) */
 form {
     display: grid;
-    gap: 8px;
+    gap: 15px; /* Increased gap for breathing room */
     max-width: 700px;
     margin: 0 auto 20px auto;
 }
 
-/* Row layout */
 .row {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: flex-start; /* Better alignment for labels */
 }
 
-/* Field container */
+/* Updated Field container */
 .field {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    min-width: 200px;
+    flex: 0 1 auto; /* Don't grow, shrink if needed, width based on content */
+    min-width: 0;   /* Allows fields to shrink properly */
 }
 
-/* Labels */
 label {
     font-size: 0.75em;
     color: #94a3b8;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 
-/* Inputs + textarea */
+/* Standardized input/textarea appearance */
 input, textarea {
-    padding: 8px;
+    padding: 10px;
     background-color: #111827;
     border: 1px solid #22d3ee;
     color: #e5e7eb;
     border-radius: 5px;
+    font-family: inherit;
+    width: 100%; /* Fill the container width set by .input classes */
+    box-sizing: border-box;
 }
 
-/* Textarea behavior */
 textarea {
     resize: vertical;
-    min-height: 70px;
-    line-height: 1.4;
+    min-height: 80px;
 }
 
-/* Checkbox Styles */
-.checkbox-field label {
-    font-size: 0.9em; 
-    color: #a5f3fc;  
-    cursor: pointer;
-}
-
-.checkbox-field input[type="checkbox"] {
-    cursor: pointer;
-    accent-color: #22d3ee; 
-    background-color: #111827;
-    border: 1px solid #22d3ee;
-}
-
-.checkbox-field label:hover {
-    color: #38bdf8;
-}
-
-/* Input sizes */
+/* Controlled Input sizes */
 .input-sm {
-    max-width: 100px;
+    width: 120px;
 }
 
 .input-md {
-    max-width: 260px;
+    width: 330px; /* Perfectly fits 2 in a row with the 700px form max-width */
 }
 
 .input-lg {
-    width: 100%;
+    width: 100%; /* Takes whole row */
+    flex: 1 1 100%;
+}
+
+/* Ensure the upload field and single fields take enough room */
+.field:has(.input-lg) {
+    flex: 1 1 100%;
+}
+
+/* Special fix for the course row inputs */
+.course-row input {
+    flex: 1;
+}
+
+/* Checkbox specific cleanup */
+.checkbox-field {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-field input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
 }
 
 /* Button */
