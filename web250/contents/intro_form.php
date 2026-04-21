@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Image Info -->
     <div class="field">
-        <label>Upload New Image (Optional)</label>
+        <label>Upload New Image Or Use Default (Max Size: 2MB, Format: JPG, PNG, GIF.)</label>
         <input type="file" name="user_image" accept="image/*">
         <input type="hidden" name="existing_img" value="<?= htmlspecialchars($img_src) ?>">
     </div>
