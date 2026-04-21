@@ -82,12 +82,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="hidden" name="existing_img" value="<?= htmlspecialchars($img_src) ?>">
     </div>
 
+    <div class="row">
+        <div class="field">
+            <label>Alt Text</label>
+            <input class="input-md" type="text" name="img_alt" value="<?= htmlspecialchars($img_alt) ?>">
+        </div>
 
-    <div class="field">
-        <label>Alt Text</label>
-        <input class="input-md" type="text" name="img_alt" value="<?= htmlspecialchars($img_alt) ?>">
-        <label>Caption</label>
-        <input class="input-md" type="text" name="caption" value="<?= htmlspecialchars($caption) ?>">
+        <div class="field">
+            <label>Caption</label>
+            <input class="input-md" type="text" name="caption" value="<?= htmlspecialchars($caption) ?>">
+        </div>
     </div>
 
     <!-- Bio -->
