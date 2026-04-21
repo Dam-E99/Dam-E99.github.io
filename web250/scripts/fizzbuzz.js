@@ -13,6 +13,8 @@ document.getElementById("fizzForm").addEventListener("submit", function(e) {
     // Get Config Values
     const defaultWord = document.getElementById("defaultWord").value;
     const count = parseInt(document.getElementById("count").value);
+
+    const isClassic = document.getElementById("classicMode").checked;
     
     // Put divisors/words in an array for cleaner looping
     const rules = [
@@ -30,12 +32,16 @@ document.getElementById("fizzForm").addEventListener("submit", function(e) {
         if (i % rule.div === 0) result += rule.word;
     });
 
-    // If no divisors were hit, use only the default word
-    // This removes the extra count and parentheses
-    const finalOutput = result || defaultWord;
-
-    // Use a single instance of the number at the start of the list item
-    listItems += `<li>${i}: ${finalOutput}</li>`;
+    if (isClassic) {
+            // Classic Logic: 1, 2, Fizz, 4, Buzz...
+            // If there's a result (word), show ONLY the word. 
+            // If no match, show ONLY the number.
+            listItems += `<li>${result || i}</li>`;
+        } else {
+            // Your Current Logic: 1: Dodo, 2: Dodo, 3: Fizz...
+            const finalOutput = result || defaultWord;
+            listItems += `<li>${i}: ${finalOutput}</li>`;
+        }
 }
 
     document.getElementById("output").innerHTML = listItems;
