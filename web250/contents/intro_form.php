@@ -23,7 +23,6 @@ $courses = [
 
 // 2. If the form is submitted, overwrite the variables with POST data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $img_src = $_POST['img_src'];
     $img_alt = $_POST['img_alt'];
     $caption = $_POST['caption'];
     $bio = $_POST['bio'];
