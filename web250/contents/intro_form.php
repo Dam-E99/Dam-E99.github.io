@@ -34,6 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quote = $_POST['quote'];
     $author = $_POST['author'];
     $courses = $_POST['courses']; // This captures the array of courses
+
+    if (!empty($_FILES['user_image']['name'])) {
+        $target_dir = "images/";
+        $target_file = $target_dir . basename($_FILES["user_image"]["name"]);
+        $img_src = $target_file; 
+    } else {
+        $img_src = $_POST['existing_img'];
+    }
 }
 ?>
 
@@ -41,19 +49,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- STATE A: THE INPUT FORM -->
     <h2>Edit Introduction</h2>
 
-<form method="post" action="index.php?page=introform">
+<form method="post" action="index.php?page=introform" enctype="multipart/form-data">
 
     <!-- Image Info -->
-    <div class="row">
-        <div class="field">
-            <label>Image Path</label>
-            <input class="input-md" type="text" name="img_src" value="<?= htmlspecialchars($img_src) ?>">
-        </div>
+    <div class="field">
+        <label>Upload New Image (Optional)</label>
+        <input type="file" name="user_image" accept="image/*">
+        <input type="hidden" name="existing_img" value="<?= htmlspecialchars($img_src) ?>">
+    </div>
 
-        <div class="field">
-            <label>Alt Text</label>
-            <input class="input-md" type="text" name="img_alt" value="<?= htmlspecialchars($img_alt) ?>">
-        </div>
+
+    <div class="field">
+        <label>Alt Text</label>
+        <input class="input-md" type="text" name="img_alt" value="<?= htmlspecialchars($img_alt) ?>">
     </div>
 
     <div class="field">
@@ -149,8 +157,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </ol>
             </li>
         </ul>
-        <p class="text-center">“<?php echo $quote; ?>” </p>
-        <p class="text-center">- <em><?php echo $author; ?></em></p>
+        <?php if (!empty(trim($quote))): ?>
+            <p class="text-center">“<?= htmlspecialchars($quote) ?>” </p>
+            <?php if (!empty(trim($author))): ?>
+                <p class="text-center">- <em><?= htmlspecialchars($author) ?></em></p>
+            <?php endif; ?>
+        <?php endif; ?>
+
         
         <p style="text-align:center;"><a href="index.php?page=introform">Edit Again</a></p>
 <?php endif; ?>
