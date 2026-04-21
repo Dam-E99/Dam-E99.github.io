@@ -198,6 +198,24 @@ textarea {
     line-height: 1.4;
 }
 
+/* Checkbox Styles */
+.checkbox-field label {
+    font-size: 0.9em; 
+    color: #a5f3fc;  
+    cursor: pointer;
+}
+
+.checkbox-field input[type="checkbox"] {
+    cursor: pointer;
+    accent-color: #22d3ee; 
+    background-color: #111827;
+    border: 1px solid #22d3ee;
+}
+
+.checkbox-field label:hover {
+    color: #38bdf8;
+}
+
 /* Input sizes */
 .input-sm {
     max-width: 100px;
