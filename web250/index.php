@@ -50,6 +50,8 @@ $title = $site_name . " " . ucfirst($page);
             <a href="carapp/index.php" target="_blank">Dodo's Car Lite</a>
             |
             <a href="carapp2/index.php" target="_blank">Dodo's Car Pro</a>
+            |
+            <a href="project_pokemon/index.php" target="_blank">PokeLot</a>
         </nav>
     </header>
 
