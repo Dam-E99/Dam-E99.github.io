@@ -33,6 +33,16 @@ $mysqli->query("CREATE TABLE IF NOT EXISTS pokemon_cards (
     card_condition VARCHAR(50)
 )");
 
+ // SEARCH 
+$search = isset($_GET['search']) ? $mysqli->real_escape_string($_GET['search']) : '';
+
+$where = "";
+if ($search !== '') {
+    $where = "WHERE card_name LIKE '%$search%' OR type LIKE '%$search%'";
+}
+
+$result = $mysqli->query("SELECT * FROM cards $where");
+
 
 // ============================
 // LOGIN SYSTEM
@@ -231,6 +241,18 @@ Welcome, <?php echo $_SESSION['username']; ?> |
         <?php echo $edit_card ? "Update Card" : "Add Card"; ?>
     </button>
 </form>
+
+<div class="search-section">
+    <form method="get">
+        <input type="text" name="search" placeholder="Search cards..." 
+               value="<?php echo htmlspecialchars($search); ?>">
+        <button type="submit" class="btn-submit">Search</button>
+
+        <?php if ($search !== ''): ?>
+            <a href="index.php">Clear</a>
+        <?php endif; ?>
+    </form>
+</div>
 
 
 <!-- TABLE -->
