@@ -61,6 +61,22 @@ if (isset($_GET['logout'])) {
     exit();
 }
 
+// REGISTER (Create Account)
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
+    $user = $mysqli->real_escape_string($_POST['username']);
+    $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+    $check = $mysqli->query("SELECT id FROM users WHERE username='$user'");
+    
+    if ($check->num_rows > 0) {
+        header("Location: index.php?msg=Username+already+exists");
+    } else {
+        $mysqli->query("INSERT INTO users (username, password) VALUES ('$user', '$pass')");
+        header("Location: index.php?msg=Account+created!+Please+login");
+    }
+    exit();
+}
+
 $message = $_GET['msg'] ?? "";
 $edit_card = null;
 
@@ -173,6 +189,16 @@ th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
 
 <!-- LOGIN -->
 <?php if (!isset($_SESSION['username'])): ?>
+
+<section class="form-section">
+    <h2>Create Account</h2>
+    <form method="post">
+        <input type="text" name="username" placeholder="New Username" required>
+        <input type="password" name="password" placeholder="New Password" required>
+        <button type="submit" name="register" class="btn-submit">Register</button>
+    </form>
+</section>
+
 <form method="post">
     <input type="text" name="username" placeholder="Username" required>
     <input type="password" name="password" placeholder="Password" required>
