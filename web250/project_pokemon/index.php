@@ -21,6 +21,14 @@ if ($checkUser->num_rows == 0) {
                     VALUES ('testuser', '$pass')");
 }
 
+// DEFAULT ADMIN (Add this below your default user check)
+$checkAdmin = $mysqli->query("SELECT id FROM users WHERE username = 'admin'");
+if ($checkAdmin->num_rows == 0) {
+    $adminPass = password_hash("AdminPass123", PASSWORD_DEFAULT);
+    $mysqli->query("INSERT INTO users (username, password)
+                    VALUES ('admin', '$adminPass')");
+}
+
 // POKEMON TABLE
 $mysqli->query("CREATE TABLE IF NOT EXISTS pokemon_cards (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -96,6 +104,7 @@ $edit_card = null;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_card']) && isset($_SESSION['user_id'])) {
 
     $user_id = $_SESSION['user_id'];
+    $is_admin = ($_SESSION['username'] === 'admin'); // Check if admin
 
     $card_name = $mysqli->real_escape_string($_POST['card_name']);
     $type = $mysqli->real_escape_string($_POST['type']);
@@ -107,6 +116,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_card']) && isset(
     if ($_POST['is_update'] == "1") {
         $id = (int)$_POST['id'];
 
+        // ADMIN BONUS: If admin, ignore the user_id check
+        $admin_check = $is_admin ? "" : " AND user_id=$user_id";
+
         $query = "UPDATE pokemon_cards SET 
             card_name='$card_name',
             type='$type',
@@ -114,8 +126,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_card']) && isset(
             set_name='$set_name',
             card_number='$card_number',
             card_condition='$condition'
-            WHERE id=$id AND user_id=$user_id";
+            WHERE id=$id $admin_check";
     } else {
+        // Create always uses the logged-in user's ID
         $query = "INSERT INTO pokemon_cards 
         (user_id, card_name, type, rarity, set_name, card_number, card_condition)
         VALUES 
@@ -128,6 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_card']) && isset(
 }
 
 
+
 // ============================
 // DELETE
 // ============================
@@ -135,7 +149,10 @@ if (isset($_GET['delete']) && isset($_SESSION['user_id'])) {
     $id = (int)$_GET['delete'];
     $user_id = $_SESSION['user_id'];
 
-    $mysqli->query("DELETE FROM pokemon_cards WHERE id=$id AND user_id=$user_id");
+    // Admin can delete anything, others only their own
+    $admin_check = ($_SESSION['username'] === 'admin') ? "" : " AND user_id=$user_id";
+    
+    $mysqli->query("DELETE FROM pokemon_cards WHERE id=$id $admin_check");
     header("Location: index.php?msg=Deleted");
     exit();
 }
@@ -148,7 +165,10 @@ if (isset($_GET['edit']) && isset($_SESSION['user_id'])) {
     $id = (int)$_GET['edit'];
     $user_id = $_SESSION['user_id'];
 
-    $res = $mysqli->query("SELECT * FROM pokemon_cards WHERE id=$id AND user_id=$user_id");
+    // Admin can edit anything, others only their own
+    $admin_check = ($_SESSION['username'] === 'admin') ? "" : " AND user_id=$user_id";
+
+    $res = $mysqli->query("SELECT * FROM pokemon_cards WHERE id=$id $admin_check");
     $edit_card = $res->fetch_assoc();
 }
 
@@ -160,7 +180,12 @@ $cards = null;
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 
-    $where = "WHERE user_id=$user_id";
+    // ADMIN BONUS LOGIC: If username is admin, see everything
+    if ($_SESSION['username'] === 'admin') {
+        $where = "WHERE 1=1"; 
+    } else {
+        $where = "WHERE user_id=$user_id";
+    }
 
     if ($search !== '') {
         $where .= " AND (card_name LIKE '%$search%' OR type LIKE '%$search%')";
