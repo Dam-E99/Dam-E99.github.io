@@ -1,208 +1,26 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: sans-serif; background: #f0f0f0; padding: 40px; color: #333; }
+h1 { text-align: center; color: #ffcb05; text-shadow: 2px 2px #3b4cca; margin-bottom: 30px; font-size: 3rem; }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f0f0f0; /* Classic GameBoy Grey Background */
-    background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
-    background-size: 20px 20px;
-    color: #333;
-    padding: 30px;
-    line-height: 1.5;
-}
+.msg { background: #fffde7; border: 1px solid #ffeb3b; padding: 10px; text-align: center; border-radius: 8px; margin-bottom: 20px; }
+.user-bar { background: #3b4cca; color: white; padding: 12px 20px; border-radius: 30px; margin-bottom: 20px; display: inline-block; }
+.admin-badge { background: #ffcb05; color: #333; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px; font-weight: bold; }
+.user-bar a { color: #ffcb05; text-decoration: none; font-weight: bold; }
 
-/* PAGE TITLE */
-h1 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #ffcb05; /* Pokemon Yellow */
-    font-size: 2.5rem;
-    text-shadow: 3px 3px 0px #3b4cca, -1px -1px 0px #3b4cca; /* Pokemon Blue Outline */
-    letter-spacing: 2px;
-}
+.compact-form { display: flex; flex-wrap: wrap; gap: 10px; background: white; padding: 20px; border-radius: 12px; border: 3px solid #e3350d; box-shadow: 5px 5px 0 rgba(0,0,0,0.1); margin-bottom: 20px; align-items: center; }
+.compact-form input { flex: 1; min-width: 120px; padding: 10px; border: 1px solid #ccc; border-radius: 6px; }
+.compact-form button { background: #e3350d; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+.compact-form button:hover { background: #ff1111; }
 
-/* MESSAGE ALERT */
-.msg {
-    text-align: center;
-    background: #ffeb3b;
-    color: #333;
-    padding: 12px;
-    border: 2px solid #3b4cca;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
+table { width: 100%; border-collapse: separate; border-spacing: 0; background: white; border-radius: 12px; overflow: hidden; border: 2px solid #2c3e50; }
+th { background: #3b4cca; color: white; padding: 15px; }
+td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; }
+tr:hover { background: #fffde7; }
 
-/* FORM CONTAINERS */
-form,
-.form-section {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 15px;
-    border: 4px solid #e3350d; /* Pokedex Red */
-    box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
-    margin-bottom: 25px;
-}
+.btn { padding: 5px 10px; border-radius: 4px; color: white !important; font-size: 0.8rem; text-decoration: none; }
+.edit { background: #ffcb05; color: #333 !important; }
+.delete { background: #e3350d; }
 
-/* SECTION HEADINGS */
-h2 {
-    margin-bottom: 15px;
-    color: #2a75bb;
-    border-bottom: 2px solid #ffcb05;
-    display: inline-block;
-}
-
-/* INPUTS */
-input {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border 0.3s;
-}
-
-input:focus {
-    outline: none;
-    border-color: #3b4cca;
-}
-
-/* BUTTONS */
-button,
-.btn-submit {
-    background: #e3350d; /* PokeBall Red */
-    color: white;
-    border: 2px solid #b32a0a;
-    padding: 12px 20px;
-    border-radius: 50px; /* Rounded pill style */
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: transform 0.2s, background 0.3s;
-}
-
-button:hover,
-.btn-submit:hover {
-    background: #ff1111;
-    transform: scale(1.05);
-}
-
-/* USER BAR */
-p {
-    background: #3b4cca;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-p a {
-    color: #ffcb05;
-    margin-left: 10px;
-}
-
-/* SEARCH SECTION */
-.search-section form {
-    border-color: #3b4cca; /* Blue for Search */
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.search-section input {
-    margin: 0;
-}
-
-/* TABLE */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background: white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-radius: 15px;
-    overflow: hidden;
-    border: 3px solid #2c3e50;
-}
-
-th {
-    background: #3b4cca; /* Pokemon Blue */
-    color: white;
-    padding: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-td {
-    padding: 14px;
-    border-bottom: 1px solid #eee;
-    font-weight: 500;
-}
-
-tr:nth-child(even) {
-    background: #f9f9f9;
-}
-
-tr:hover {
-    background: #fff9e6; /* Light yellow hover */
-}
-
-/* ACTION BUTTONS */
-.btn {
-    padding: 8px 15px;
-    border-radius: 20px;
-    color: white !important;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.edit {
-    background: #ffcb05;
-    color: #333 !important;
-    border: 1px solid #c79e00;
-}
-
-.edit:hover {
-    background: #e6b800;
-}
-
-.delete {
-    background: #e3350d;
-}
-
-.delete:hover {
-    background: #b32a0a;
-}
-
-/* FOOTER LOGINS */
-footer {
-    background: #2c3e50;
-    color: white;
-    padding: 20px;
-    border-radius: 12px;
-    margin-top: 40px;
-    text-align: center;
-}
-
-footer code {
-    background: #ecf0f1;
-    color: #e3350d;
-    padding: 2px 6px;
-    border-radius: 4px;
-}
-
-/* EMPTY STATE */
-td[colspan="7"] {
-    font-style: italic;
-    color: #999;
-    padding: 40px;
-}
+footer { margin-top: 50px; padding: 20px; background: #2c3e50; color: white; border-radius: 12px; text-align: center; }
+footer a { color: #ffcb05; }
+footer code { background: #444; padding: 2px 5px; border-radius: 3px; }
