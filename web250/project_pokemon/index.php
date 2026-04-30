@@ -275,35 +275,67 @@ Welcome, <?php echo $_SESSION['username']; ?> |
 <!-- TABLE -->
 <table>
 <tr>
-<th>Name</th>
-<th>Type</th>
-<th>Rarity</th>
-<th>Set</th>
-<th>Number</th>
-<th>Condition</th>
-<th>Actions</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Rarity</th>
+    <th>Set</th>
+    <th>Number</th>
+    <th>Condition</th>
+    <th>Actions</th>
 </tr>
 
-<?php if ($cards && $cards->num_rows > 0): ?>
-        <?php while ($row = $cards->fetch_assoc()): ?>
-            <tr <?php echo (isset($_GET['edit']) && $_GET['edit'] == $row['id']) ? 'style="background: #fff9e6; border: 2px solid #ffcb05;"' : ''; ?>>
-                <td><?php echo htmlspecialchars($row['card_name']); ?></td>
-                <td><?php echo htmlspecialchars($row['type']); ?></td>
-                <td><?php echo htmlspecialchars($row['rarity']); ?></td>
-                <td><?php echo htmlspecialchars($row['set_name']); ?></td>
-                <td><?php echo htmlspecialchars($row['card_number']); ?></td>
-                <td><?php echo htmlspecialchars($row['card_condition']); ?></td>
+<?php if ($cards->num_rows > 0): ?>
+    <?php while ($row = $cards->fetch_assoc()): ?>
+
+        <?php if (isset($_GET['edit']) && $_GET['edit'] == $row['id']): ?>
+            <tr>
+                <form method="post">
+                    <td>
+                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                        <input type="hidden" name="is_update" value="1">
+                        <input type="text" name="card_name" value="<?php echo $row['card_name']; ?>">
+                    </td>
+
+                    <td><input type="text" name="type" value="<?php echo $row['type']; ?>"></td>
+                    <td><input type="text" name="rarity" value="<?php echo $row['rarity']; ?>"></td>
+                    <td><input type="text" name="set_name" value="<?php echo $row['set_name']; ?>"></td>
+                    <td><input type="text" name="card_number" value="<?php echo $row['card_number']; ?>"></td>
+                    <td><input type="text" name="card_condition" value="<?php echo $row['card_condition']; ?>"></td>
+
+                    <td>
+                        <button type="submit" name="save_card">Save</button>
+                        <a href="index.php">Cancel</a>
+                    </td>
+                </form>
+            </tr>
+
+        <?php else: ?>
+            <tr>
+                <td><?php echo $row['card_name']; ?></td>
+                <td><?php echo $row['type']; ?></td>
+                <td><?php echo $row['rarity']; ?></td>
+                <td><?php echo $row['set_name']; ?></td>
+                <td><?php echo $row['card_number']; ?></td>
+                <td><?php echo $row['card_condition']; ?></td>
+
                 <td>
                     <a class="btn edit" href="?edit=<?php echo $row['id']; ?>">Edit</a>
-                    <a class="btn delete" href="?delete=<?php echo $row['id']; ?>" onclick="return confirm('Delete this card?')">Delete</a>
+                    <a class="btn delete"
+                       href="?delete=<?php echo $row['id']; ?>"
+                       onclick="return confirm('Delete this card?')">
+                       Delete
+                    </a>
                 </td>
             </tr>
-        <?php endwhile; ?>
-    <?php else: ?>
-        <tr>
-            <td colspan="7">No cards found. Add your first Pokémon card!</td>
-        </tr>
-    <?php endif; ?>
+        <?php endif; ?>
+
+    <?php endwhile; ?>
+
+<?php else: ?>
+    <tr>
+        <td colspan="7">No cards found. Add your first Pokémon card!</td>
+    </tr>
+<?php endif; ?>
 </table>
 
 <?php endif; ?>
