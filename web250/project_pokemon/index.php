@@ -298,5 +298,7 @@ Welcome, <?php echo $_SESSION['username']; ?> |
 
 </table>
 
+<?php endif; ?>
+
 </body>
 </html>
