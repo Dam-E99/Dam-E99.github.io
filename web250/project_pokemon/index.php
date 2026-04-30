@@ -41,7 +41,6 @@ if ($search !== '') {
     $where = "WHERE card_name LIKE '%$search%' OR type LIKE '%$search%'";
 }
 
-$result = $mysqli->query("SELECT * FROM cards $where");
 
 
 // ============================
