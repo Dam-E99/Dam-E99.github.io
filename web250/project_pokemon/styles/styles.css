@@ -105,7 +105,20 @@ h1 {
 
 /* SEARCH SECTION */
 .search-section {
+    margin-top: 14px;
     margin-bottom: 12px;
+}
+
+/* USER BAR */
+.user-bar {
+    background: #3b4cca;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 18px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .search-section form {
