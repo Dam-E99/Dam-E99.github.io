@@ -216,21 +216,23 @@ if (isset($_SESSION['user_id'])) {
 
 <!-- LOGIN -->
 <?php if (!isset($_SESSION['username'])): ?>
+<div class="login-container">
 
-<section class="form-section">
     <h2>Create Account</h2>
     <form method="post">
         <input type="text" name="username" placeholder="New Username" required>
         <input type="password" name="password" placeholder="New Password" required>
-        <button type="submit" name="register" class="btn-submit">Register</button>
+        <button type="submit" name="register">Register</button>
     </form>
-</section>
 
-<form method="post">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit" name="login">Login</button>
-</form>
+    <h2>Login</h2>
+    <form method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit" name="login">Login</button>
+    </form>
+
+</div>
 <?php endif; ?>
 
 
@@ -304,7 +306,7 @@ Welcome, <?php echo $_SESSION['username']; ?> |
 
                     <td>
                         <button type="submit" name="save_card">Save</button>
-                        <a href="index.php">Cancel</a>
+                        <a href="index.php" class="cancel-btn">Cancel</a>
                     </td>
                 </form>
             </tr>
