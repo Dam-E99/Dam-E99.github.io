@@ -198,25 +198,11 @@ if (isset($_SESSION['user_id'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
 <meta charset="UTF-8">
+<link rel="stylesheet" href="styles/styles.css">
 <title>PokeLot</title>
 
-<style>
-body { font-family: Arial; padding: 20px; background: #f4f4f4; }
-h1 { text-align: center; }
-
-form { margin-bottom: 20px; }
-input { margin: 5px; padding: 8px; }
-
-table { width: 100%; border-collapse: collapse; background: white; }
-th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
-
-.btn { padding: 6px 10px; text-decoration: none; border-radius: 4px; }
-.edit { background: orange; color: white; }
-.delete { background: red; color: white; }
-
-.msg { text-align:center; color: green; }
-</style>
 </head>
 
 <body>
