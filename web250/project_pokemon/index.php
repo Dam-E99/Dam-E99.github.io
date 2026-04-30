@@ -160,7 +160,14 @@ if (isset($_GET['edit']) && isset($_SESSION['user_id'])) {
 $cards = null;
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
-    $cards = $mysqli->query("SELECT * FROM pokemon_cards WHERE user_id=$user_id");
+
+    $where = "WHERE user_id=$user_id";
+
+    if ($search !== '') {
+        $where .= " AND (card_name LIKE '%$search%' OR type LIKE '%$search%')";
+    }
+
+    $cards = $mysqli->query("SELECT * FROM pokemon_cards $where");
 }
 ?>
 
@@ -267,6 +274,7 @@ Welcome, <?php echo $_SESSION['username']; ?> |
 <th>Actions</th>
 </tr>
 
+<?php if ($cards->num_rows > 0): ?>
 <?php while ($row = $cards->fetch_assoc()): ?>
 <tr>
 <td><?php echo $row['card_name']; ?></td>
@@ -282,6 +290,10 @@ Welcome, <?php echo $_SESSION['username']; ?> |
 </td>
 </tr>
 <?php endwhile; ?>
+<?php else: ?>
+<tr>
+    <td colspan="7">No cards found. Add your first Pokémon card!</td>
+</tr>
 
 </table>
 
