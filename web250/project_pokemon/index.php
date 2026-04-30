@@ -294,9 +294,9 @@ Welcome, <?php echo $_SESSION['username']; ?> |
     <td colspan="7">No cards found. Add your first Pokémon card!</td>
 </tr>
 
-</table>
-
 <?php endif; ?>
+
+</table>
 
 </body>
 </html>
