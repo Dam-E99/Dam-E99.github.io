@@ -198,7 +198,7 @@ if (isset($_SESSION['user_id'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+
 <meta charset="UTF-8">
 <link rel="stylesheet" href="styles/styles.css">
 <title>PokeLot</title>
@@ -284,9 +284,33 @@ Welcome, <?php echo $_SESSION['username']; ?> |
 <th>Actions</th>
 </tr>
 
-<?php if ($cards->num_rows > 0): ?>
 <?php while ($row = $cards->fetch_assoc()): ?>
 <tr>
+
+<?php if (isset($_GET['edit']) && $_GET['edit'] == $row['id']): ?>
+<form method="post">
+
+<td>
+    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+    <input type="hidden" name="is_update" value="1">
+    <input type="text" name="card_name" value="<?php echo $row['card_name']; ?>">
+</td>
+
+<td><input type="text" name="type" value="<?php echo $row['type']; ?>"></td>
+<td><input type="text" name="rarity" value="<?php echo $row['rarity']; ?>"></td>
+<td><input type="text" name="set_name" value="<?php echo $row['set_name']; ?>"></td>
+<td><input type="text" name="card_number" value="<?php echo $row['card_number']; ?>"></td>
+<td><input type="text" name="card_condition" value="<?php echo $row['card_condition']; ?>"></td>
+
+<td>
+    <button type="submit" name="save_card">Save</button>
+    <a href="index.php">Cancel</a>
+</td>
+
+</form>
+
+<?php else: ?>
+
 <td><?php echo $row['card_name']; ?></td>
 <td><?php echo $row['type']; ?></td>
 <td><?php echo $row['rarity']; ?></td>
@@ -295,9 +319,16 @@ Welcome, <?php echo $_SESSION['username']; ?> |
 <td><?php echo $row['card_condition']; ?></td>
 
 <td>
-<a class="btn edit" href="?edit=<?php echo $row['id']; ?>">Edit</a>
-<a class="btn delete" href="?delete=<?php echo $row['id']; ?>" onclick="return confirm('Delete this card?')">Delete</a>
+    <a class="btn edit" href="?edit=<?php echo $row['id']; ?>">Edit</a>
+    <a class="btn delete"
+       href="?delete=<?php echo $row['id']; ?>"
+       onclick="return confirm('Delete this card?')">
+       Delete
+    </a>
 </td>
+
+<?php endif; ?>
+
 </tr>
 <?php endwhile; ?>
 <?php else: ?>
