@@ -1,5 +1,8 @@
+require('dotenv').config(); 
 const express = require("express");
 const path = require("path");
+const mongoose = require("mongoose");
+const Task = require("./models/Task");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -8,37 +11,42 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// Login page
+// Fixed Connection: Use the process.env variable
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log("Connection Error:", err));
+
+// Routes
 app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "contract.html"));
+});
+
+app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login.html"));
 });
 
-// Handle login
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
-
   if (username === "web215user" && password === "LetMeIn!") {
-    res.sendFile(path.join(__dirname, "public", "app.html"));
+    res.redirect("/app");
   } else {
-    res.send(`
-      <h1>Access Denied</h1>
-      <p>Incorrect username or password.</p>
-      <a href="/">Try Again</a>
-    `);
+    res.send(`<h1>Access Denied</h1><a href="/login">Try Again</a>`);
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Display tasks from MongoDB
+app.get("/app", async (req, res) => {
+  try {
+    const tasks = await Task.find();
+    let html = `<h1>Study Planner Dashboard</h1><h2>Your Tasks</h2><ul>`;
+    tasks.forEach(task => {
+      html += `<li><strong>${task.title}</strong><br>Subject: ${task.subject}<br>${task.description}</li><br>`;
+    });
+    html += `</ul><a href="/login">Logout</a>`;
+    res.send(html);
+  } catch (error) {
+    res.status(500).send("Error loading tasks");
+  }
 });
 
-app.get('/api/data', (req, res) => {
-    res.json(studyData);
-});
-
-
-const studyData = [
-    { id: 1, subject: "Math", task: "Chapter 5 Problems", status: "In Progress" },
-    { id: 2, subject: "History", task: "Read Civil War Section", status: "Done" },
-    { id: 3, subject: "Web Dev", task: "M11 Assignment", status: "Not Started" }
-];
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
