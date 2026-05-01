@@ -179,19 +179,25 @@ if (isset($_GET['edit']) && isset($_SESSION['user_id'])) {
 $cards = null;
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
+    
+    // 1. Define allowed columns to prevent SQL injection
+    $allowed_columns = ['card_name', 'type', 'rarity', 'set_name', 'card_number', 'card_condition'];
+    
+    // 2. Get sort column and direction from URL, or use defaults
+    $sort = in_array($_GET['sort'] ?? '', $allowed_columns) ? $_GET['sort'] : 'card_name';
+    $dir = ($_GET['dir'] ?? '') === 'desc' ? 'DESC' : 'ASC';
+    
+    // 3. Toggle direction for the next click
+    $next_dir = ($dir === 'ASC') ? 'desc' : 'asc';
 
-    // ADMIN BONUS LOGIC: If username is admin, see everything
-    if ($_SESSION['username'] === 'admin') {
-        $where = "WHERE 1=1"; 
-    } else {
-        $where = "WHERE user_id=$user_id";
-    }
+    $where = ($_SESSION['username'] === 'admin') ? "WHERE 1=1" : "WHERE user_id=$user_id";
 
     if ($search !== '') {
         $where .= " AND (card_name LIKE '%$search%' OR type LIKE '%$search%')";
     }
 
-    $cards = $mysqli->query("SELECT * FROM pokemon_cards $where");
+    // 4. Append ORDER BY to your query
+    $cards = $mysqli->query("SELECT * FROM pokemon_cards $where ORDER BY $sort $dir");
 }
 ?>
 
