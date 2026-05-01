@@ -239,7 +239,7 @@ if (isset($_SESSION['user_id'])) {
 <!-- LOGGED IN -->
 <?php if (isset($_SESSION['username'])): ?>
 
-<p>
+<p class="user-bar">
 Welcome, <?php echo $_SESSION['username']; ?> |
 <a href="?logout=true">Logout</a>
 </p>
