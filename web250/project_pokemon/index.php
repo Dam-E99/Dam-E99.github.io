@@ -330,7 +330,7 @@ Welcome, <?php echo $_SESSION['username']; ?> |
                     <a class="btn edit" href="?edit=<?php echo $row['id']; ?>">Edit</a>
                     <a class="btn delete"
                        href="?delete=<?php echo $row['id']; ?>"
-                       onclick="return confirm('Delete this card?')">
+                       onclick="return confirm('Are you POSITIVELY SURE you want to DELETE this card?? There is NO TURNING BACK!!')">
                        Delete
                     </a>
                 </td>
