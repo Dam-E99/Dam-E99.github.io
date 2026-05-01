@@ -232,6 +232,17 @@ th {
     font-size: 13px;
 }
 
+th a {
+    color: white;
+    text-decoration: none;
+    display: block; 
+    width: 100%;
+}
+
+th a:hover {
+    color: #ffcb05;
+}
+
 td {
     padding: 8px;
     text-align: center;
