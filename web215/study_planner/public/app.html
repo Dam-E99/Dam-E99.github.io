@@ -16,5 +16,26 @@
         <li>Manage Subjects</li>
         <li>Track Progress</li>
     </ul>
+
+    <!-- Inside your app.html body -->
+<h2>My Study Tasks</h2>
+<div id="data-container"></div>
+
+<script>
+    fetch('/api/data')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('data-container');
+            // Create a simple list or table to show the data
+            let html = '<ul>';
+            data.forEach(item => {
+                html += `<li><strong>${item.subject}:</strong> ${item.task} - <em>${item.status}</em></li>`;
+            });
+            html += '</ul>';
+            container.innerHTML = html;
+        })
+        .catch(err => console.error('Error loading data:', err));
+</script>
+
 </body>
 </html>

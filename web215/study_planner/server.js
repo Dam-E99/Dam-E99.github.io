@@ -31,3 +31,14 @@ app.post("/login", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+app.get('/api/data', (req, res) => {
+    res.json(studyData);
+});
+
+
+const studyData = [
+    { id: 1, subject: "Math", task: "Chapter 5 Problems", status: "In Progress" },
+    { id: 2, subject: "History", task: "Read Civil War Section", status: "Done" },
+    { id: 3, subject: "Web Dev", task: "M11 Assignment", status: "Not Started" }
+];
