@@ -269,7 +269,7 @@ Welcome, <?php echo $_SESSION['username']; ?> |
 
 <div class="search-section">
     <form method="get">
-        <input type="text" name="search" placeholder="Search cards..." 
+        <input type="text" name="search" placeholder="Search card name.." 
                value="<?php echo htmlspecialchars($search); ?>">
         <button type="submit" class="btn-submit">Search</button>
 
