@@ -283,12 +283,12 @@ Welcome, <?php echo $_SESSION['username']; ?> |
 <!-- TABLE -->
 <table>
 <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Rarity</th>
-    <th>Set</th>
-    <th>Number</th>
-    <th>Condition</th>
+    <th><a href="?sort=card_name&dir=<?php echo $next_dir; ?>">Name</a></th>
+    <th><a href="?sort=type&dir=<?php echo $next_dir; ?>">Type</a></th>
+    <th><a href="?sort=rarity&dir=<?php echo $next_dir; ?>">Rarity</a></th>
+    <th><a href="?sort=set_name&dir=<?php echo $next_dir; ?>">Set</a></th>
+    <th><a href="?sort=card_number&dir=<?php echo $next_dir; ?>">Number</a></th>
+    <th><a href="?sort=card_condition&dir=<?php echo $next_dir; ?>">Condition</a></th>
     <th>Actions</th>
 </tr>
 
