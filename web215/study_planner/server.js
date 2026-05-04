@@ -117,7 +117,7 @@ app.get("/edit/:id", async (req, res) => {
 
   allSubjects.forEach(sub => {
     // Check the box if the task already has this subject ID
-    const isChecked = task.subjects.includes(sub._id) ? "checked" : "";
+    const isChecked = task.subjects.some(s => s.toString() === sub._id.toString()) ? "checked" : "";
     html += `<input type="checkbox" name="subjects" value="${sub._id}" ${isChecked}> ${sub.name}<br>`;
   });
 
