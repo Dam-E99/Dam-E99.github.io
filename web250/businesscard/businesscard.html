@@ -7,7 +7,11 @@
     <title>Business Card | Soto Design Co.</title>
 
     <style>
-        * {
+        html {
+            box-sizing: border-box;
+        }
+
+        body, main, div, section, p, h1, h3, hr {
             box-sizing: border-box;
         }
 
@@ -41,13 +45,7 @@
             gap: 18px;
         }
 
-        .logo {
-            width: 90px;
-            height: 90px;
-            object-fit: contain;
-        }
-
-        .company-title {
+        h1.company-title {
             margin: 0;
             font-size: 1.8rem;
             color: #4a86b8;
@@ -83,15 +81,17 @@
             color: #333;
         }
 
-        .left p,
-        .right p {
+        .left p, .right p {
             margin: 4px 0;
         }
 
-        .name {
+        h3.name {
             font-size: 1.1rem;
             font-weight: bold;
             color: #4a86b8;
+            margin: 0 0 4px 0;
+            padding: 0;
+            line-height: 1.2;
         }
 
         .website {
@@ -111,9 +111,8 @@
 
     <main class="card">
         <section class="top-section">
-
-            <div class="company-title">
-                <h1>Soto Design Co.</h1>
+            <div>
+                <h1 class="company-title">Soto Design Co.</h1>
                 <p class="tagline">Crafting Digital Identity With Style</p>
             </div>
         </section>
