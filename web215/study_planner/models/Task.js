@@ -1,10 +1,7 @@
-const mongoose = require("mongoose");
-
 const taskSchema = new mongoose.Schema({
   title: String,
   description: String,
-  subject: String,
-  completed: Boolean
+  completed: Boolean,
+  // This array of IDs creates the Many-to-Many link
+  subjects: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Subject' }]
 });
-
-module.exports = mongoose.model("Task", taskSchema);
