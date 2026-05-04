@@ -14,11 +14,6 @@ mongoose.connect("YOUR_MONGODB_CONNECTION_STRING")
   .catch(err => console.log(err));
 
 
-// HOME
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "contract.html"));
-});
-
 
 // LOGIN PAGE
 app.get("/login", (req, res) => {
