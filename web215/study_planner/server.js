@@ -9,19 +9,13 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("YOUR_MONGODB_CONNECTION_STRING")
+mongoose.connect("process.env.MONGO_URI")
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
 
-// HOME
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "contract.html"));
-});
-
-
 // LOGIN PAGE
-app.get("/login", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login.html"));
 });
 
