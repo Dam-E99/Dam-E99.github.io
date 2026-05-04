@@ -1,14 +1,18 @@
 <footer>
         <nav>
-            <a href="https://dam-e99.github.io/">Github Pages</a>
+            <a href="https://github.com/Dam-E99" target="_blank">GitHub</a>
             |
-            <a href="https://github.com/Dam-E99" target="_blank">Github Account</a>
+            <a href="https://dam-e99.github.io/" target="_blank">GitHub.io</a>
+            |
+            <a href="https://dam-e99.github.io/web250/index.html" target="_blank">WEB250.io</a>
+            |
+            <a href="/web215/index.html" target="_blank">WEB215.io</a>
             |
             <a href="https://www.freecodecamp.org/dame99" target="_blank">freeCodeCamp</a>
             |
             <a href="https://www.codecademy.com/profiles/dsotodu0" target="_blank">Codecademy</a>
             |
             <a href="https://www.linkedin.com/in/danny-soto-duarte-ab9744296" target="_blank">LinkedIn</a>
+            <p>Site Designed by <a href="sotodesignco.com/businesscard.html">Soto Design Co.</a></p>
         </nav>
-        <p>© 2026 Danny Soto Duarte</p>
     </footer>

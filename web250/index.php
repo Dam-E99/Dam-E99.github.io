@@ -74,7 +74,7 @@ $title = $site_name . " " . ucfirst($page);
             <a href="https://www.codecademy.com/profiles/dsotodu0" target="_blank">Codecademy</a>
             |
             <a href="https://www.linkedin.com/in/danny-soto-duarte-ab9744296" target="_blank">LinkedIn</a>
-            <p>© 2026 Danny Soto Duarte</p>
+            <p>Site Designed by <a href="sotodesignco.com/businesscard.html">Soto Design Co.</a></p>
         </nav>
     </footer>
 
