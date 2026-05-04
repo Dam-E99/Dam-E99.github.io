@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("process.env.MONGO_URI")
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
@@ -30,7 +30,7 @@ app.post("/login", (req, res) => {
     res.send(`
       <h1>Access Denied</h1>
       <p>Incorrect username or password.</p>
-      <a href="/login">Try Again</a>
+      <a href="/">Try Again</a> 
     `);
   }
 });
