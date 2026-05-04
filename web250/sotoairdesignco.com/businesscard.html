@@ -4,127 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
-    <title>Soto Air Design Co.</title>
+    <title>Business Card | Soto Air Design Co.</title>
+
     <style>
-     
         body {
-            background-color: #f0f0f0;
+            margin: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #eef2f5;
+            font-family: Arial, Helvetica, sans-serif;
         }
-
 
         .card {
-            background-color: white;
             width: 500px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-
-        .header {
+            max-width: 90%;
+            min-height: 280px;
+            background: white;
+            border: 3px solid #4a86b8;
+            border-radius: 14px;
+            padding: 22px 28px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .company-logo {
-            height: 130px; 
-            width: auto;
-            margin-right: 15px; 
-            margin-top: -40px;
+        .top-section {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
         }
 
         .company-info h1 {
-            color: #4a86b8;
-            font-size: 34px;
             margin: 0;
-            font-weight: 500;
+            font-size: 1.8rem;
+            color: #4a86b8;
         }
 
         .tagline {
-            font-size: 18px;
+            margin: 4px 0 0;
+            font-size: 0.95rem;
+            color: #666;
             font-style: italic;
-            color: #555;
             font-weight: bold;
-            margin: 5px 0;
         }
 
-        .contact-top {
-            text-align: right;
-            margin-bottom: 10px;
+        .divider {
+            border: none;
+            height: 3px;
+            background: linear-gradient(
+                to right,
+                #4a86b8,
+                #e8c16c,
+                #ff8c00,
+                #4a86b8
+            );
+            margin: 16px 0;
+            border-radius: 5px;
         }
 
-        .contact-top .name {
-            color: #4a86b8;
-            font-size: 28px;
-            margin: 0;
-        }
-
-        .contact-top .email, .website {
+        .contact {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            font-size: 0.9rem;
             color: #333;
-            font-size: 20px;
-            margin: 2px 0;
-            font-family: serif;
+        }
+
+        .left p,
+        .right p {
+            margin: 4px 0;
+        }
+
+        .name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #4a86b8;
         }
 
         .website {
-            position: absolute;
-            top: 175px;
-            left: 40px;
+            color: #ff8c00;
+            font-weight: bold;
         }
 
-
-        .divider {
-            height: 4px;
-            background: linear-gradient(to right, transparent 0%,#e8c16c 5%,#ff8c009f 50%,#e8c16c 95%, transparent 100%);
-            border: none;
-            margin: 10px 0;
-        }
-
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            font-family: serif;
-            font-size: 20px;
-            color: #333;
-        }
-
-        .address p {
-            margin: 2px 0;
+        .footer-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 12px;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="header">
-            <img src="../images/logo_name.png" alt="" class="company-logo">
+    <main class="card">
+        <section class="top-section">
+            <img src="../images/logo_name.png" alt="Soto Air Design Logo" class="logo">
+
             <div class="company-info">
                 <h1>Soto Air Design Co.</h1>
-                <p class="tagline">Web Design & Digital Branding</p>
+                <p class="tagline">Crafting Digital Identity With Style</p>
             </div>
-        </div>
-        <p class="website">sotoairdesignco.com</p>
-        <div class="contact-top">
-            <p class="name">Danny Soto Duarte</p>
-            <p class="email">dsoto3894@gmail.com</p>
-        </div>
+        </section>
+
         <hr class="divider">
-        <div class="footer">
-            <div class="address">
-                <p>5912 Sunnywood Pl Monroe NC, 28110</p>
-                <p>Soto Air Design Co.</p>
-            </div>
-            <div class="phone">
+
+        <section class="contact">
+            <div class="left">
+                <p class="name">Danny Soto Duarte</p>
+                <p>5912 Sunnywood Pl</p>
+                <p>Monroe, NC 28110</p>
                 <p>980-210-5405</p>
             </div>
-        </div>
-    </div>
+
+            <div class="right">
+                <p>dsoto3894@gmail.com</p>
+                <p class="website">sotoairdesignco.com</p>
+                <p>Web Consulting & Branding</p>
+            </div>
+        </section>
+
+        <p class="footer-note">© 2026 Soto Air Design Co.</p>
+    </main>
+
 </body>
 </html>
