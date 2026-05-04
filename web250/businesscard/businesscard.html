@@ -11,10 +11,6 @@
             box-sizing: border-box;
         }
 
-        body, main, div, section, p, h1, h3, hr {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
             height: 100vh;
@@ -25,8 +21,11 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        main {
+            box-sizing: border-box;
+        }
+
         .card {
-            width: 90%;
             max-width: 500px;
             min-height: 280px;
             background: white;
@@ -45,10 +44,18 @@
             gap: 18px;
         }
 
-        h1.company-title {
+        h1 {
             margin: 0;
             font-size: 1.8rem;
             color: #4a86b8;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #4a86b8;
+            margin: 0 0 4px 0;
+            line-height: 1.2;
         }
 
         .tagline {
@@ -81,17 +88,9 @@
             color: #333;
         }
 
-        .left p, .right p {
+        .left p,
+        .right p {
             margin: 4px 0;
-        }
-
-        h3.name {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #4a86b8;
-            margin: 0 0 4px 0;
-            padding: 0;
-            line-height: 1.2;
         }
 
         .website {
@@ -112,7 +111,7 @@
     <main class="card">
         <section class="top-section">
             <div>
-                <h1 class="company-title">Soto Design Co.</h1>
+                <h1>Soto Design Co.</h1>
                 <p class="tagline">Crafting Digital Identity With Style</p>
             </div>
         </section>
@@ -121,7 +120,7 @@
 
         <section class="contact">
             <div class="left">
-                <h3 class="name">Danny Soto Duarte</h3>
+                <h3>Danny Soto Duarte</h3>
                 <p>5912 Sunnywood Pl</p>
                 <p>Charlotte, NC 28110</p>
                 <p>980-210-5405</p>
