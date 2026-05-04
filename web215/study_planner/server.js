@@ -90,10 +90,14 @@ app.get("/app", async (req, res) => {
 
 // CREATE
 app.post("/create", async (req, res) => {
+  const selectedSubjects = Array.isArray(req.body.subjects)
+    ? req.body.subjects
+    : [req.body.subjects];
+
   await Task.create({
     title: req.body.title,
     description: req.body.description,
-    subjects: req.body.subjects, // Array of IDs from checkboxes
+    subjects: selectedSubjects,
     completed: false
   });
 
@@ -133,10 +137,14 @@ app.get("/edit/:id", async (req, res) => {
 
 // UPDATE
 app.post("/update/:id", async (req, res) => {
+  const selectedSubjects = Array.isArray(req.body.subjects)
+    ? req.body.subjects
+    : [req.body.subjects];
+
   await Task.findByIdAndUpdate(req.params.id, {
     title: req.body.title,
     description: req.body.description,
-    subjects: req.body.subjects // Updated ID array
+    subjects: selectedSubjects
   });
 
   res.redirect("/app");
