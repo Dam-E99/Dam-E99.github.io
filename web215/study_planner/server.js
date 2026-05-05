@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 // 1. Setup session middleware
 app.use(session({
-  secret: 'study-planner-secret', 
+  secret: process.env.SESSION_SECRET, 
   resave: false,
   saveUninitialized: false,
   cookie: { maxAge: 600000 } // Session expires in 10 minutes
@@ -44,7 +44,7 @@ app.post("/login", (req, res) => {
 
   if (username === "web215user" && password === "LetMeIn!") {
     req.session.isLoggedIn = true; // Save session
-    res.redirect("/app");
+    res.redirect("/app?message=Welcome back!");
   } else {
     res.send(`
       <!DOCTYPE html>
@@ -67,14 +67,16 @@ app.post("/login", (req, res) => {
 
 // LOGOUT ROUTE
 app.get("/logout", (req, res) => {
-  req.session.destroy();
-  res.redirect("/");
+  req.session.destroy(() => {
+    res.redirect("/");
+  });
 });
 
 // DASHBOARD (Protected)
 app.get("/app", checkAuth, async (req, res) => {
   const tasks = await Task.find().populate("subjects");
   const allSubjects = await Subject.find();
+  const message = req.query.message || "";
 
   let html = `
   <!DOCTYPE html>
@@ -87,10 +89,11 @@ app.get("/app", checkAuth, async (req, res) => {
   </head>
   <body>
   <header>
-      <div style="float: right; margin-right: 20px;"><a href="/logout" style="color: white;">Logout</a></div>
+      <div class="logout-link"><a href="/logout">Logout</a></div>
       <h1>Study Planner Dashboard</h1>
   </header>
   <div class="container">
+  ${message ? `<div class="success-message">${message}</div>` : ""}
       <h2>Add New Task</h2>
       <form action="/create" method="POST" class="add-task-form">
         <input type="text" name="title" placeholder="Task Title" required>
@@ -119,7 +122,13 @@ app.get("/app", checkAuth, async (req, res) => {
         <p>${task.description}</p>
         <a href="/edit/${task._id}">Edit</a>
         <form action="/delete/${task._id}" method="POST" style="display:inline;">
-          <button type="submit" style="background-color: #ff4d4d; padding: 5px 10px;">Delete</button>
+          <button
+            type="submit"
+            onclick="return confirm('Are you sure you want to delete this task?')"
+            style="background-color: #ff4d4d; padding: 5px 10px;"
+          >
+            Delete
+          </button>
         </form>
       </div>
     `;
@@ -141,7 +150,7 @@ app.post("/create", checkAuth, async (req, res) => {
     subjects: selectedSubjects,
     completed: false
   });
-  res.redirect("/app");
+  res.redirect("/app?message=Task created successfully");
 });
 
 // EDIT PAGE (Protected)
@@ -160,14 +169,15 @@ app.get("/edit/:id", checkAuth, async (req, res) => {
           <input type="text" name="title" value="${task.title}" required>
           <input type="text" name="description" value="${task.description}" required>
           <p>Update Subjects:</p>
+          <div class="subject-checkboxes">
   `;
 
   allSubjects.forEach(sub => {
     const isChecked = task.subjects.some(s => s.toString() === sub._id.toString()) ? "checked" : "";
-    html += `<label><input type="checkbox" name="subjects" value="${sub._id}" ${isChecked}> ${sub.name}</label><br>`;
+    html += `<label><input type="checkbox" name="subjects" value="${sub._id}" ${isChecked}> ${sub.name}</label>`;
   });
 
-  html += `<br><button type="submit">Update Task</button></form><br><a href="/app">Back to Dashboard</a></div></body></html>`;
+  html += `</div><br><button type="submit">Update Task</button></form><br><a href="/app">Back to Dashboard</a></div></body></html>`;
   res.send(html);
 });
 
@@ -182,13 +192,13 @@ app.post("/update/:id", checkAuth, async (req, res) => {
     description: req.body.description,
     subjects: selectedSubjects
   });
-  res.redirect("/app");
+  res.redirect("/app?message=Task updated successfully");
 });
 
 // DELETE (Protected)
 app.post("/delete/:id", checkAuth, async (req, res) => {
   await Task.findByIdAndDelete(req.params.id);
-  res.redirect("/app");
+  res.redirect("/app?message=Task deleted successfully");
 });
 
 app.listen(PORT, () => {
