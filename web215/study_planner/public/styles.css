@@ -9,8 +9,13 @@ body {
 header {
     background: #1e3a8a;
     color: white;
-    padding: 25px;
+    padding: 12px 20px;
     text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
 }
 
 .container {
@@ -93,6 +98,30 @@ a:hover {
 
 .task-card form {
     display: inline;
+}
+
+.add-task-form {
+    margin-bottom: 30px;
+}
+
+.add-task-form input[type="text"] {
+    margin-bottom: 12px;
+}
+
+.subject-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 12px 0 20px 0;
+}
+
+.subject-checkboxes label {
+    background: #f3f4f6;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .subject-tag {

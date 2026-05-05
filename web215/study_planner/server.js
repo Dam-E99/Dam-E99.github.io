@@ -75,11 +75,12 @@ app.get("/app", async (req, res) => {
 
       <h2>Add New Task</h2>
 
-      <form action="/create" method="POST">
-          <input type="text" name="title" placeholder="Task Title" required>
-          <input type="text" name="description" placeholder="Description" required>
+      <form action="/create" method="POST" class="add-task-form">
+        <input type="text" name="title" placeholder="Task Title" required>
+        <input type="text" name="description" placeholder="Description" required>
 
-          <p>Select Subjects:</p>
+        <p>Select Subjects:</p>
+        <div class="subject-checkboxes">
   `;
 
   allSubjects.forEach(sub => {
@@ -87,12 +88,12 @@ app.get("/app", async (req, res) => {
       <label>
         <input type="checkbox" name="subjects" value="${sub._id}">
         ${sub.name}
-      </label><br>
+      </label>
     `;
   });
 
   html += `
-      <br>
+      </div>
       <button type="submit">Add Task</button>
       </form>
 
