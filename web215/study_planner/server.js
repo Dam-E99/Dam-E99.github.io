@@ -10,13 +10,12 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// Connect using environment variable (No quotes!)
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log("Connection Error:", err));
 
 
-// LOGIN PAGE (Root)
+// LOGIN PAGE
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login.html"));
 });
@@ -30,60 +29,102 @@ app.post("/login", (req, res) => {
     res.redirect("/app");
   } else {
     res.send(`
-      <h1>Access Denied</h1>
-      <p>Incorrect username or password.</p>
-      <a href="/">Try Again</a> 
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <title>Access Denied</title>
+        <link rel="stylesheet" href="/styles.css">
+      </head>
+      <body>
+        <header>
+          <h1>Access Denied</h1>
+        </header>
+
+        <div class="container">
+          <p>Incorrect username or password.</p>
+          <a href="/">Try Again</a>
+        </div>
+      </body>
+      </html>
     `);
   }
 });
 
 
-// READ + DISPLAY + CREATE FORM
+// DASHBOARD
 app.get("/app", async (req, res) => {
-  // Populate allows the "Join" to show Subject names instead of IDs
   const tasks = await Task.find().populate("subjects");
   const allSubjects = await Subject.find();
 
   let html = `
-    <h1>Study Planner Dashboard</h1>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Study Planner Dashboard</title>
+      <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
 
-    <h2>Add New Task</h2>
-    <form action="/create" method="POST">
-      <input type="text" name="title" placeholder="Task Title" required><br><br>
-      <input type="text" name="description" placeholder="Description" required><br><br>
-      
-      <p>Select Subjects (Many-to-Many):</p>
-      ${allSubjects.map(sub => `
-        <input type="checkbox" name="subjects" value="${sub._id}"> ${sub.name}
-      `).join('<br>')}
-      
-      <br><br>
-      <button type="submit">Add Task</button>
-    </form>
+  <header>
+      <h1>Study Planner Dashboard</h1>
+  </header>
 
-    <h2>Current Tasks</h2>
-    <ul>
+  <div class="container">
+
+      <h2>Add New Task</h2>
+
+      <form action="/create" method="POST">
+          <input type="text" name="title" placeholder="Task Title" required>
+          <input type="text" name="description" placeholder="Description" required>
+
+          <p>Select Subjects:</p>
   `;
 
-  tasks.forEach(task => {
-    // Convert array of subject objects into a string of names
-    const subjectNames = task.subjects.map(s => s.name).join(", ");
-
+  allSubjects.forEach(sub => {
     html += `
-      <li>
-        <strong>${task.title}</strong><br>
-        Subjects: <em>${subjectNames || "No subjects assigned"}</em><br>
-        ${task.description}<br>
-
-        <a href="/edit/${task._id}">Edit</a> | 
-        <form action="/delete/${task._id}" method="POST" style="display:inline;">
-          <button type="submit">Delete</button>
-        </form>
-      </li><br>
+      <label>
+        <input type="checkbox" name="subjects" value="${sub._id}">
+        ${sub.name}
+      </label><br>
     `;
   });
 
-  html += `</ul>`;
+  html += `
+      <br>
+      <button type="submit">Add Task</button>
+      </form>
+
+      <h2>Current Tasks</h2>
+  `;
+
+  tasks.forEach(task => {
+    html += `
+      <div class="task-card">
+        <strong>${task.title}</strong><br><br>
+
+        ${task.subjects.map(subject => `
+          <span class="subject-tag">${subject.name}</span>
+        `).join("")}
+
+        <p>${task.description}</p>
+
+        <a href="/edit/${task._id}">Edit</a>
+
+        <form action="/delete/${task._id}" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+    `;
+  });
+
+  html += `
+  </div>
+  </body>
+  </html>
+  `;
+
   res.send(html);
 });
 
@@ -92,7 +133,9 @@ app.get("/app", async (req, res) => {
 app.post("/create", async (req, res) => {
   const selectedSubjects = Array.isArray(req.body.subjects)
     ? req.body.subjects
-    : [req.body.subjects];
+    : req.body.subjects
+      ? [req.body.subjects]
+      : [];
 
   await Task.create({
     title: req.body.title,
@@ -105,30 +148,58 @@ app.post("/create", async (req, res) => {
 });
 
 
-// EDIT FORM
+// EDIT PAGE
 app.get("/edit/:id", async (req, res) => {
   const task = await Task.findById(req.params.id);
   const allSubjects = await Subject.find();
 
   let html = `
-    <h1>Edit Task</h1>
-    <form action="/update/${task._id}" method="POST">
-      <input type="text" name="title" value="${task.title}" required><br><br>
-      <input type="text" name="description" value="${task.description}" required><br><br>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Edit Task</title>
+      <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
 
-      <p>Update Subjects:</p>
+  <header>
+      <h1>Edit Task</h1>
+  </header>
+
+  <div class="container">
+
+      <form action="/update/${task._id}" method="POST">
+          <input type="text" name="title" value="${task.title}" required>
+          <input type="text" name="description" value="${task.description}" required>
+
+          <p>Update Subjects:</p>
   `;
 
   allSubjects.forEach(sub => {
-    // Check the box if the task already has this subject ID
-    const isChecked = task.subjects.some(s => s.toString() === sub._id.toString()) ? "checked" : "";
-    html += `<input type="checkbox" name="subjects" value="${sub._id}" ${isChecked}> ${sub.name}<br>`;
+    const isChecked = task.subjects.some(
+      s => s.toString() === sub._id.toString()
+    ) ? "checked" : "";
+
+    html += `
+      <label>
+        <input type="checkbox" name="subjects" value="${sub._id}" ${isChecked}>
+        ${sub.name}
+      </label><br>
+    `;
   });
 
   html += `
-      <br><button type="submit">Update Task</button>
-    </form>
-    <br><a href="/app">Back</a>
+          <br>
+          <button type="submit">Update Task</button>
+      </form>
+
+      <br>
+      <a href="/app">Back to Dashboard</a>
+
+  </div>
+  </body>
+  </html>
   `;
 
   res.send(html);
@@ -139,7 +210,9 @@ app.get("/edit/:id", async (req, res) => {
 app.post("/update/:id", async (req, res) => {
   const selectedSubjects = Array.isArray(req.body.subjects)
     ? req.body.subjects
-    : [req.body.subjects];
+    : req.body.subjects
+      ? [req.body.subjects]
+      : [];
 
   await Task.findByIdAndUpdate(req.params.id, {
     title: req.body.title,
