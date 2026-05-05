@@ -99,6 +99,8 @@ app.get("/app", async (req, res) => {
       <h2>Current Tasks</h2>
   `;
 
+  html += `<div class="task-grid">`;
+
   tasks.forEach(task => {
     html += `
       <div class="task-card">
@@ -120,10 +122,11 @@ app.get("/app", async (req, res) => {
   });
 
   html += `
+    </div>
   </div>
   </body>
   </html>
-  `;
+`;
 
   res.send(html);
 });
