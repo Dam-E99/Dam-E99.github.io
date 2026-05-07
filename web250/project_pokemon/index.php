@@ -207,13 +207,25 @@ if (isset($_SESSION['user_id'])) {
 
 <meta charset="UTF-8">
 <link rel="stylesheet" href="styles/styles.css">
-<title>PokeLot</title>
+<title>
+<?php if (isset($_SESSION['username'])): ?>
+    PokeLot | My Collection
+<?php else: ?>
+    PokeLot | Login
+<?php endif; ?>
+</title>
 
 </head>
 
 <body>
 
-<h1>🎴 PokeLot - My Collection</h1>
+<h1>
+<?php if (isset($_SESSION['username'])): ?>
+    🎴 PokeLot - My Collection
+<?php else: ?>
+    🎴 PokeLot - Login
+<?php endif; ?>
+</h1>
 
 <?php if ($message): ?>
 <p class="msg"><?php echo htmlspecialchars($message); ?></p>
