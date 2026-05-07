@@ -213,7 +213,7 @@ if (isset($_SESSION['user_id'])) {
 
 <body>
 
-<h1>🎴 PokeLot - Pokémon Collection Tracker</h1>
+<h1>🎴 PokeLot - My Collection</h1>
 
 <?php if ($message): ?>
 <p class="msg"><?php echo htmlspecialchars($message); ?></p>
@@ -224,19 +224,23 @@ if (isset($_SESSION['user_id'])) {
 <?php if (!isset($_SESSION['username'])): ?>
 <div class="login-container">
 
-    <h2>Create Account</h2>
-    <form method="post">
-        <input type="text" name="username" placeholder="New Username" required>
-        <input type="password" name="password" placeholder="New Password" required>
-        <button type="submit" name="register">Register</button>
-    </form>
+    <h2>Login to PokeLot</h2>
+    <p class="sub-text">Access your Pokémon collection tracker</p>
 
-    <h2>Login</h2>
     <form method="post">
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
         <button type="submit" name="login">Login</button>
     </form>
+
+    <div class="register-link">
+        <p>No account yet?</p>
+        <form method="post">
+            <input type="text" name="username" placeholder="New Username" required>
+            <input type="password" name="password" placeholder="New Password" required>
+            <button type="submit" name="register">Create Account</button>
+        </form>
+    </div>
 
 </div>
 <?php endif; ?>
@@ -310,7 +314,7 @@ Welcome, <?php echo $_SESSION['username']; ?> |
                     <td><input type="text" name="card_number" value="<?php echo $row['card_number']; ?>"></td>
                     <td><input type="text" name="card_condition" value="<?php echo $row['card_condition']; ?>"></td>
 
-                    <td>
+                    <td class="action-buttons">
                         <button type="submit" name="save_card">Save</button>
                         <a href="index.php" class="cancel-btn">Cancel</a>
                     </td>
@@ -341,7 +345,13 @@ Welcome, <?php echo $_SESSION['username']; ?> |
 
 <?php else: ?>
     <tr>
-        <td colspan="7">No cards found. Add your first Pokémon card!</td>
+        <td colspan="7">
+    <?php if ($search !== ''): ?>
+        No cards matched your search.
+    <?php else: ?>
+        No cards found. Add your first Pokémon card!
+    <?php endif; ?>
+</td>
     </tr>
 <?php endif; ?>
 </table>

@@ -59,15 +59,35 @@ h1 {
     margin-bottom: 18px;
 }
 
+.sub-text {
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.register-link {
+    margin-top: 15px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.register-link p {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
 /* USER BAR */
 .user-bar {
     background: #3b4cca;
     color: white;
-    padding: 10px 16px;
+    padding: 12px 18px;
     border-radius: 20px;
     display: inline-block;
     margin-bottom: 18px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -107,18 +127,6 @@ h1 {
 .search-section {
     margin-top: 14px;
     margin-bottom: 12px;
-}
-
-/* USER BAR */
-.user-bar {
-    background: #3b4cca;
-    color: white;
-    padding: 12px 18px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 18px;
-    font-size: 15px;
-    font-weight: bold;
 }
 
 .search-section form {
@@ -212,6 +220,18 @@ button:hover,
 .cancel-btn {
     background: #777;
     display: inline-block;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    align-items: center;
+}
+
+.action-buttons button,
+.action-buttons a {
+    margin: 0;
 }
 
 
