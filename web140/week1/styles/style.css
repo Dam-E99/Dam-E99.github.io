@@ -8,7 +8,7 @@ body {
     background-color: black;
     width: 550px;
     margin: 0 auto;
-    color: white;
+    color: #FFFFFF;
 }
 
 div {
@@ -75,4 +75,20 @@ li::marker {
 
 li:nth-child(even)::marker {
     color:#EA1818;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    background-color: #EA1818;
+    border:  1px #FFFFFF solid;
+    padding: 10px;
+    cursor: pointer;
+    color:#FFFFFF
+}
+
+button:hover {
+    background-color: #FFFFFF;
+    border:  2px solid #0A32F9;
+    color: #007FD7
 }
