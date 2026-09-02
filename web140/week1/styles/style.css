@@ -58,9 +58,14 @@ li {
   border-left: 3px solid #007FD7; /* A thick blue "Spider-Man suit" accent bar on the left */
   padding: 5px 10px;  
   margin-bottom: 10px; 
-  border-radius: 4px;  
-  cursor: pointer;  
+  border-radius: 4px;   
   font-weight: 500;     
+}
+
+li label {
+    display: block;
+    width: 100%;
+    cursor: pointer;
 }
 
 /* Make li bullet points interchange between red and blue */
