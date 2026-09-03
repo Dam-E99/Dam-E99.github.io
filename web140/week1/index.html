@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spider-Man Simple Quiz Game</title>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/script.js"></script>
 </head>
 
 <body>
@@ -20,148 +19,155 @@
         <ul>
             <li>
                 <label>
-                    <input type="radio" name="q1" value="A">10
+                    <input type="radio" name="q1" value="A" onclick="checkAnswer(false, 'msg1')">10
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q1" value="B">11
+                    <input type="radio" name="q1" value="B" onclick="checkAnswer(false, 'msg1')">11
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q1" value="C">9
+                    <input type="radio" name="q1" class="correctAns" value="C" onclick="checkAnswer(true, 'msg1')">9
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q1" value="D">8
+                    <input type="radio" name="q1" value="D" onclick="checkAnswer(false, 'msg1')">8
                 </label>
             </li>
             </ul>
+            <p id="msg1"></p>
 
         <p>2. Which Spider-Man Movie did Peter Parker fight Doc Ock in?</p>
         <ul>
             <li>
                 <label>
-                    <input type="radio" name="q2" value="A">Spider-Man 2 (2004)
+                    <input type="radio" name="q2" class="correctAns" value="A" onclick="checkAnswer(true, 'msg2')">Spider-Man 2 (2004)
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q2" value="B">Spider-Man 3 (2007)
+                    <input type="radio" name="q2" value="B" onclick="checkAnswer(false, 'msg2')">Spider-Man 3 (2007)
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q2" value="C">The Amazing Spider-Man 2
+                    <input type="radio" name="q2" value="C" onclick="checkAnswer(false, 'msg2')">The Amazing Spider-Man 2
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q2" value="D">Spider-Man: Far From Home
+                    <input type="radio" name="q2" value="D" onclick="checkAnswer(false, 'msg2')">Spider-Man: Far From Home
                 </label>
             </li>
         </ul>
+        <p id="msg2"></p>
 
         <p>3. Which news company does Peter Parker sell his Spider-Man photographs to?</p>
         <ul>
             <li>
                 <label>
-                    <input type="radio" name="q3" value="A">The Daily Planet
+                    <input type="radio" name="q3" value="A" onclick="checkAnswer(false, 'msg3')">The Daily Planet
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q3" value="B">The Daily Bugle
+                    <input type="radio" name="q3" value="B" class="correctAns" onclick="checkAnswer(true, 'msg3')">The Daily Bugle
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q3" value="C">The New York Times
+                    <input type="radio" name="q3" value="C" onclick="checkAnswer(false, 'msg3')">The New York Times
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q3" value="D">Gotham Gazette
+                    <input type="radio" name="q3" value="D" onclick="checkAnswer(false, 'msg3')">Gotham Gazette
                 </label>
             </li>
         </ul>
+        <p id="msg3"></p>
 
         <p>4. Which villain is made entirely of sand and can shape-shift his body?</p>
         <ul>
             <li>
                 <label>
-                    <input type="radio" name="q4" value="A">Clayface
+                    <input type="radio" name="q4" value="A" onclick="checkAnswer(false, 'msg4')">Clayface
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q4" value="B">Dust
+                    <input type="radio" name="q4" value="B" onclick="checkAnswer(false, 'msg4')">Dust
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q4" value="C">Sandman
+                    <input type="radio" name="q4" value="C" class="correctAns" onclick="checkAnswer(true, 'msg4')">Sandman
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q4" value="D">Sandstorm
-                <label>
+                    <input type="radio" name="q4" value="D" onclick="checkAnswer(false, 'msg4')">Sandstorm
+                </label>
             </li>
         </ul>
+        <p id="msg4"></p>
 
         <p>5. What is the name of the superhero team Spider-Man joins in Avengers: Infinity War?</p>
         <ul>
             <li>
                 <label>
-                    <input type="radio" name="q5" value="A">The Justice League
-                <label>
-            </li>
-            <li>
-                <label>
-                    <input type="radio" name="q5" value="B">The Fantastic Four
-                <label>
-            </li>
-            <li>
-                <label>
-                    <input type="radio" name="q5" value="C">The Guardians of the Galaxy
+                    <input type="radio" name="q5" value="A" onclick="checkAnswer(false, 'msg5')">The Justice League
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q5" value="D">The Avengers
+                    <input type="radio" name="q5" value="B" onclick="checkAnswer(false, 'msg5')">The Fantastic Four
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="radio" name="q5" value="C" onclick="checkAnswer(false, 'msg5')">The Guardians of the Galaxy
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="radio" name="q5" value="D" class="correctAns" onclick="checkAnswer(true, 'msg5')">The Avengers
                 </label>
             </li>
         </ul>
+        <p id="msg5"></p>
 
         <p>6. What is the name of Peter Parker's aunt who raises him?</p>
         <ul>
             <li>
                 <label>
-                    <input type="radio" name="q6" value="A">Aunt May
+                    <input type="radio" name="q6" value="A" class="correctAns" onclick="checkAnswer(true, 'msg6')">Aunt May
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q6" value="B">Aunt Mary
+                    <input type="radio" name="q6" value="B" onclick="checkAnswer(false, 'msg6')">Aunt Mary
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q6" value="C">Aunt Sarah
+                    <input type="radio" name="q6" value="C" onclick="checkAnswer(false, 'msg6')">Aunt Sarah
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="radio" name="q6" value="D">Aunt Jane
+                    <input type="radio" name="q6" value="D" onclick="checkAnswer(false, 'msg6')">Aunt Jane
                 </label>
             </li>
         </ul>
-        <button type="submit" id="check_quiz">Show My Score</button>
+        <p id="msg6"></p>
+        <button type="submit" id="check_quiz" onclick="click">Show My Score</button>
         <p id="score"></p>
     </div>
+    <script src="scripts/script.js"></script>
 </body>
 
-</html
+</html>
