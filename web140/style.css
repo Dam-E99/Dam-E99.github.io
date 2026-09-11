@@ -1,0 +1,266 @@
+
+/* ========================================
+   GENERAL STYLES
+   ======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+.navbar {
+    background-color: #222;
+    padding: 15px;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #e8e6f7;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.hero-btn {
+    display: inline-block;
+
+    margin-top: 20px;
+    padding: 12px 24px;
+
+    background-color: #222;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+.hero-btn:hover {
+    background-color: #555;
+}
+
+
+/* ========================================
+   ABOUT SECTION
+   ======================================== */
+
+.about-section {
+    padding: 60px 20px;
+    background-color: white;
+}
+
+.about-container {
+    max-width: 900px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+    border: 4px solid #6b5b95;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+}
+
+
+/* ========================================
+   JAVASCRIPT BUTTON
+   ======================================== */
+
+#welcomeButton {
+    margin-top: 15px;
+    padding: 10px 20px;
+
+    background-color: #222;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#welcomeButton:hover {
+    background-color: #555;
+}
+
+/* ========================================
+   SKILLS SECTION
+   ======================================== */
+
+.skills-section {
+    padding: 60px 20px;
+    background-color: #eef0f6;
+    text-align: center;
+}
+
+.skills-section h2 {
+    color: #2a1f5c;
+    font-size: 2rem;
+}
+
+.skills-container {
+    max-width: 900px;
+    margin: 30px auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skill {
+    background-color: white;
+    width: 250px;
+    padding: 20px;
+
+    border-radius: 10px;
+    border: 2px solid #2a1f5c;
+
+    transition: transform 0.2s;
+}
+
+.skill h3 {
+    color: #2dd4ff;
+    background-color: #2a1f5c;
+    padding: 8px;
+    border-radius: 6px;
+
+    display: block;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+}
+
+
+/* ========================================
+   PROJECTS SECTION
+   ======================================== */
+
+.projects-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2rem;
+}
+
+.assignment-buttons {
+    max-width: 900px;
+    margin: 30px auto;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    gap: 15px;
+}
+
+.assignment-buttons a {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    background-color: #2a1f5c;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 20px;
+
+    transition: transform 0.2s, background-color: 0.2s;
+}
+
+.assignment-buttons a:hover {
+    transform: translateY(-3px);
+    background-color: #2dd4ff;
+    color: #1f1f2e;
+}
+
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 600px) {
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .skill {
+        width: 100%;
+        max-width: 300px;
+    }
+}
