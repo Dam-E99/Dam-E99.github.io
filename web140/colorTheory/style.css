@@ -1,0 +1,627 @@
+/* ========================================
+   COLOR THEORY PROJECT
+======================================== */
+
+
+/* ========================================
+   COLOR VARIABLES
+   Students will replace these colors.
+======================================== */
+
+:root {
+
+    --primary: #2563EB;
+
+    --secondary: #0F766E;
+
+    --accent: #F97316;
+
+    --background: #FFFFFF;
+
+    --surface: #F3F4F6;
+
+    --text: #1F2937;
+
+    --text-on-primary: #FFFFFF;
+
+    --text-on-accent: #FFFFFF;
+
+    --border: #D1D5DB;
+
+}
+
+
+/* ========================================
+   GENERAL STYLES
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background-color: var(--background);
+
+    color: var(--text);
+
+    line-height: 1.6;
+
+}
+
+
+/* ========================================
+   LINKS
+======================================== */
+
+a {
+    color: var(--primary);
+}
+
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.site-header {
+
+    background-color: var(--primary);
+
+    color: var(--text-on-primary);
+
+    padding: 1rem 5%;
+
+}
+
+
+.navbar {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 2rem;
+
+}
+
+
+.logo {
+
+    color: var(--text-on-primary);
+
+    text-decoration: none;
+
+    font-size: 1.4rem;
+
+    font-weight: bold;
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 1.5rem;
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.nav-links a {
+
+    color: var(--text-on-primary);
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+}
+
+
+.nav-links a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+
+    background-color: var(--primary);
+
+    color: var(--text-on-primary);
+
+    padding: 6rem 5%;
+
+}
+
+
+.hero-content {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+
+.eyebrow {
+
+    margin: 0 0 0.5rem;
+
+    font-size: 0.85rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+}
+
+
+.hero .eyebrow {
+
+    color: var(--text-on-primary);
+
+}
+
+
+.hero h1 {
+
+    margin: 0.5rem 0 1rem;
+
+    font-size: clamp(2.2rem, 5vw, 4rem);
+
+    line-height: 1.1;
+
+}
+
+
+.hero-text {
+
+    max-width: 700px;
+
+    margin: 0 auto 2rem;
+
+    font-size: 1.15rem;
+
+}
+
+
+/* ========================================
+   BUTTON
+======================================== */
+
+.button,
+.card-button {
+
+    display: inline-block;
+
+    padding: 0.75rem 1.25rem;
+
+    border-radius: 6px;
+
+    background-color: var(--accent);
+
+    color: var(--text-on-accent);
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+}
+
+
+.button:hover,
+.card-button:hover {
+
+    text-decoration: none;
+
+    opacity: 0.9;
+
+}
+
+
+/* ========================================
+   SECTIONS
+======================================== */
+
+.section {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 4rem 5%;
+
+}
+
+
+.section-heading {
+
+    max-width: 750px;
+
+    margin-bottom: 2rem;
+
+}
+
+
+.section-heading h2 {
+
+    margin-top: 0.25rem;
+
+    color: var(--primary);
+
+    font-size: 2.2rem;
+
+}
+
+
+/* ========================================
+   PALETTE BUTTONS
+======================================== */
+
+.palette-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+    margin-bottom: 2.5rem;
+
+}
+
+
+.palette-buttons button {
+
+    border: none;
+
+    border-radius: 6px;
+
+    padding: 0.75rem 1.25rem;
+
+    background-color: var(--secondary);
+
+    color: var(--text-on-primary);
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+.palette-buttons button:hover {
+
+    opacity: 0.9;
+
+}
+
+
+/* ========================================
+   COLOR SWATCHES
+======================================== */
+
+.swatches {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(160px, 1fr));
+
+    gap: 1rem;
+
+    margin-bottom: 3rem;
+
+}
+
+
+.swatch {
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    padding: 1rem;
+
+}
+
+
+.swatch h3 {
+
+    margin: 0.75rem 0 0.25rem;
+
+    color: var(--text);
+
+}
+
+
+.swatch p {
+
+    margin: 0;
+
+    font-family: monospace;
+
+    color: var(--text);
+
+}
+
+
+.color-box {
+
+    height: 80px;
+
+    border-radius: 6px;
+
+    border: 1px solid var(--border);
+
+}
+
+
+.primary-color {
+    background-color: var(--primary);
+}
+
+
+.secondary-color {
+    background-color: var(--secondary);
+}
+
+
+.accent-color {
+    background-color: var(--accent);
+}
+
+
+.background-color {
+    background-color: var(--background);
+}
+
+
+.text-color {
+    background-color: var(--text);
+}
+
+
+/* ========================================
+   DESIGN CARD
+======================================== */
+
+.design-card {
+
+    background-color: var(--primary);
+
+    color: var(--text-on-primary);
+
+    border-radius: 12px;
+
+    padding: 3rem;
+
+    margin-top: 2rem;
+
+}
+
+
+.design-card .eyebrow {
+
+    color: var(--text-on-primary);
+
+}
+
+
+.design-card h2 {
+
+    margin-top: 0.5rem;
+
+    font-size: 2rem;
+
+}
+
+
+.design-card p {
+
+    max-width: 700px;
+
+}
+
+
+/* ========================================
+   COLOR ANALYSIS
+======================================== */
+
+.analysis-section {
+
+    background-color: var(--surface);
+
+}
+
+
+.analysis-section .section {
+
+    max-width: 1200px;
+
+}
+
+
+.analysis-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1.5rem;
+
+}
+
+
+.analysis-card {
+
+    background-color: var(--background);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    padding: 1.5rem;
+
+}
+
+
+.analysis-card h3 {
+
+    margin-top: 0;
+
+    color: var(--primary);
+
+    font-size: 1.4rem;
+
+}
+
+
+.analysis-card p {
+
+    margin-bottom: 1rem;
+
+}
+
+
+.analysis-card strong {
+
+    color: var(--secondary);
+
+}
+
+
+/* ========================================
+   KEYBOARD FOCUS
+======================================== */
+
+a:focus-visible,
+button:focus-visible {
+
+    outline: 3px solid var(--accent);
+
+    outline-offset: 4px;
+
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.site-footer {
+
+    background-color: var(--text);
+
+    color: var(--background);
+
+    text-align: center;
+
+    padding: 2rem 5%;
+
+}
+
+
+.site-footer p {
+
+    margin: 0.25rem 0;
+
+}
+
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 900px) {
+
+    .analysis-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .navbar {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+
+    .nav-links {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 0.75rem;
+
+    }
+
+
+    .hero {
+
+        padding: 4rem 5%;
+
+    }
+
+
+    .design-card {
+
+        padding: 2rem;
+
+    }
+
+}
