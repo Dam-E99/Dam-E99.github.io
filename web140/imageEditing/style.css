@@ -101,6 +101,7 @@ p {
 
 .nav-links i {
     margin-right: 0.3rem;
+    color: #d9a441;
 }
 
 
@@ -124,7 +125,7 @@ p {
 }
 
 .eyebrow {
-    color: #8a4fff;
+    color: #6b4f3a;
     font-size: 0.85rem;
     font-weight: bold;
     letter-spacing: 0.08rem;
@@ -222,6 +223,7 @@ p {
 
 .image-project h3 i {
     margin-right: 0.5rem;
+    color: #6b4f3a;
 }
 
 .image-comparison {
@@ -282,13 +284,23 @@ p {
 
 .feature-icon {
     font-size: 2.5rem;
-    color: #8a4fff;
+    color: #6b4f3a;
 
     margin-bottom: 1rem;
     padding: 1rem;
 
-    border: 2px solid #8a4fff;
+    background-color: #f4e7d3;
+
+    border: 2px solid #6b4f3a;
     border-radius: 50%;
+
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+    background-color: #6b4f3a;
+    color: white;
 }
 
 
@@ -323,8 +335,8 @@ p {
 }
 
 .contact-links a:hover {
-    border-bottom-color: #8a4fff;
-    color: #8a4fff;
+    border-bottom-color: #6b4f3a;
+    color: #6b4f3a;
 }
 
 .contact-links i {
